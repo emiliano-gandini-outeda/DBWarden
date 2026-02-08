@@ -1,6 +1,6 @@
 # DBWarden
 
-**DBWarden** is a professional database migration system for Python/SQLAlchemy projects.
+**DBWarden** is a database migration system for Python/SQLAlchemy projects.
 
 ## Installation
 
