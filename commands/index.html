@@ -938,6 +938,84 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#migration-headers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migration Headers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Migration Headers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seed-migrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seed Migrations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#new-command-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        New Command Options
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="New Command Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#baseline-migrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Baseline Migrations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backup-before-migration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backup Before Migration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#command-execution-flow" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1828,6 +1906,84 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#migration-headers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migration Headers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Migration Headers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seed-migrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seed Migrations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#new-command-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        New Command Options
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="New Command Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#baseline-migrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Baseline Migrations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backup-before-migration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backup Before Migration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#command-execution-flow" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2144,6 +2300,52 @@ dbwarden<span class="w"> </span>check-db<span class="w"> </span>--out<span class
 <p>Migrations that only run when their checksum changes:
 - <code>ROC__update_config.sql</code>
 - <code>ROC__add_triggers.sql</code></p>
+<hr />
+<h2 id="migration-headers">Migration Headers<a class="headerlink" href="#migration-headers" title="Permanent link">&para;</a></h2>
+<h3 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h3>
+<p>Specify dependencies on other migrations:</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">-- depends_on: [&quot;0001&quot;, &quot;0002&quot;]</span>
+
+<span class="c1">-- upgrade</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">posts</span><span class="w"> </span><span class="p">(...);</span>
+
+<span class="c1">-- rollback</span>
+
+<span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">posts</span><span class="p">;</span>
+</code></pre></div>
+
+<h3 id="seed-migrations">Seed Migrations<a class="headerlink" href="#seed-migrations" title="Permanent link">&para;</a></h3>
+<p>Mark migrations as seed data:</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">-- seed</span>
+
+<span class="c1">-- upgrade</span>
+
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">service_types</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">kind</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span>
+<span class="p">(</span><span class="s1">&#39;Web Service&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;api&#39;</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;Database&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;db&#39;</span><span class="p">);</span>
+
+<span class="c1">-- rollback</span>
+
+<span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">service_types</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;Web Service&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Database&#39;</span><span class="p">);</span>
+</code></pre></div>
+
+<hr />
+<h2 id="new-command-options">New Command Options<a class="headerlink" href="#new-command-options" title="Permanent link">&para;</a></h2>
+<h3 id="baseline-migrations">Baseline Migrations<a class="headerlink" href="#baseline-migrations" title="Permanent link">&para;</a></h3>
+<p>Mark existing database as migrated without executing SQL:</p>
+<div class="codehilite"><pre><span></span><code>dbwarden<span class="w"> </span>migrate<span class="w"> </span>--baseline<span class="w"> </span>--to-version<span class="w"> </span><span class="m">0001</span>
+</code></pre></div>
+
+<p>Use when:
+- Starting with an existing database
+- Integrating DBWarden into an existing project</p>
+<h3 id="backup-before-migration">Backup Before Migration<a class="headerlink" href="#backup-before-migration" title="Permanent link">&para;</a></h3>
+<p>Create automatic backups:</p>
+<div class="codehilite"><pre><span></span><code>dbwarden<span class="w"> </span>migrate<span class="w"> </span>--with-backup
+dbwarden<span class="w"> </span>migrate<span class="w"> </span>--with-backup<span class="w"> </span>--backup-dir<span class="w"> </span>/path/to/backups
+</code></pre></div>
+
 <hr />
 <h2 id="command-execution-flow">Command Execution Flow<a class="headerlink" href="#command-execution-flow" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><code>┌─────────────────────────────────────────────────┐

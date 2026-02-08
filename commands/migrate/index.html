@@ -829,10 +829,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#apply-with-verbose-output" class="md-nav__link">
+  <a href="#apply-with-verbose-output-colored-sql" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Apply with Verbose Output
+        Apply with Verbose Output (Colored SQL)
       
     </span>
   </a>
@@ -855,6 +855,39 @@
     <span class="md-ellipsis">
       
         Migrate to Specific Version
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#baseline-existing-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Baseline Existing Database
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-backup-before-migrating" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create Backup Before Migrating
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backup-to-specific-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backup to Specific Directory
       
     </span>
   </a>
@@ -1674,10 +1707,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#apply-with-verbose-output" class="md-nav__link">
+  <a href="#apply-with-verbose-output-colored-sql" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Apply with Verbose Output
+        Apply with Verbose Output (Colored SQL)
       
     </span>
   </a>
@@ -1700,6 +1733,39 @@
     <span class="md-ellipsis">
       
         Migrate to Specific Version
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#baseline-existing-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Baseline Existing Database
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-backup-before-migrating" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create Backup Before Migrating
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backup-to-specific-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backup to Specific Directory
       
     </span>
   </a>
@@ -2056,25 +2122,39 @@
 <tr>
 <td><code>-v</code></td>
 <td><code>--verbose</code></td>
-<td>Enable verbose logging</td>
+<td>Enable verbose logging with SQL highlighting</td>
+</tr>
+<tr>
+<td></td>
+<td><code>--baseline</code></td>
+<td>Mark migrations as applied without executing</td>
+</tr>
+<tr>
+<td><code>-b</code></td>
+<td><code>--with-backup</code></td>
+<td>Create a backup before migrating</td>
+</tr>
+<tr>
+<td></td>
+<td><code>--backup-dir DIRECTORY</code></td>
+<td>Directory for backup files</td>
 </tr>
 </tbody>
 </table>
-<p><strong>None of these options are required. All are optional.</strong></p>
+<p><strong>All options are optional.</strong></p>
 <h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
 <h3 id="apply-all-pending-migrations">Apply All Pending Migrations<a class="headerlink" href="#apply-all-pending-migrations" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><code>dbwarden<span class="w"> </span>migrate
 </code></pre></div>
 
-<h3 id="apply-with-verbose-output">Apply with Verbose Output<a class="headerlink" href="#apply-with-verbose-output" title="Permanent link">&para;</a></h3>
+<h3 id="apply-with-verbose-output-colored-sql">Apply with Verbose Output (Colored SQL)<a class="headerlink" href="#apply-with-verbose-output-colored-sql" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><code>dbwarden<span class="w"> </span>migrate<span class="w"> </span>--verbose
 <span class="c1"># or</span>
 dbwarden<span class="w"> </span>migrate<span class="w"> </span>-v
 </code></pre></div>
 
 <h3 id="apply-specific-number-of-migrations">Apply Specific Number of Migrations<a class="headerlink" href="#apply-specific-number-of-migrations" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Apply next 2 migrations</span>
-dbwarden<span class="w"> </span>migrate<span class="w"> </span>--count<span class="w"> </span><span class="m">2</span>
+<div class="codehilite"><pre><span></span><code>dbwarden<span class="w"> </span>migrate<span class="w"> </span>--count<span class="w"> </span><span class="m">2</span>
 <span class="c1"># or</span>
 dbwarden<span class="w"> </span>migrate<span class="w"> </span>-c<span class="w"> </span><span class="m">2</span>
 </code></pre></div>
@@ -2085,8 +2165,26 @@ dbwarden<span class="w"> </span>migrate<span class="w"> </span>-c<span class="w"
 dbwarden<span class="w"> </span>migrate<span class="w"> </span>-t<span class="w"> </span><span class="m">0003</span>
 </code></pre></div>
 
+<h3 id="baseline-existing-database">Baseline Existing Database<a class="headerlink" href="#baseline-existing-database" title="Permanent link">&para;</a></h3>
+<p>Mark existing database as migrated without executing SQL:</p>
+<div class="codehilite"><pre><span></span><code>dbwarden<span class="w"> </span>migrate<span class="w"> </span>--baseline<span class="w"> </span>--to-version<span class="w"> </span><span class="m">0001</span>
+</code></pre></div>
+
+<p>This is useful when:
+- Starting with an existing database that wasn't tracked by DBWarden
+- Integrating DBWarden into an existing project</p>
+<h3 id="create-backup-before-migrating">Create Backup Before Migrating<a class="headerlink" href="#create-backup-before-migrating" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code>dbwarden<span class="w"> </span>migrate<span class="w"> </span>--with-backup
+<span class="c1"># or</span>
+dbwarden<span class="w"> </span>migrate<span class="w"> </span>-b
+</code></pre></div>
+
+<h3 id="backup-to-specific-directory">Backup to Specific Directory<a class="headerlink" href="#backup-to-specific-directory" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code>dbwarden<span class="w"> </span>migrate<span class="w"> </span>--with-backup<span class="w"> </span>--backup-dir<span class="w"> </span>/path/to/backups
+</code></pre></div>
+
 <h3 id="combined-options">Combined Options<a class="headerlink" href="#combined-options" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code>dbwarden<span class="w"> </span>migrate<span class="w"> </span>-c<span class="w"> </span><span class="m">1</span><span class="w"> </span>-t<span class="w"> </span><span class="m">0002</span><span class="w"> </span>-v
+<div class="codehilite"><pre><span></span><code>dbwarden<span class="w"> </span>migrate<span class="w"> </span>-c<span class="w"> </span><span class="m">1</span><span class="w"> </span>-t<span class="w"> </span><span class="m">0002</span><span class="w"> </span>-v<span class="w"> </span>-b<span class="w"> </span>--backup-dir<span class="w"> </span>./backups
 </code></pre></div>
 
 <h2 id="how-it-works">How It Works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h2>

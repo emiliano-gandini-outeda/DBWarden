@@ -1545,10 +1545,115 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#-version-v" class="md-nav__link">
+  <a href="#-version" class="md-nav__link">
     <span class="md-ellipsis">
       
-        --version, -v
+        --version
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-baseline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --baseline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-b-with-backup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -b, --with-backup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-backup-dir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --backup-dir
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#new-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        New Features
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="New Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#colored-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Colored Output
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migration-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migration Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seed-data-migrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seed Data Migrations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#baseline-migrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Baseline Migrations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backup-before-migration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backup Before Migration
       
     </span>
   </a>
@@ -2067,10 +2172,115 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#-version-v" class="md-nav__link">
+  <a href="#-version" class="md-nav__link">
     <span class="md-ellipsis">
       
-        --version, -v
+        --version
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-baseline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --baseline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-b-with-backup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -b, --with-backup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-backup-dir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        --backup-dir
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#new-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        New Features
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="New Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#colored-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Colored Output
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migration-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migration Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seed-data-migrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seed Data Migrations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#baseline-migrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Baseline Migrations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backup-before-migration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backup Before Migration
       
     </span>
   </a>
@@ -2507,7 +2717,7 @@ dbwarden<span class="w"> </span>diff<span class="w"> </span>migrations<span clas
 <hr />
 <h2 id="flag-reference">Flag Reference<a class="headerlink" href="#flag-reference" title="Permanent link">&para;</a></h2>
 <h3 id="-v-verbose"><code>-v, --verbose</code><a class="headerlink" href="#-v-verbose" title="Permanent link">&para;</a></h3>
-<p>Enable verbose logging. Available on:
+<p>Enable verbose logging with SQL syntax highlighting. Available on:
 - <code>make-migrations</code>
 - <code>migrate</code>
 - <code>rollback</code>
@@ -2524,9 +2734,76 @@ dbwarden<span class="w"> </span>diff<span class="w"> </span>migrations<span clas
 <h3 id="-o-out"><code>-o, --out</code><a class="headerlink" href="#-o-out" title="Permanent link">&para;</a></h3>
 <p>Output format selection. Available on:
 - <code>check-db</code></p>
-<h3 id="-version-v"><code>--version, -v</code><a class="headerlink" href="#-version-v" title="Permanent link">&para;</a></h3>
+<h3 id="-version"><code>--version</code><a class="headerlink" href="#-version" title="Permanent link">&para;</a></h3>
 <p>Set migration version number. Available on:
 - <code>new</code></p>
+<h3 id="-baseline"><code>--baseline</code><a class="headerlink" href="#-baseline" title="Permanent link">&para;</a></h3>
+<p>Mark migrations as applied without executing them. Available on:
+- <code>migrate</code></p>
+<h3 id="-b-with-backup"><code>-b, --with-backup</code><a class="headerlink" href="#-b-with-backup" title="Permanent link">&para;</a></h3>
+<p>Create a backup before running migrations. Available on:
+- <code>migrate</code></p>
+<h3 id="-backup-dir"><code>--backup-dir</code><a class="headerlink" href="#-backup-dir" title="Permanent link">&para;</a></h3>
+<p>Specify backup directory for <code>--with-backup</code>. Available on:
+- <code>migrate</code></p>
+<hr />
+<h2 id="new-features">New Features<a class="headerlink" href="#new-features" title="Permanent link">&para;</a></h2>
+<h3 id="colored-output">Colored Output<a class="headerlink" href="#colored-output" title="Permanent link">&para;</a></h3>
+<p>DBWarden now displays colored output for better readability:</p>
+<ul>
+<li><code>[PENDING]</code> - Yellow status for pending migrations</li>
+<li><code>[APPLIED]</code> - Green status for successfully applied migrations</li>
+<li><code>[ROLLED_BACK]</code> - Red status for rolled back migrations</li>
+<li>SQL keywords are highlighted in magenta</li>
+<li>SQL strings are highlighted in green</li>
+<li>SQL comments are highlighted in cyan</li>
+</ul>
+<h3 id="migration-dependencies">Migration Dependencies<a class="headerlink" href="#migration-dependencies" title="Permanent link">&para;</a></h3>
+<p>Specify dependencies between migrations using the header:</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">-- depends_on: [&quot;0001&quot;, &quot;0002&quot;]</span>
+
+<span class="c1">-- upgrade</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">posts</span><span class="w"> </span><span class="p">(...);</span>
+
+<span class="c1">-- rollback</span>
+
+<span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">posts</span><span class="p">;</span>
+</code></pre></div>
+
+<p>DBWarden will resolve dependencies and execute migrations in the correct order.</p>
+<h3 id="seed-data-migrations">Seed Data Migrations<a class="headerlink" href="#seed-data-migrations" title="Permanent link">&para;</a></h3>
+<p>Mark migrations as seed data using the <code>-- seed</code> marker:</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">-- seed</span>
+
+<span class="c1">-- upgrade</span>
+
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">service_types</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">kind</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span>
+<span class="p">(</span><span class="s1">&#39;Web Service&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;api&#39;</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;Database&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;db&#39;</span><span class="p">);</span>
+
+<span class="c1">-- rollback</span>
+
+<span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">service_types</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;Web Service&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Database&#39;</span><span class="p">);</span>
+</code></pre></div>
+
+<p>Seed migrations run after all versioned migrations.</p>
+<h3 id="baseline-migrations">Baseline Migrations<a class="headerlink" href="#baseline-migrations" title="Permanent link">&para;</a></h3>
+<p>Mark an existing database as already migrated without executing SQL:</p>
+<div class="codehilite"><pre><span></span><code>dbwarden<span class="w"> </span>migrate<span class="w"> </span>--baseline<span class="w"> </span>--to-version<span class="w"> </span><span class="m">0001</span>
+</code></pre></div>
+
+<p>This is useful when:
+- Starting with an existing database
+- Integrating DBWarden into an existing project
+- Recovering from migration tracking issues</p>
+<h3 id="backup-before-migration">Backup Before Migration<a class="headerlink" href="#backup-before-migration" title="Permanent link">&para;</a></h3>
+<p>Automatically create a backup before running migrations:</p>
+<div class="codehilite"><pre><span></span><code>dbwarden<span class="w"> </span>migrate<span class="w"> </span>--with-backup
+dbwarden<span class="w"> </span>migrate<span class="w"> </span>--with-backup<span class="w"> </span>--backup-dir<span class="w"> </span>/path/to/backups
+</code></pre></div>
+
+<p>Backups are stored in the <code>backups/</code> directory by default.</p>
 <hr />
 <h2 id="exit-codes">Exit Codes<a class="headerlink" href="#exit-codes" title="Permanent link">&para;</a></h2>
 <table>

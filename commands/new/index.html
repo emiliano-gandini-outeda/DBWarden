@@ -839,6 +839,45 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#migration-headers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migration Headers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Migration Headers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seed-migrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seed Migrations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#when-to-use-manual-migrations" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1628,6 +1667,45 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#migration-headers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migration Headers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Migration Headers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seed-migrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seed Migrations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#when-to-use-manual-migrations" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1919,6 +1997,45 @@
 <span class="c1">-- add index to users email</span>
 </code></pre></div>
 
+<h2 id="migration-headers">Migration Headers<a class="headerlink" href="#migration-headers" title="Permanent link">&para;</a></h2>
+<h3 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h3>
+<p>Specify dependencies on other migrations:</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">-- depends_on: [&quot;0001&quot;, &quot;0002&quot;]</span>
+
+<span class="c1">-- upgrade</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">posts</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="n">user_id</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">users</span><span class="p">(</span><span class="n">id</span><span class="p">),</span>
+<span class="w">    </span><span class="n">title</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span>
+<span class="p">);</span>
+
+<span class="c1">-- rollback</span>
+
+<span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">posts</span><span class="p">;</span>
+</code></pre></div>
+
+<p>DBWarden will execute migrations in dependency order.</p>
+<h3 id="seed-migrations">Seed Migrations<a class="headerlink" href="#seed-migrations" title="Permanent link">&para;</a></h3>
+<p>Mark migrations as seed data (runs after all versioned migrations):</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">-- seed</span>
+
+<span class="c1">-- upgrade</span>
+
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">service_types</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">kind</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span>
+<span class="p">(</span><span class="s1">&#39;Web Service&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;api&#39;</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;Database&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;db&#39;</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;Cache&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;cache&#39;</span><span class="p">);</span>
+
+<span class="c1">-- rollback</span>
+
+<span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">service_types</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;Web Service&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Database&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Cache&#39;</span><span class="p">);</span>
+</code></pre></div>
+
+<p>Seed migrations are useful for:
+- Reference data
+- Lookup tables
+- Configuration data</p>
 <h2 id="when-to-use-manual-migrations">When to Use Manual Migrations<a class="headerlink" href="#when-to-use-manual-migrations" title="Permanent link">&para;</a></h2>
 <p>Use <code>new</code> instead of <code>make-migrations</code> when you need to:</p>
 <ul>
