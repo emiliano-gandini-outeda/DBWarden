@@ -1,0 +1,50 @@
+site_name: DBWarden Documentation
+site_description: Professional database migration system for Python/SQLAlchemy projects
+site_author: DBWarden
+repo_url: https://github.com/yourusername/dbwarden
+edit_uri: edit/main/docs
+
+nav:
+  - Home: index.md
+  - Installation: installation.md
+  - Configuration: configuration.md
+  - Quick Start: quickstart.md
+  - Commands:
+      - Commands Overview: commands.md
+      - init: commands/init.md
+      - make-migrations: commands/make-migrations.md
+      - new: commands/new.md
+      - migrate: commands/migrate.md
+      - rollback: commands/rollback.md
+      - history: commands/history.md
+      - status: commands/status.md
+      - check-db: commands/check-db.md
+      - diff: commands/diff.md
+      - squash: commands/squash.md
+      - lock/unlock: commands/lock.md
+      - env: commands/env.md
+      - mode: commands/mode.md
+      - version: commands/version.md
+  - Migration Files: migration-files.md
+  - SQLAlchemy Models: models.md
+  - Supported Databases: databases.md
+  - Advanced Features: advanced.md
+  - CLI Reference: cli-reference.md
+
+theme:
+  name: material
+  palette:
+    primary: indigo
+    accent: blue
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - search.suggest
+    - search.highlight
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - tables
+  - toc:
+      permalink: true
