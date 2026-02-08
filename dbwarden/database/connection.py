@@ -24,7 +24,7 @@ def is_async_enabled() -> bool:
     Returns:
         bool: True if async mode is enabled.
     """
-    async_env = os.getenv("STRATA_ASYNC", "").lower()
+    async_env = os.getenv("DBWARDEN_ASYNC", "").lower()
     if async_env in ("true", "1", "yes"):
         return True
     if async_env in ("false", "0", "no"):
@@ -93,7 +93,7 @@ async def get_async_db_connection() -> AsyncGenerator[AsyncConnection, None]:
     if not is_async_enabled():
         raise RuntimeError(
             "ASYNC=false but using async connection. "
-            "Set STRATA_ASYNC=true to use async mode."
+            "Set DBWARDEN_ASYNC=true to use async mode."
         )
 
     logger = get_logger()

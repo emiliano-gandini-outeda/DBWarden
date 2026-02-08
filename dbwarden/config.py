@@ -17,9 +17,9 @@ def _reload_dotenv() -> None:
 
 
 @dataclass
-class StrataConfig:
+class DbwardenConfig:
     """
-    Configuration settings for Strata migrations.
+    Configuration settings for DBWarden migrations.
 
     Attributes:
         sqlalchemy_url (str): The SQLAlchemy database connection URL.
@@ -66,7 +66,7 @@ def get_env_path() -> Path:
 
     raise EnvFileNotFoundError(
         f".env file not found. Please create a .env file in {Path.cwd()} or a parent directory. "
-        f"Required variables: STRATA_SQLALCHEMY_URL"
+        f"Required variables: DBWARDEN_SQLALCHEMY_URL"
     )
 
 
@@ -80,36 +80,36 @@ def validate_env_file() -> None:
     get_env_path()
 
 
-def get_config() -> StrataConfig:
+def get_config() -> DbwardenConfig:
     """
     Load configuration from .env file.
 
     Returns:
-        StrataConfig: Configuration dataclass with all required values.
+        DbwardenConfig: Configuration dataclass with all required values.
 
     Raises:
         ConfigurationError: If required configuration is missing.
     """
     _reload_dotenv()
 
-    sqlalchemy_url = os.getenv("STRATA_SQLALCHEMY_URL")
+    sqlalchemy_url = os.getenv("DBWARDEN_SQLALCHEMY_URL")
     if not sqlalchemy_url:
         raise ConfigurationError(
-            "STRATA_SQLALCHEMY_URL is required in .env file. "
-            'Example: STRATA_SQLALCHEMY_URL="postgresql://user:password@localhost:5432/mydb"'
+            "DBWARDEN_SQLALCHEMY_URL is required in .env file. "
+            'Example: DBWARDEN_SQLALCHEMY_URL="postgresql://user:password@localhost:5432/mydb"'
         )
 
-    async_mode_str = os.getenv("STRATA_ASYNC", "").lower()
+    async_mode_str = os.getenv("DBWARDEN_ASYNC", "").lower()
     async_mode = async_mode_str in ("true", "1", "yes")
 
-    model_paths_str = os.getenv("STRATA_MODEL_PATHS", "")
+    model_paths_str = os.getenv("DBWARDEN_MODEL_PATHS", "")
     model_paths = None
     if model_paths_str:
         model_paths = [p.strip() for p in model_paths_str.split(",") if p.strip()]
 
-    postgres_schema = os.getenv("STRATA_POSTGRES_SCHEMA", None)
+    postgres_schema = os.getenv("DBWARDEN_POSTGRES_SCHEMA", None)
 
-    return StrataConfig(
+    return DbwardenConfig(
         sqlalchemy_url=sqlalchemy_url,
         async_mode=async_mode,
         model_paths=model_paths,
@@ -125,9 +125,11 @@ def get_non_secret_env_vars() -> dict[str, str]:
         dict: Non-sensitive environment variables.
     """
     public_vars = {
-        "STRATA_SQLALCHEMY_URL": "***" if os.getenv("STRATA_SQLALCHEMY_URL") else None,
-        "STRATA_ASYNC": os.getenv("STRATA_ASYNC", "false"),
-        "STRATA_MODEL_PATHS": os.getenv("STRATA_MODEL_PATHS", ""),
-        "STRATA_POSTGRES_SCHEMA": os.getenv("STRATA_POSTGRES_SCHEMA", ""),
+        "DBWARDEN_SQLALCHEMY_URL": "***"
+        if os.getenv("DBWARDEN_SQLALCHEMY_URL")
+        else None,
+        "DBWARDEN_ASYNC": os.getenv("DBWARDEN_ASYNC", "false"),
+        "DBWARDEN_MODEL_PATHS": os.getenv("DBWARDEN_MODEL_PATHS", ""),
+        "DBWARDEN_POSTGRES_SCHEMA": os.getenv("DBWARDEN_POSTGRES_SCHEMA", ""),
     }
     return {k: v for k, v in public_vars.items() if v}

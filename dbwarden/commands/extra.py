@@ -20,7 +20,7 @@ def diff_cmd(diff_type: str = "all", verbose: bool = False) -> None:
     print("Diff functionality - compares database schema with models/migrations")
     print("\nThis feature requires:")
     print("  1. SQLAlchemy model definitions")
-    print("  2. STRATA_MODEL_PATHS in .env")
+    print("  2. DBWARDEN_MODEL_PATHS in .env")
     print("\nFor now, use 'dbwarden check-db' to inspect the current database schema.")
 
 

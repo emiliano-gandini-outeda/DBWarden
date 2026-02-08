@@ -22,19 +22,14 @@ def env_cmd() -> None:
 
     print("DBWarden Environment Configuration:")
     print("=" * 50)
-    print(f"SQLAlchemy URL: {env_vars.get('STRATA_SQLALCHEMY_URL', '***')}")
-    print(f"Async Mode: {env_vars.get('STRATA_ASYNC', 'false')}")
-    print(f"Model Paths: {env_vars.get('STRATA_MODEL_PATHS', '(not set)')}")
-    print(f"PostgreSQL Schema: {env_vars.get('STRATA_POSTGRES_SCHEMA', '(not set)')}")
+    print(f"DBWARDEN_SQLALCHEMY_URL: {env_vars.get('DBWARDEN_SQLALCHEMY_URL', '***')}")
+    print(f"DBWARDEN_ASYNC: {env_vars.get('DBWARDEN_ASYNC', 'false')}")
+    print(f"DBWARDEN_MODEL_PATHS: {env_vars.get('DBWARDEN_MODEL_PATHS', '(not set)')}")
+    print(
+        f"DBWARDEN_POSTGRES_SCHEMA: {env_vars.get('DBWARDEN_POSTGRES_SCHEMA', '(not set)')}"
+    )
 
 
 def version_cmd() -> None:
-    """Display DBWarden version and compatibility information."""
-    print(f"DBWarden Version: {DBWARDEN_VERSION}")
-    print(f"Python Version: {__import__('sys').version}")
-    print("\nSupported Databases:")
-    print("  - PostgreSQL (sync + async)")
-    print("  - SQLite (sync + async)")
-    print("  - MySQL (sync)")
-    print("  - Snowflake (sync)")
-    print("  - Databricks (sync)")
+    """Display DBWarden version."""
+    print(DBWARDEN_VERSION)

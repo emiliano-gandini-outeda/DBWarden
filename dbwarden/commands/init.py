@@ -19,5 +19,5 @@ def init_cmd() -> None:
     )
     print(f"DBWarden migrations directory created: {migrations_dir.absolute()}")
     print("\nNext steps:")
-    print("  1. Create a .env file with STRATA_SQLALCHEMY_URL")
+    print("  1. Create a .env file with DBWARDEN_SQLALCHEMY_URL")
     print("  2. Run 'dbwarden make-migrations' to generate migrations from your models")

@@ -8,15 +8,19 @@ def get_description_from_filename(filename: str) -> str:
     Extract description from migration filename.
 
     Args:
-        filename: Migration filename (e.g., "V1__create_users_table.sql")
+        filename: Migration filename (e.g., "0001_create_users_table.sql")
 
     Returns:
         str: Description extracted from filename.
     """
-    parts = filename.split("__")
-    if len(parts) >= 2:
-        return parts[1].replace(".sql", "").replace("_", " ").strip()
-    return filename.replace(".sql", "").replace("_", " ").strip()
+    name = filename.replace(".sql", "")
+    if "__" in name:
+        parts = name.split("__", 1)
+        return parts[1].replace("_", " ").strip()
+    elif name[0:4].isdigit() and "_" in name:
+        parts = name.split("_", 1)
+        return parts[1].replace("_", " ").strip()
+    return name.replace("_", " ").strip()
 
 
 def parse_upgrade_statements(file_path: str) -> list[str]:

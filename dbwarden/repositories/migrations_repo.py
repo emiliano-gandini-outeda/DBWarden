@@ -124,7 +124,7 @@ def get_latest_versions(
         with get_db_connection() as connection:
             result = connection.execute(
                 text(
-                    f"SELECT version FROM strata_migrations WHERE version IS NOT NULL ORDER BY applied_at DESC LIMIT :limit"
+                    f"SELECT version FROM dbwarden_migrations WHERE version IS NOT NULL ORDER BY applied_at DESC LIMIT :limit"
                 ),
                 parameters={"limit": limit},
             )
@@ -133,7 +133,7 @@ def get_latest_versions(
         with get_db_connection() as connection:
             result = connection.execute(
                 text(
-                    "SELECT version FROM strata_migrations WHERE version > :starting_version AND version IS NOT NULL ORDER BY applied_at ASC"
+                    "SELECT version FROM dbwarden_migrations WHERE version > :starting_version AND version IS NOT NULL ORDER BY applied_at ASC"
                 ),
                 parameters={"starting_version": starting_version},
             )

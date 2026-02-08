@@ -23,7 +23,7 @@ class QueryMethod(Enum):
 
 SQL_QUERIES = {
     QueryMethod.CREATE_MIGRATIONS_TABLE: """
-        CREATE TABLE IF NOT EXISTS strata_migrations (
+        CREATE TABLE IF NOT EXISTS dbwarden_migrations (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             version VARCHAR(255) UNIQUE,
             description VARCHAR(500),
@@ -34,47 +34,47 @@ SQL_QUERIES = {
         )
     """,
     QueryMethod.CREATE_LOCK_TABLE: """
-        CREATE TABLE IF NOT EXISTS strata_lock (
+        CREATE TABLE IF NOT EXISTS dbwarden_lock (
             id INTEGER PRIMARY KEY CHECK (id = 1),
             locked BOOLEAN DEFAULT FALSE,
             acquired_at TIMESTAMP
         )
     """,
     QueryMethod.INSERT_VERSION: """
-        INSERT INTO strata_migrations (version, description, filename, migration_type, checksum)
+        INSERT INTO dbwarden_migrations (version, description, filename, migration_type, checksum)
         VALUES (:version, :description, :filename, :migration_type, :checksum)
     """,
     QueryMethod.DELETE_VERSION: """
-        DELETE FROM strata_migrations WHERE version = :version
+        DELETE FROM dbwarden_migrations WHERE version = :version
     """,
     QueryMethod.GET_ALL_MIGRATIONS: """
-        SELECT * FROM strata_migrations ORDER BY applied_at ASC
+        SELECT * FROM dbwarden_migrations ORDER BY applied_at ASC
     """,
     QueryMethod.GET_LATEST_VERSION: """
-        SELECT * FROM strata_migrations
+        SELECT * FROM dbwarden_migrations
         WHERE version IS NOT NULL
         ORDER BY applied_at DESC
         LIMIT 1
     """,
     QueryMethod.GET_MIGRATED_VERSIONS: """
-        SELECT version FROM strata_migrations WHERE version IS NOT NULL ORDER BY applied_at ASC
+        SELECT version FROM dbwarden_migrations WHERE version IS NOT NULL ORDER BY applied_at ASC
     """,
     QueryMethod.CHECK_IF_MIGRATIONS_TABLE_EXISTS: """
-        SELECT name FROM sqlite_master WHERE type='table' AND name='strata_migrations'
+        SELECT name FROM sqlite_master WHERE type='table' AND name='dbwarden_migrations'
     """,
     QueryMethod.CHECK_IF_VERSION_EXISTS: """
-        SELECT COUNT(*) FROM strata_migrations WHERE version = :version
+        SELECT COUNT(*) FROM dbwarden_migrations WHERE version = :version
     """,
     QueryMethod.ACQUIRE_LOCK: """
-        INSERT OR REPLACE INTO strata_lock (id, locked, acquired_at)
+        INSERT OR REPLACE INTO dbwarden_lock (id, locked, acquired_at)
         VALUES (1, TRUE, CURRENT_TIMESTAMP)
     """,
     QueryMethod.RELEASE_LOCK: """
-        INSERT OR REPLACE INTO strata_lock (id, locked, acquired_at)
+        INSERT OR REPLACE INTO dbwarden_lock (id, locked, acquired_at)
         VALUES (1, FALSE, NULL)
     """,
     QueryMethod.CHECK_LOCK: """
-        SELECT locked FROM strata_lock WHERE id = 1
+        SELECT locked FROM dbwarden_lock WHERE id = 1
     """,
     QueryMethod.GET_TABLE_NAMES: """
         SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%' ORDER BY name

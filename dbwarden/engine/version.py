@@ -28,6 +28,9 @@ def get_migrations_directory() -> str:
     return str(migrations_dir)
 
 
+MIGRATION_PATTERN = re.compile(r"^(\d{4})_(.+)\.sql$")
+
+
 def get_migration_filepaths_by_version(
     directory: str,
     version_to_start_from: Optional[str] = None,
@@ -45,13 +48,12 @@ def get_migration_filepaths_by_version(
         dict[str, str]: Mapping of version to file path.
     """
     migrations: dict[str, str] = {}
-    pattern = re.compile(r"^V([0-9._]+)__.*\.sql$")
 
     if not os.path.exists(directory):
         return {}
 
     for filename in sorted(os.listdir(directory)):
-        match = pattern.match(filename)
+        match = MIGRATION_PATTERN.match(filename)
         if match:
             version = match.group(1)
             filepath = os.path.join(directory, filename)
@@ -73,6 +75,33 @@ def get_migration_filepaths_by_version(
             migrations = {k: v for k, v in list(migrations.items())[: end_idx + 1]}
 
     return migrations
+
+
+def get_next_migration_number(directory: str) -> str:
+    """
+    Get the next migration number for a new migration.
+
+    Args:
+        directory: Path to migrations directory.
+
+    Returns:
+        str: Next migration number as 4-digit string.
+    """
+    existing_migrations = get_migration_filepaths_by_version(directory)
+    if not existing_migrations:
+        return "0001"
+
+    existing_numbers = []
+    for version in existing_migrations.keys():
+        if version.isdigit():
+            existing_numbers.append(int(version))
+
+    if existing_numbers:
+        next_num = max(existing_numbers) + 1
+    else:
+        next_num = 1
+
+    return f"{next_num:04d}"
 
 
 def parse_version_string(version: str) -> tuple[int, ...]:

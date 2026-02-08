@@ -11,7 +11,7 @@ from dbwarden.engine.model_discovery import (
     generate_create_table_sql,
     generate_drop_table_sql,
 )
-from dbwarden.engine.version import get_migrations_directory
+from dbwarden.engine.version import get_migrations_directory, get_next_migration_number
 from dbwarden.logging import get_logger
 from dbwarden.repositories import get_migrated_versions
 
@@ -45,10 +45,10 @@ def make_migrations_cmd(
         model_paths = auto_discover_model_paths()
 
     if not model_paths:
-        logger.warning("No model paths found. Please set STRATA_MODEL_PATHS in .env")
+        logger.warning("No model paths found. Please set DBWARDEN_MODEL_PATHS in .env")
         print("No SQLAlchemy models found. Please:")
         print("  1. Create models/ directory with your SQLAlchemy models")
-        print("  2. Or set STRATA_MODEL_PATHS in .env")
+        print("  2. Or set DBWARDEN_MODEL_PATHS in .env")
         return
 
     logger.info(f"Discovering models in: {model_paths}")
@@ -61,14 +61,13 @@ def make_migrations_cmd(
 
     logger.info(f"Found {len(tables)} tables in models")
 
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    version = description or timestamp
+    migrations_dir = get_migrations_directory()
+    next_number = get_next_migration_number(migrations_dir)
     safe_desc = re.sub(r"[^a-zA-Z0-9]", "_", description or "auto_generated").lower()
-    filename = f"V{version}__{safe_desc}.sql"
+    filename = f"{next_number}_{safe_desc}.sql"
 
     upgrade_sql, rollback_sql = generate_migration_sql(tables)
 
-    migrations_dir = get_migrations_directory()
     filepath = os.path.join(migrations_dir, filename)
 
     content = f"""-- upgrade
@@ -123,11 +122,10 @@ def new_migration_cmd(description: str, version: str | None = None) -> None:
     migrations_dir = get_migrations_directory()
 
     if version is None:
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        version = timestamp
+        version = get_next_migration_number(migrations_dir)
 
     safe_description = re.sub(r"[^a-zA-Z0-9]", "_", description).lower()
-    filename = f"V{version}__{safe_description}.sql"
+    filename = f"{version}_{safe_description}.sql"
     filepath = os.path.join(migrations_dir, filename)
 
     content = f"""-- upgrade
