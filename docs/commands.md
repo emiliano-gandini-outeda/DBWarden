@@ -139,7 +139,7 @@ dbwarden check-db --out json
 
 DBWarden provides clear error messages for common issues:
 
-- **Missing .env file**: "STRATA_SQLALCHEMY_URL is required"
+- **Missing .env file**: "DBWARDEN_SQLALCHEMY_URL is required"
 - **Migrations directory not found**: "Please run 'dbwarden init' first"
 - **Pending migrations**: "Cannot generate migrations while X migrations are pending"
 - **Lock active**: "Migration is currently locked"

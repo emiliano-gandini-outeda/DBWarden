@@ -149,7 +149,7 @@ DBWarden generates indexes for:
 For custom indexes, use manual migrations:
 
 ```sql
--- V20240215_143000__add_user_indexes.sql
+-- 0002_add_user_indexes.sql
 
 -- upgrade
 
@@ -222,7 +222,7 @@ Searches up to 5 parent directories from current working directory.
 Set custom paths in `.env`:
 
 ```env
-STRATA_MODEL_PATHS=app/models/,core/database/models/,shared/models/
+DBWARDEN_MODEL_PATHS=app/models/,core/database/models/,shared/models/
 ```
 
 ### Import Patterns
@@ -368,7 +368,7 @@ class Model(Base):
 
 ### Model Not Discovered
 
-1. Check `STRATA_MODEL_PATHS` in `.env`
+1. Check `DBWARDEN_MODEL_PATHS` in `.env`
 2. Verify file is in `models/` directory
 3. Ensure model inherits from `Base`
 4. Check `__tablename__` is defined

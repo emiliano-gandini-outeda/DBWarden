@@ -27,8 +27,8 @@ dbwarden unlock
 ### Lock Implementation
 
 ```sql
--- strata_lock table
-CREATE TABLE strata_lock (
+-- dbwarden_lock table
+CREATE TABLE dbwarden_lock (
     id INTEGER PRIMARY KEY,
     locked BOOLEAN DEFAULT FALSE,
     acquired_at DATETIME,
@@ -90,23 +90,23 @@ dbwarden squash
 
 # 3. New migration created
 ls migrations/
-# V20240215_143000__initial_schema.sql  (consolidated)
+# 0001_initial_schema.sql  (consolidated)
 ```
 
 ### Before/After
 
 **Before:**
 ```
-V20240215_143000__create_users.sql
-V20240215_143001__add_email.sql
-V20240215_143002__add_username.sql
-V20240215_143003__add_password.sql
-V20240215_143004__add_bio.sql
+0001_create_users.sql
+0002_add_email.sql
+0003_add_username.sql
+0004_add_password.sql
+0005_add_bio.sql
 ```
 
 **After:**
 ```
-V20240215_143000__initial_schema.sql
+0001_initial_schema.sql
 ```
 
 ### Manual Squash
@@ -127,7 +127,7 @@ Configure multiple model directories.
 ### Configuration
 
 ```env
-STRATA_MODEL_PATHS=models/,app/models/,core/database/models/
+DBWARDEN_MODEL_PATHS=models/,app/models/,core/database/models/
 ```
 
 ### Priority
@@ -141,7 +141,7 @@ Paths are processed in order:
 ### Configuration
 
 ```env
-STRATA_POSTGRES_SCHEMA=my_schema
+DBWARDEN_POSTGRES_SCHEMA=my_schema
 ```
 
 ### Usage
@@ -295,8 +295,8 @@ jobs:
             dbwarden migrate --verbose
           fi
         env:
-          STRATA_SQLALCHEMY_URL: ${{ secrets.DATABASE_URL }}
-          STRATA_ASYNC: ${{ secrets.STRATA_ASYNC || 'false' }}
+          DBWARDEN_SQLALCHEMY_URL: ${{ secrets.DATABASE_URL }}
+          DBWARDEN_ASYNC: ${{ secrets.DBWARDEN_ASYNC || 'false' }}
 ```
 
 ### GitLab CI
@@ -312,7 +312,7 @@ migrate:
     - pip install dbwarden
     - dbwarden migrate --verbose
   variables:
-    STRATA_SQLALCHEMY_URL: $DATABASE_URL
+    DBWARDEN_SQLALCHEMY_URL: $DATABASE_URL
   only:
     - main
 ```
@@ -350,7 +350,7 @@ spec:
         image: your-app:latest
         command: ["dbwarden", "migrate", "--verbose"]
         env:
-        - name: STRATA_SQLALCHEMY_URL
+        - name: DBWARDEN_SQLALCHEMY_URL
           valueFrom:
             secretKeyRef:
               name: db-credentials
@@ -363,7 +363,7 @@ spec:
 ### Using Migration Tags
 
 ```sql
--- V20240215_143000__base_schema.sql (always run)
+-- 0001_base_schema.sql (always run)
 
 -- upgrade
 CREATE TABLE users (id INT PRIMARY KEY, email VARCHAR(255));
@@ -372,7 +372,7 @@ DROP TABLE users;
 ```
 
 ```sql
--- V20240215_143001__demo_data.sql (demo only)
+-- 0002_demo_data.sql (demo only)
 
 -- upgrade
 INSERT INTO users (email) VALUES ('demo@example.com');
@@ -387,7 +387,7 @@ from dbwarden.config import get_config
 from dbwarden.commands.migrate import migrate_cmd
 
 # Apply migrations with target version
-migrate_cmd(to_version="20240215_143000", verbose=True)
+migrate_cmd(to_version="0001", verbose=True)
 ```
 
 ## Performance Optimization
@@ -433,9 +433,9 @@ In emergencies, manually update migration records:
 
 ```sql
 -- Remove last migration record
-DELETE FROM strata_migrations 
-WHERE version = '20240215_143000'
-ORDER BY applied_at DESC 
+DELETE FROM dbwarden_migrations
+WHERE version = '0001'
+ORDER BY applied_at DESC
 LIMIT 1;
 ```
 

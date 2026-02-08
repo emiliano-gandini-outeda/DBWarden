@@ -19,10 +19,10 @@ dbwarden status
 ```
 Migration Status
 ================
-✓ Applied   | V20240215_143000__create_users
-✓ Applied   | V20240215_143001__create_posts
-✓ Applied   | V20240215_143002__add_comments
-Pending     | V20240215_143003__add_tags
+✓ Applied   | 0001_create_users
+✓ Applied   | 0002_create_posts
+✓ Applied   | 0003_add_comments
+Pending     | 0004_add_tags
 
 Applied: 3
 Pending: 1
@@ -40,8 +40,8 @@ migrations directory not found. Run 'dbwarden init' first.
 ```
 Migration Status
 ================
-Status    | Version         | Filename
-Pending   | 20240215_143000 | V20240215_143000__initial.sql
+Status    | Version | Filename
+Pending   | 0001    | 0001_initial.sql
 
 Applied: 0
 Pending: 1

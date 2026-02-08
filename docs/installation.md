@@ -73,15 +73,14 @@ poetry add --group dev dbwarden
 Verify that DBWarden is installed correctly:
 
 ```bash
-dbwarden --version
+dbwarden version
 ```
 
 You should see output similar to:
 
 ```
-DBWarden version: 1.0.0
-Python version: 3.12.0
-SQLAlchemy version: 2.0.10
+DBWarden Version: 1.0.0
+Python Version: 3.12.7 (main, Jan 19 2026, 23:31:25) [GCC 15.2.1 20251112]
 ```
 
 ## Installation from Source
@@ -89,7 +88,7 @@ SQLAlchemy version: 2.0.10
 For development or to get the latest features:
 
 ```bash
-git clone https://github.com/yourusername/dbwarden.git
+git clone https://github.com/emiliano-gandini-outeda/dbwarden.git
 cd dbwarden
 pip install -e .
 ```
@@ -137,8 +136,6 @@ CMD ["dbwarden", "--help"]
 ### Docker Compose Example
 
 ```yaml
-version: '3.8'
-
 services:
   app:
     build: .
@@ -231,7 +228,3 @@ Or with poetry:
 ```bash
 poetry update dbwarden
 ```
-
-### Migration Between Versions
-
-When upgrading DBWarden, check the [changelog](https://github.com/yourusername/dbwarden/blob/main/CHANGELOG.md) for any breaking changes that might affect your migration workflow.

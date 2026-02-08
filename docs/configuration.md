@@ -11,7 +11,7 @@ DBWarden looks for a `.env` file in the current working directory or any parent 
 Create a `.env` file in your project root:
 
 ```env
-STRATA_SQLALCHEMY_URL=postgresql://user:password@localhost:5432/mydb
+DBWARDEN_SQLALCHEMY_URL=postgresql://user:password@localhost:5432/mydb
 ```
 
 ### .env File Location
@@ -25,38 +25,38 @@ This allows you to have a single `.env` file at your project root that applies t
 
 ## Required Configuration
 
-### STRATA_SQLALCHEMY_URL
+### DBWARDEN_SQLALCHEMY_URL
 
 The SQLAlchemy database connection URL. This is the only required configuration variable.
 
 **Format:**
 
 ```
-STRATA_SQLALCHEMY_URL=dialect+driver://username:password@host:port/database
+DBWARDEN_SQLALCHEMY_URL=dialect+driver://username:password@host:port/database
 ```
 
 **Examples:**
 
 ```env
 # PostgreSQL
-STRATA_SQLALCHEMY_URL=postgresql://user:password@localhost:5432/mydb
+DBWARDEN_SQLALCHEMY_URL=postgresql://user:password@localhost:5432/mydb
 
 # PostgreSQL with async
-STRATA_SQLALCHEMY_URL=postgresql+asyncpg://user:password@localhost:5432/mydb
+DBWARDEN_SQLALCHEMY_URL=postgresql+asyncpg://user:password@localhost:5432/mydb
 
 # MySQL
-STRATA_SQLALCHEMY_URL=mysql://user:password@localhost:3306/mydb
+DBWARDEN_SQLALCHEMY_URL=mysql://user:password@localhost:3306/mydb
 
 # SQLite
-STRATA_SQLALCHEMY_URL=sqlite:///./mydb.db
+DBWARDEN_SQLALCHEMY_URL=sqlite:///./mydb.db
 
 # SQLite in memory
-STRATA_SQLALCHEMY_URL=sqlite:///:memory:
+DBWARDEN_SQLALCHEMY_URL=sqlite:///:memory:
 ```
 
 ## Optional Configuration
 
-### STRATA_ASYNC
+### DBWARDEN_ASYNC
 
 Enable or disable asynchronous database operations.
 
@@ -68,44 +68,44 @@ Enable or disable asynchronous database operations.
 **Example:**
 
 ```env
-STRATA_ASYNC=true
-STRATA_SQLALCHEMY_URL=postgresql+asyncpg://user:password@localhost:5432/mydb
+DBWARDEN_ASYNC=true
+DBWARDEN_SQLALCHEMY_URL=postgresql+asyncpg://user:password@localhost:5432/mydb
 ```
 
-### STRATA_MODEL_PATHS
+### DBWARDEN_MODEL_PATHS
 
 Comma-separated list of paths to directories containing SQLAlchemy models.
 
 **Example:**
 
 ```env
-STRATA_MODEL_PATHS=models/,app/models/,core/database/models/
+DBWARDEN_MODEL_PATHS=models/,app/models/,core/database/models/
 ```
 
 If not specified, DBWarden will automatically look for `models/` or `model/` directories.
 
-### STRATA_POSTGRES_SCHEMA
+### DBWARDEN_POSTGRES_SCHEMA
 
 PostgreSQL schema to use (PostgreSQL only).
 
 **Example:**
 
 ```env
-STRATA_POSTGRES_SCHEMA=public
+DBWARDEN_POSTGRES_SCHEMA=public
 ```
 
 ## Complete .env Example
 
 ```env
 # Database Connection
-STRATA_SQLALCHEMY_URL=postgresql://myuser:mypassword@localhost:5432/myapp
-STRATA_ASYNC=true
+DBWARDEN_SQLALCHEMY_URL=postgresql://myuser:mypassword@localhost:5432/myapp
+DBWARDEN_ASYNC=true
 
 # Model Discovery
-STRATA_MODEL_PATHS=app/models/,models/
+DBWARDEN_MODEL_PATHS=app/models/,models/
 
 # PostgreSQL Schema
-STRATA_POSTGRES_SCHEMA=public
+DBWARDEN_POSTGRES_SCHEMA=public
 ```
 
 ## Configuration in Different Environments
@@ -113,22 +113,22 @@ STRATA_POSTGRES_SCHEMA=public
 ### Development Environment
 
 ```env
-STRATA_SQLALCHEMY_URL=postgresql://dev:dev123@localhost:5432/dev_db
-STRATA_ASYNC=false
+DBWARDEN_SQLALCHEMY_URL=postgresql://dev:dev123@localhost:5432/dev_db
+DBWARDEN_ASYNC=false
 ```
 
 ### Staging Environment
 
 ```env
-STRATA_SQLALCHEMY_URL=postgresql://staging:staging123@staging.example.com:5432/staging_db
-STRATA_ASYNC=true
+DBWARDEN_SQLALCHEMY_URL=postgresql://staging:staging123@staging.example.com:5432/staging_db
+DBWARDEN_ASYNC=true
 ```
 
 ### Production Environment
 
 ```env
-STRATA_SQLALCHEMY_URL=postgresql://prod:securepass@prod.example.com:5432/prod_db
-STRATA_ASYNC=true
+DBWARDEN_SQLALCHEMY_URL=postgresql://prod:securepass@prod.example.com:5432/prod_db
+DBWARDEN_ASYNC=true
 ```
 
 ## Configuration Validation
@@ -142,10 +142,10 @@ dbwarden env
 Output:
 
 ```
-STRATA_SQLALCHEMY_URL: ***
-STRATA_ASYNC: true
-STRATA_MODEL_PATHS: models/
-STRATA_POSTGRES_SCHEMA: public
+DBWARDEN_SQLALCHEMY_URL: ***
+DBWARDEN_ASYNC: true
+DBWARDEN_MODEL_PATHS: models/
+DBWARDEN_POSTGRES_SCHEMA: public
 ```
 
 ## Environment Variables Precedence
@@ -164,15 +164,15 @@ If your database password contains special characters, URL-encode them:
 
 ```env
 # Password: p@ss:word/123
-STRATA_SQLALCHEMY_URL=postgresql://user:p%40ss%3Aword%2F123@localhost:5432/mydb
+DBWARDEN_SQLALCHEMY_URL=postgresql://user:p%40ss%3Aword%2F123@localhost:5432/mydb
 ```
 
 ## Troubleshooting Configuration
 
-### Missing STRATA_SQLALCHEMY_URL
+### Missing DBWARDEN_SQLALCHEMY_URL
 
 ```
-Error: STRATA_SQLALCHEMY_URL is required in .env file.
+Error: DBWARDEN_SQLALCHEMY_URL is required in .env file.
 ```
 
 Make sure your `.env` file exists and contains the required variable.

@@ -1,6 +1,6 @@
 # version Command
 
-Display DBWarden version and compatibility information.
+Display the installed DBWarden version.
 
 ## Usage
 
@@ -8,21 +8,11 @@ Display DBWarden version and compatibility information.
 dbwarden version
 ```
 
-## Examples
+## Example
 
 ```
-DBWarden version: 1.0.0
-Python version: 3.12.0
-SQLAlchemy version: 2.0.10
+1.0.0
 ```
-
-## What It Shows
-
-| Component | Version |
-|-----------|---------|
-| DBWarden | Current version |
-| Python | Python interpreter version |
-| SQLAlchemy | SQLAlchemy library version |
 
 ## Use Cases
 
@@ -35,21 +25,12 @@ dbwarden version
 # Include in GitHub issue
 ```
 
-### Compatibility Check
-
-Verify compatibility:
-
-```bash
-dbwarden version
-# Check requirements match
-```
-
 ### Upgrade Verification
 
 After upgrading:
 
 ```bash
-dbwarden --version
+dbwarden version
 # Should show new version
 ```
 

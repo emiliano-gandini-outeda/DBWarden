@@ -49,8 +49,8 @@ dbwarden migrate --to-version 20240215_143000
 
 ## How It Works
 
-1. **Creates migrations tracking table**: Creates `strata_migrations` table if it doesn't exist
-2. **Creates lock table**: Creates `strata_lock` table for concurrency control
+1. **Creates migrations tracking table**: Creates `dbwarden_migrations` table if it doesn't exist
+2. **Creates lock table**: Creates `dbwarden_lock` table for concurrency control
 3. **Finds pending migrations**: Identifies migrations not yet applied
 4. **Applies migrations**: Executes each migration in order
 5. **Records execution**: Stores migration metadata in database
@@ -59,12 +59,12 @@ dbwarden migrate --to-version 20240215_143000
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│  1. Create strata_migrations table (if not exists)     │
+│  1. Create dbwarden_migrations table (if not exists)  │
 └─────────────────────────────────────────────────────────┘
                           │
                           ▼
 ┌─────────────────────────────────────────────────────────┐
-│  2. Create strata_lock table (if not exists)           │
+│  2. Create dbwarden_lock table (if not exists)        │
 └─────────────────────────────────────────────────────────┘
                           │
                           ▼
@@ -100,7 +100,7 @@ dbwarden migrate --to-version 20240215_143000
 
 ## Migrations Tracking Table
 
-DBWarden creates a `strata_migrations` table to track applied migrations:
+DBWarden creates a `dbwarden_migrations` table to track applied migrations:
 
 | Column | Type | Description |
 |--------|------|-------------|
@@ -139,8 +139,8 @@ dbwarden unlock
 ### Successful Migration
 
 ```
-[INFO] Applying migration: V20240215_143000__create_users.sql
-[INFO] Applying migration: V20240215_143001__create_posts.sql
+[INFO] Applying migration: 0001_create_users.sql
+[INFO] Applying migration: 0002_create_posts.sql
 Migrations completed successfully: 2 migrations applied.
 ```
 
@@ -148,20 +148,20 @@ Migrations completed successfully: 2 migrations applied.
 
 ```
 [INFO] Mode: sync
-[INFO] Pending migrations: V20240215_143000__create_users, V20240215_143001__create_posts
-[INFO] Starting migration: V20240215_143000__create_users
+[INFO] Pending migrations: 0001_create_users, 0002_create_posts
+[INFO] Starting migration: 0001_create_users.sql
 CREATE TABLE users (
     id INTEGER PRIMARY KEY,
     username VARCHAR(50) NOT NULL
 )
-[INFO] Migration completed: V20240215_143000__create_users in 0.05s
-[INFO] Starting migration: V20240215_143001__create_posts
+[INFO] Migration completed: 0001_create_users.sql in 0.05s
+[INFO] Starting migration: 0002_create_posts.sql
 CREATE TABLE posts (
     id INTEGER PRIMARY KEY,
     user_id INTEGER,
     title VARCHAR(200) NOT NULL
 )
-[INFO] Migration completed: V20240215_143001__create_posts in 0.03s
+[INFO] Migration completed: 0002_create_posts.sql in 0.03s
 Migrations completed successfully: 2 migrations applied.
 ```
 
@@ -236,7 +236,7 @@ jobs:
       - name: Run migrations
         run: dbwarden migrate --verbose
         env:
-          STRATA_SQLALCHEMY_URL: ${{ secrets.DATABASE_URL }}
+          DBWARDEN_SQLALCHEMY_URL: ${{ secrets.DATABASE_URL }}
 ```
 
 ## Troubleshooting

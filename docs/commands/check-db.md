@@ -80,7 +80,7 @@ users:
 ### Tables
 
 - All tables in the database
-- Tables in specific PostgreSQL schema (if `STRATA_POSTGRES_SCHEMA` is set)
+- Tables in specific PostgreSQL schema (if `DBWARDEN_POSTGRES_SCHEMA` is set)
 
 ### Columns
 
@@ -157,8 +157,8 @@ diff before.json after.json
 
 Uses the same database connection as other commands:
 - Reads from `.env` configuration
-- Uses `STRATA_SQLALCHEMY_URL`
-- Respects `STRATA_ASYNC` setting
+- Uses `DBWARDEN_SQLALCHEMY_URL`
+- Respects `DBWARDEN_ASYNC` setting
 
 ### Schema Inspection
 
@@ -177,7 +177,7 @@ Verify database connection:
 
 ```bash
 dbwarden env
-# Check STRATA_SQLALCHEMY_URL is correct
+# Check DBWARDEN_SQLALCHEMY_URL is correct
 
 # Test connection
 python -c "from sqlalchemy import create_engine; engine = create_engine('$URL'); engine.connect()"
@@ -188,7 +188,7 @@ python -c "from sqlalchemy import create_engine; engine = create_engine('$URL');
 No tables found:
 1. Check migrations were applied: `dbwarden history`
 2. Verify correct database: Check connection URL
-3. Check PostgreSQL schema: Set `STRATA_POSTGRES_SCHEMA`
+3. Check PostgreSQL schema: Set `DBWARDEN_POSTGRES_SCHEMA`
 
 ## Best Practices
 

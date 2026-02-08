@@ -35,13 +35,13 @@ dbwarden new "add index to users email"
 ### With Custom Version
 
 ```bash
-dbwarden new "migrate data from old schema" --version 2.0.0
+dbwarden new "migrate data from old schema" --version 9999
 ```
 
 ## Generated File Structure
 
 ```sql
--- migrations/V20240215_143000__add_index_to_users_email.sql
+-- migrations/0005_add_index_to_users_email.sql
 
 -- upgrade
 
@@ -65,7 +65,7 @@ Use `new` instead of `make-migrations` when you need to:
 ## Example: Adding an Index
 
 ```sql
--- migrations/V20240215_143000__add_users_email_index.sql
+-- migrations/0005_add_users_email_index.sql
 
 -- upgrade
 
@@ -79,7 +79,7 @@ DROP INDEX idx_users_email;
 ## Example: Data Migration
 
 ```sql
--- migrations/V20240215_143001__normalize_usernames.sql
+-- migrations/0006_normalize_usernames.sql
 
 -- upgrade
 
@@ -95,7 +95,7 @@ WHERE username IS NOT NULL;
 ## Example: Complex Schema Change
 
 ```sql
--- migrations/V20240215_143002__add_post_status.sql
+-- migrations/0007_add_post_status.sql
 
 -- upgrade
 
@@ -115,28 +115,85 @@ ALTER TABLE posts ADD COLUMN status VARCHAR(20) DEFAULT 'draft';
 
 ## Version Numbering
 
-If you don't specify a version, a timestamp-based version is generated:
+If you don't specify a version, the next sequential number is auto-generated:
 
 ```
-V{YYYYMMDD_HHMMSS}__{description}.sql
+0001_initial_schema.sql
+0002_add_users.sql
+0003_add_posts.sql
+0004_breaking_changes.sql
 ```
 
-Custom versions must be unique and typically follow semantic versioning:
+Custom versions must be 4-digit numbers:
+
+```bash
+dbwarden new "urgent fix" --version 9999
+```
+
+## Example: Data Migration
+
+```sql
+-- migrations/0003_normalize_usernames.sql
+
+-- upgrade
+
+UPDATE users
+SET username = LOWER(username)
+WHERE username IS NOT NULL;
+
+-- rollback
+
+-- No rollback needed for data normalization
+```
+
+## Example: Complex Schema Change
+
+```sql
+-- migrations/0004_add_post_status.sql
+
+-- upgrade
+
+ALTER TABLE posts ADD COLUMN status VARCHAR(20) DEFAULT 'draft';
+
+CREATE TYPE post_status AS ENUM ('draft', 'published', 'archived');
+
+ALTER TABLE posts DROP COLUMN status;
+ALTER TABLE posts ADD COLUMN status post_status DEFAULT 'draft';
+
+-- rollback
+
+DROP TYPE post_status;
+ALTER TABLE posts DROP COLUMN status;
+ALTER TABLE posts ADD COLUMN status VARCHAR(20) DEFAULT 'draft';
+```
+
+## Version Numbering
+
+If you don't specify a version, the next sequential number is auto-generated:
 
 ```
-V1.0.0__initial_schema.sql
-V1.1.0__add_users.sql
-V1.2.0__add_posts.sql
-V2.0.0__breaking_changes.sql
+0001_initial.sql
+0002_add_users.sql
+0003_add_posts.sql
+0004_breaking_changes.sql
+```
+
+Custom versions must be 4-digit numbers:
+
+```
+0001_initial.sql
+0002_add_users.sql
+0003_add_posts.sql
+9999_urgent_fix.sql
 ```
 
 ## Best Practices
 
 1. **Descriptive names**: Include what the migration does:
    ```
-   V20240215_143000__add_users_email_index.sql
+   0005_add_users_email_index.sql
    # NOT
-   V20240215_143000__index.sql
+   0005_index.sql
    ```
 
 2. **Test rollback SQL**: Ensure `-- rollback` section works correctly

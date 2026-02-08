@@ -38,17 +38,17 @@ dbwarden squash
 
 ```
 Migrations:
-├── V20240215_143000__create_users.sql
-├── V20240215_143001__add_username.sql
-├── V20240215_143002__add_email.sql
-└── V20240215_143003__add_password.sql
+├── 0001_create_users.sql
+├── 0002_add_username.sql
+├── 0003_add_email.sql
+└── 0004_add_password.sql
 ```
 
 ## After Squashing
 
 ```
 Migrations:
-└── V20240215_143000__initial_schema.sql
+└── 0001_initial_schema.sql
 ```
 
 ## Use Cases
@@ -148,9 +148,9 @@ For more control, manually combine migrations:
 dbwarden new "consolidate user migrations"
 
 # 2. Edit the file, combining SQL from:
-# - V20240215_143000__create_users.sql
-# - V20240215_143001__add_username.sql
-# - V20240215_143002__add_email.sql
+# - 0001_create_users.sql
+# - 0002_add_username.sql
+# - 0003_add_email.sql
 ```
 
 ## See Also

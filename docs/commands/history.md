@@ -19,12 +19,12 @@ dbwarden history
 ```bash
 $ dbwarden history
 Migration History
-=================
-Version         | Order | Description     | Applied At           | Type
-----------------|-------|-----------------|----------------------|------
-20240215_143000 | 1     | create users    | 2024-02-15 14:30:15  | versioned
-20240215_143001 | 2     | create posts    | 2024-02-15 14:30:20  | versioned
-20240215_143002 | 3     | add comments    | 2024-02-15 14:30:25  | versioned
+================
+Version | Order | Description     | Applied At           | Type
+-------|-------|-----------------|----------------------|------
+0001   | 1     | create users    | 2024-02-15 14:30:15 | versioned
+0002   | 2     | create posts    | 2024-02-15 14:30:20 | versioned
+0003   | 3     | add comments    | 2024-02-15 14:30:25 | versioned
 ```
 
 ### No Migrations Applied
@@ -95,10 +95,10 @@ dbwarden status     # Plus what's pending
 
 ## Database Source
 
-The history is read from the `strata_migrations` table in your database:
+The history is read from the `dbwarden_migrations` table in your database:
 
 ```sql
-SELECT * FROM strata_migrations ORDER BY applied_at;
+SELECT * FROM dbwarden_migrations ORDER BY applied_at;
 ```
 
 ## Troubleshooting
@@ -107,7 +107,7 @@ SELECT * FROM strata_migrations ORDER BY applied_at;
 
 This means either:
 1. No migrations have been run
-2. The `strata_migrations` table doesn't exist
+2. The `dbwarden_migrations` table doesn't exist
 3. Running `dbwarden migrate` for the first time
 
 ### Empty History Despite Migrations
@@ -116,11 +116,11 @@ If migrations were applied but history is empty:
 
 1. Check you're connecting to the correct database
 2. Verify `.env` configuration
-3. Check `strata_migrations` table exists:
+3. Check `dbwarden_migrations` table exists:
 
 ```bash
 dbwarden check-db --out txt
-# Look for strata_migrations table
+# Look for dbwarden_migrations table
 ```
 
 ## Best Practices

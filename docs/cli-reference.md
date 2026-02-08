@@ -287,20 +287,20 @@ dbwarden unlock
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `STRATA_SQLALCHEMY_URL` | Yes | Database connection URL |
-| `STRATA_ASYNC` | No | Enable async mode (true/false) |
-| `STRATA_MODEL_PATHS` | No | Paths to SQLAlchemy models |
-| `STRATA_POSTGRES_SCHEMA` | No | PostgreSQL schema |
+| `DBWARDEN_SQLALCHEMY_URL` | Yes | Database connection URL |
+| `DBWARDEN_ASYNC` | No | Enable async mode (true/false) |
+| `DBWARDEN_MODEL_PATHS` | No | Paths to SQLAlchemy models |
+| `DBWARDEN_POSTGRES_SCHEMA` | No | PostgreSQL schema |
 
 ## Configuration File
 
 DBWarden uses `.env` file for configuration:
 
 ```env
-STRATA_SQLALCHEMY_URL=postgresql://user:pass@localhost:5432/db
-STRATA_ASYNC=false
-STRATA_MODEL_PATHS=models/
-STRATA_POSTGRES_SCHEMA=public
+DBWARDEN_SQLALCHEMY_URL=postgresql://user:pass@localhost:5432/db
+DBWARDEN_ASYNC=false
+DBWARDEN_MODEL_PATHS=models/
+DBWARDEN_POSTGRES_SCHEMA=public
 ```
 
 ## Shortcuts

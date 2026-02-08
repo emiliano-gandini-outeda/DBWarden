@@ -44,14 +44,14 @@ dbwarden make-migrations "add posts and comments" --verbose
 dbwarden make-migrations
 ```
 
-If no description is provided, a timestamp-based version will be used.
+If no description is provided, "auto_generated" will be used.
 
 ## How It Works
 
 1. **Model Discovery**: Searches for SQLAlchemy models in:
    - `models/` directory (default)
    - `model/` directory (alternative)
-   - Custom paths specified in `STRATA_MODEL_PATHS`
+   - Custom paths specified in `DBWARDEN_MODEL_PATHS`
 
 2. **Table Extraction**: Reads table definitions from discovered models:
    - Column names and types
@@ -65,13 +65,13 @@ If no description is provided, a timestamp-based version will be used.
 
 4. **File Creation**: Saves the migration with naming pattern:
    ```
-   V{version}__{description}.sql
+   {number}_{description}.sql
    ```
 
 ## Generated File Example
 
 ```sql
--- migrations/V20240215_143000__create_users_table.sql
+-- migrations/0001_create_users_table.sql
 
 -- upgrade
 
@@ -92,7 +92,7 @@ DROP TABLE users
 Before running `make-migrations`:
 
 1. Run `dbwarden init` to create migrations directory
-2. Create `.env` with `STRATA_SQLALCHEMY_URL`
+2. Create `.env` with `DBWARDEN_SQLALCHEMY_URL`
 3. Define SQLAlchemy models with `__tablename__` attribute
 
 ## Validation Checks
@@ -115,14 +115,14 @@ If no models are found:
 ```
 No SQLAlchemy models found. Please:
   1. Create models/ directory with your SQLAlchemy models
-  2. Or set STRATA_MODEL_PATHS in .env
+  2. Or set DBWARDEN_MODEL_PATHS in .env
 ```
 
 ## Model Discovery Process
 
 DBWarden searches for models in this order:
 
-1. **Explicit paths**: Paths in `STRATA_MODEL_PATHS` (comma-separated)
+1. **Explicit paths**: Paths in `DBWARDEN_MODEL_PATHS` (comma-separated)
 2. **Auto-discovery**: Looks for `models/` or `model/` directories
 
 The search traverses up to 5 parent directories from the current working directory.
@@ -167,7 +167,7 @@ The search traverses up to 5 parent directories from the current working directo
 
 ### Models Not Being Discovered
 
-1. Check `STRATA_MODEL_PATHS` in `.env`
+1. Check `DBWARDEN_MODEL_PATHS` in `.env`
 2. Ensure models have `__tablename__` attribute
 3. Verify models inherit from `declarative_base()`
 

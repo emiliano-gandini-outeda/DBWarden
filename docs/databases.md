@@ -15,14 +15,14 @@ DBWarden supports multiple database backends. This guide covers configuration an
 ### Connection URL
 
 ```env
-STRATA_SQLALCHEMY_URL=postgresql://user:password@localhost:5432/mydb
+DBWARDEN_SQLALCHEMY_URL=postgresql://user:password@localhost:5432/mydb
 ```
 
 ### Sync Mode
 
 ```env
-STRATA_ASYNC=false
-STRATA_SQLALCHEMY_URL=postgresql://user:password@localhost:5432/mydb
+DBWARDEN_ASYNC=false
+DBWARDEN_SQLALCHEMY_URL=postgresql://user:password@localhost:5432/mydb
 ```
 
 **Requirements:**
@@ -33,8 +33,8 @@ pip install psycopg2-binary
 ### Async Mode
 
 ```env
-STRATA_ASYNC=true
-STRATA_SQLALCHEMY_URL=postgresql+asyncpg://user:password@localhost:5432/mydb
+DBWARDEN_ASYNC=true
+DBWARDEN_SQLALCHEMY_URL=postgresql+asyncpg://user:password@localhost:5432/mydb
 ```
 
 **Requirements:**
@@ -56,9 +56,9 @@ pip install asyncpg
 Set default schema:
 
 ```env
-STRATA_POSTGRES_SCHEMA=public  # default
+DBWARDEN_POSTGRES_SCHEMA=public  # default
 # or
-STRATA_POSTGRES_SCHEMA=custom_schema
+DBWARDEN_POSTGRES_SCHEMA=custom_schema
 ```
 
 ### Example PostgreSQL Migration
@@ -87,7 +87,7 @@ DROP TABLE users;
 ### Connection URL
 
 ```env
-STRATA_SQLALCHEMY_URL=mysql://user:password@localhost:3306/mydb
+DBWARDEN_SQLALCHEMY_URL=mysql://user:password@localhost:3306/mydb
 ```
 
 ### Sync Mode Only
@@ -95,7 +95,7 @@ STRATA_SQLALCHEMY_URL=mysql://user:password@localhost:3306/mydb
 MySQL does not support asynchronous connections in DBWarden.
 
 ```env
-STRATA_ASYNC=false
+DBWARDEN_ASYNC=false
 ```
 
 **Requirements:**
@@ -143,16 +143,16 @@ DROP TABLE users;
 
 ```env
 # File-based
-STRATA_SQLALCHEMY_URL=sqlite:///./mydb.db
+DBWARDEN_SQLALCHEMY_URL=sqlite:///./mydb.db
 
 # In-memory
-STRATA_SQLALCHEMY_URL=sqlite:///:memory:
+DBWARDEN_SQLALCHEMY_URL=sqlite:///:memory:
 ```
 
 ### Sync Mode (Default)
 
 ```env
-STRATA_ASYNC=false
+DBWARDEN_ASYNC=false
 ```
 
 No additional drivers needed.
@@ -160,8 +160,8 @@ No additional drivers needed.
 ### Async Mode
 
 ```env
-STRATA_ASYNC=true
-STRATA_SQLALCHEMY_URL=sqlite+aiosqlite:///./mydb.db
+DBWARDEN_ASYNC=true
+DBWARDEN_SQLALCHEMY_URL=sqlite+aiosqlite:///./mydb.db
 ```
 
 **Requirements:**
@@ -224,13 +224,13 @@ from sqlalchemy.ext.asyncio import create_async_engine
 ### PostgreSQL with SSL
 
 ```env
-STRATA_SQLALCHEMY_URL=postgresql://user:password@host:5432/db?sslmode=require
+DBWARDEN_SQLALCHEMY_URL=postgresql://user:password@host:5432/db?sslmode=require
 ```
 
 ### MySQL with SSL
 
 ```env
-STRATA_SQLALCHEMY_URL=mysql://user:password@host:3306/db?ssl=true
+DBWARDEN_SQLALCHEMY_URL=mysql://user:password@host:3306/db?ssl=true
 ```
 
 ## Connection Strings Reference
@@ -298,22 +298,22 @@ is_active INTEGER DEFAULT 1
 ### Development (SQLite)
 
 ```env
-STRATA_SQLALCHEMY_URL=sqlite:///./dev.db
-STRATA_ASYNC=false
+DBWARDEN_SQLALCHEMY_URL=sqlite:///./dev.db
+DBWARDEN_ASYNC=false
 ```
 
 ### Staging (PostgreSQL)
 
 ```env
-STRATA_SQLALCHEMY_URL=postgresql://user:pass@staging.example.com:5432/staging_db
-STRATA_ASYNC=true
+DBWARDEN_SQLALCHEMY_URL=postgresql://user:pass@staging.example.com:5432/staging_db
+DBWARDEN_ASYNC=true
 ```
 
 ### Production (PostgreSQL)
 
 ```env
-STRATA_SQLALCHEMY_URL=postgresql://user:pass@prod.example.com:5432/prod_db
-STRATA_ASYNC=true
+DBWARDEN_SQLALCHEMY_URL=postgresql://user:pass@prod.example.com:5432/prod_db
+DBWARDEN_ASYNC=true
 ```
 
 ## Best Practices

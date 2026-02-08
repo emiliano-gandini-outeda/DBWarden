@@ -6,7 +6,7 @@
 
 DBWarden addresses the critical challenge of maintaining consistent database schemas across development, staging, and production environments. It combines the flexibility of SQL-based migrations with the convenience of automatic migration generation from SQLAlchemy models.
 
-### Key Features
+### Features
 
 - **Automatic Migration Generation**: Automatically generate SQL migrations from your SQLAlchemy models
 - **Version Control**: Track all schema changes with detailed history and timestamps
@@ -17,45 +17,29 @@ DBWarden addresses the critical challenge of maintaining consistent database sch
 - **Migration Locking**: Prevents concurrent migration execution
 - **Schema Inspection**: Inspect and compare database schemas
 
-## Why Use DBWarden?
-
-### For Development Teams
-
-- **Consistency**: Ensure all developers work with the same database schema
-- **Automation**: Reduce manual SQL writing with automatic migration generation
-- **Traceability**: Maintain a complete history of all schema changes
-- **Safety**: Built-in rollback capabilities for quick recovery
-
-### For Production Systems
-
-- **Reliability**: Robust migration execution with error handling
-- **Idempotency**: Migrations can be run multiple times safely
-- **Version Targeting**: Migrate to specific versions when needed
-- **Locking**: Prevent race conditions during migration execution
-
 ## Architecture Overview
 
 DBWarden follows a modular architecture designed for reliability and extensibility:
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                     DBWarden CLI                         │
+│                     DBWarden CLI                        │
 │                    (Typer-based)                        │
 ├─────────────────────────────────────────────────────────┤
 │  Commands Layer                                         │
 │  ├── init         ├── migrate      ├── rollback         │
-│  ├── make-migrations ├── history    ├── status         │
+│  ├── make-migrations ├── history    ├── status          │
 │  └── ...          └── ...           └── ...             │
 ├─────────────────────────────────────────────────────────┤
-│  Engine Layer                                          │
+│  Engine Layer                                           │
 │  ├── Model Discovery  ├── Versioning  ├── File Parser   │
-│  └── Checksum         └── Locking                        │
+│  └── Checksum         └── Locking                       │
 ├─────────────────────────────────────────────────────────┤
-│  Repository Layer                                     │
+│  Repository Layer                                       │
 │  ├── Migration Records  ├── Lock Management             │
 ├─────────────────────────────────────────────────────────┤
 │  Database Layer                                         │
-│  ├── Connection Pool  ├── SQL Execution                │
+│  ├── Connection Pool  ├── SQL Execution                 │
 └─────────────────────────────────────────────────────────┘
 ```
 

@@ -90,7 +90,7 @@ dbwarden diff
 For `diff` to work effectively:
 
 1. **Models must be defined**: SQLAlchemy models in `models/` directory
-2. **STRATA_MODEL_PATHS**: Must be set or auto-discovery must find models
+2. **DBWARDEN_MODEL_PATHS**: Must be set or auto-discovery must find models
 3. **Migrations table exists**: At least one migration applied
 
 ## Troubleshooting
@@ -100,12 +100,12 @@ For `diff` to work effectively:
 ```
 No SQLAlchemy models found. Please:
   1. Create models/ directory with your SQLAlchemy models
-  2. Or set STRATA_MODEL_PATHS in .env
+  2. Or set DBWARDEN_MODEL_PATHS in .env
 ```
 
 Set model paths:
 ```env
-STRATA_MODEL_PATHS=models/,app/models/
+DBWARDEN_MODEL_PATHS=models/,app/models/
 ```
 
 ### No Migrations Table

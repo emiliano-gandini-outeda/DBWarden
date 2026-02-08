@@ -25,7 +25,7 @@ $ dbwarden init
 DBWarden migrations directory created: /home/user/myproject/migrations
 
 Next steps:
-  1. Create a .env file with STRATA_SQLALCHEMY_URL
+  1. Create a .env file with DBWARDEN_SQLALCHEMY_URL
   2. Run 'dbwarden make-migrations' to generate migrations from your models
 ```
 

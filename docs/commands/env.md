@@ -18,10 +18,10 @@ dbwarden env
 
 ```bash
 $ dbwarden env
-STRATA_SQLALCHEMY_URL: ***
-STRATA_ASYNC: true
-STRATA_MODEL_PATHS: models/,app/models/
-STRATA_POSTGRES_SCHEMA: public
+DBWARDEN_SQLALCHEMY_URL: ***
+DBWARDEN_ASYNC: true
+DBWARDEN_MODEL_PATHS: models/,app/models/
+DBWARDEN_POSTGRES_SCHEMA: public
 ```
 
 ### Missing Variables
@@ -32,10 +32,10 @@ If some variables are not set, they won't appear in output.
 
 | Variable | Displayed As | Description |
 |----------|--------------|-------------|
-| `STRATA_SQLALCHEMY_URL` | `***` | Database URL (masked) |
-| `STRATA_ASYNC` | Actual value | Sync/async mode |
-| `STRATA_MODEL_PATHS` | Actual value | Model paths |
-| `STRATA_POSTGRES_SCHEMA` | Actual value | PostgreSQL schema |
+| `DBWARDEN_SQLALCHEMY_URL` | `***` | Database URL (masked) |
+| `DBWARDEN_ASYNC` | Actual value | Sync/async mode |
+| `DBWARDEN_MODEL_PATHS` | Actual value | Model paths |
+| `DBWARDEN_POSTGRES_SCHEMA` | Actual value | PostgreSQL schema |
 
 ## Use Cases
 
@@ -88,7 +88,7 @@ dbwarden status     # Validate migrations
 ### Check Mode
 
 ```bash
-dbwarden env        # Shows STRATA_ASYNC
+dbwarden env        # Shows DBWARDEN_ASYNC
 dbwarden mode       # Shows just the mode
 ```
 

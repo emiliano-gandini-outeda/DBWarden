@@ -30,14 +30,14 @@ myproject/
 Create a `.env` file:
 
 ```env
-STRATA_SQLALCHEMY_URL=postgresql://user:password@localhost:5432/myapp
-STRATA_ASYNC=false
+DBWARDEN_SQLALCHEMY_URL=postgresql://user:password@localhost:5432/myapp
+DBWARDEN_ASYNC=false
 ```
 
 For SQLite:
 
 ```env
-STRATA_SQLALCHEMY_URL=sqlite:///./myapp.db
+DBWARDEN_SQLALCHEMY_URL=sqlite:///./myapp.db
 ```
 
 ## Step 4: Define Your SQLAlchemy Models
@@ -73,7 +73,7 @@ Output:
 DBWarden migrations directory created: /home/user/myproject/migrations
 
 Next steps:
-  1. Create a .env file with STRATA_SQLALCHEMY_URL
+  1. Create a .env file with DBWARDEN_SQLALCHEMY_URL
   2. Run 'dbwarden make-migrations' to generate migrations from your models
 ```
 
@@ -86,7 +86,7 @@ dbwarden make-migrations "create users table"
 Output:
 
 ```
-Created migration file: /home/user/myproject/migrations/V20240215_143000__create_users_table.sql
+Created migration file: /home/user/myproject/migrations/0001_create_users_table.sql
 Tables included: users
 ```
 
@@ -95,7 +95,7 @@ Tables included: users
 Check the generated SQL:
 
 ```sql
--- migrations/V20240215_143000__create_users_table.sql
+-- migrations/0001_create_users_table.sql
 
 -- upgrade
 
@@ -120,7 +120,7 @@ dbwarden migrate --verbose
 Output:
 
 ```
-[INFO] Applying migration: V20240215_143000__create_users_table.sql
+[INFO] Applying migration: 0001_create_users_table.sql
 Migrations completed successfully: 1 migrations applied.
 ```
 
@@ -135,7 +135,7 @@ Output:
 ```
 Migration Status
 ================
-✓ Applied   | V20240215_143000__create_users_table
+✓ Applied   | 0001_create_users_table
 
 Applied: 1
 Pending: 0
@@ -153,9 +153,9 @@ Output:
 ```
 Migration History
 =================
-Version         | Order | Description     | Applied At           | Type
-----------------|-------|-----------------|----------------------|------
-20240215_143000 | 1     | create users    | 2024-02-15 14:30:15  | versioned
+Version | Order | Description     | Applied At           | Type
+-------|-------|-----------------|----------------------|------
+0001   | 1     | create users    | 2024-02-15 14:30:15  | versioned
 ```
 
 ## Step 11: Add More Changes
@@ -196,7 +196,7 @@ dbwarden rollback
 Or rollback to a specific version:
 
 ```bash
-dbwarden rollback --to-version 20240215_143000
+dbwarden rollback --to-version 0001
 ```
 
 ## Step 13: Check Database Schema
@@ -257,7 +257,7 @@ dbwarden history
 dbwarden rollback
 
 # 3. Or rollback to specific version
-dbwarden rollback --to-version 20240215_143000
+dbwarden rollback --to-version 0001
 ```
 
 ## Next Steps

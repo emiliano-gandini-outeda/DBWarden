@@ -62,10 +62,10 @@ Prevent concurrent migration execution:
 
 ### Lock Table
 
-DBWarden creates a `strata_lock` table:
+DBWarden creates a `dbwarden_lock` table:
 
 ```sql
-CREATE TABLE strata_lock (
+CREATE TABLE dbwarden_lock (
     id INTEGER PRIMARY KEY,
     locked BOOLEAN DEFAULT FALSE,
     acquired_at DATETIME,
@@ -165,10 +165,10 @@ dbwarden unlock
 ```bash
 # Check database state
 dbwarden check-db --out txt
-# Look for strata_lock table
+# Look for dbwarden_lock table
 
 # Manual lock check
-psql $DATABASE_URL -c "SELECT * FROM strata_lock;"
+psql $DATABASE_URL -c "SELECT * FROM dbwarden_lock;"
 ```
 
 ### Migration Stuck at Lock
@@ -210,7 +210,7 @@ If `unlock` fails:
 
 ```sql
 -- SQL to manually release lock
-UPDATE strata_lock SET locked = FALSE, release_at = NOW();
+UPDATE dbwarden_lock SET locked = FALSE, release_at = NOW();
 ```
 
 ## See Also

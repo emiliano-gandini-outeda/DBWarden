@@ -109,8 +109,8 @@ Without options, rolls back exactly 1 migration.
 ### Successful Rollback
 
 ```
-Rolling back migration: V20240215_143002__create_posts.sql (version: 20240215_143002)
-Rollback completed: V20240215_143002__create_posts.sql in 0.03s
+Rolling back migration: 0003_create_posts.sql (version: 0003)
+Rollback completed: 0003_create_posts.sql in 0.03s
 Rollback completed successfully: 1 migrations reverted.
 ```
 
@@ -118,7 +118,7 @@ Rollback completed successfully: 1 migrations reverted.
 
 ```
 [INFO] Mode: sync
-[INFO] Rolling back migration: V20240215_143002__create_posts.sql
+[INFO] Rolling back migration: 0003_create_posts.sql
 [INFO] SQL Statement: DROP TABLE posts
 Rollback completed successfully: 1 migrations reverted.
 ```
@@ -209,10 +209,10 @@ git log --oneline -n 5
 ```bash
 # Bug discovered after migration applied
 dbwarden history
-# V20240215_143002__create_posts.sql - has bug
+# 0003_create_posts.sql - has bug
 
 # Rollback the buggy migration
-dbwarden rollback --to-version 20240215_143002
+dbwarden rollback --to-version 0003
 
 # Fix the migration file
 # Re-apply
@@ -298,7 +298,7 @@ jobs:
       - name: Rollback
         run: dbwarden rollback --to-version ${{ github.event.inputs.version }}
         env:
-          STRATA_SQLALCHEMY_URL: ${{ secrets.DATABASE_URL }}
+          DBWARDEN_SQLALCHEMY_URL: ${{ secrets.DATABASE_URL }}
 ```
 
 ## See Also

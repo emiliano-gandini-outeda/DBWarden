@@ -35,7 +35,7 @@ Async
 
 ## How Mode Is Determined
 
-1. **Environment variable**: `STRATA_ASYNC=true/false`
+1. **Environment variable**: `DBWARDEN_ASYNC=true/false`
 2. **Configuration**: From `.env` file
 
 ## Configuration
@@ -43,15 +43,15 @@ Async
 ### Enable Async Mode
 
 ```env
-STRATA_ASYNC=true
-STRATA_SQLALCHEMY_URL=postgresql+asyncpg://user:pass@host/db
+DBWARDEN_ASYNC=true
+DBWARDEN_SQLALCHEMY_URL=postgresql+asyncpg://user:pass@host/db
 ```
 
 ### Disable Async Mode
 
 ```env
-STRATA_ASYNC=false
-STRATA_SQLALCHEMY_URL=postgresql://user:pass@host/db
+DBWARDEN_ASYNC=false
+DBWARDEN_SQLALCHEMY_URL=postgresql://user:pass@host/db
 ```
 
 ## Use Cases
@@ -64,7 +64,7 @@ dbwarden mode
 
 # Check URL matches mode
 dbwarden env
-# Confirm STRATA_SQLALCHEMY_URL has correct driver
+# Confirm DBWARDEN_SQLALCHEMY_URL has correct driver
 ```
 
 ### Verify CI/CD Configuration
