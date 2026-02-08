@@ -814,23 +814,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Upgrading">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#migration-between-versions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Migration Between Versions
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -1827,23 +1810,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Upgrading">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#migration-between-versions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Migration Between Versions
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -1914,18 +1880,17 @@
 
 <h2 id="verifying-installation">Verifying Installation<a class="headerlink" href="#verifying-installation" title="Permanent link">&para;</a></h2>
 <p>Verify that DBWarden is installed correctly:</p>
-<div class="codehilite"><pre><span></span><code>dbwarden<span class="w"> </span>--version
+<div class="codehilite"><pre><span></span><code>dbwarden<span class="w"> </span>version
 </code></pre></div>
 
 <p>You should see output similar to:</p>
-<div class="codehilite"><pre><span></span><code>DBWarden version: 1.0.0
-Python version: 3.12.0
-SQLAlchemy version: 2.0.10
+<div class="codehilite"><pre><span></span><code>DBWarden Version: 1.0.0
+Python Version: 3.12.7 (main, Jan 19 2026, 23:31:25) [GCC 15.2.1 20251112]
 </code></pre></div>
 
 <h2 id="installation-from-source">Installation from Source<a class="headerlink" href="#installation-from-source" title="Permanent link">&para;</a></h2>
 <p>For development or to get the latest features:</p>
-<div class="codehilite"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/yourusername/dbwarden.git
+<div class="codehilite"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/emiliano-gandini-outeda/dbwarden.git
 <span class="nb">cd</span><span class="w"> </span>dbwarden
 pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
 </code></pre></div>
@@ -1962,9 +1927,7 @@ poetry<span class="w"> </span>shell
 </code></pre></div>
 
 <h3 id="docker-compose-example">Docker Compose Example<a class="headerlink" href="#docker-compose-example" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.8&#39;</span>
-
-<span class="nt">services</span><span class="p">:</span>
+<div class="codehilite"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">app</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
 <span class="w">    </span><span class="nt">env_file</span><span class="p">:</span>
@@ -2065,9 +2028,6 @@ pip<span class="w"> </span>install<span class="w"> </span>mysql-connector-python
 <p>Or with poetry:</p>
 <div class="codehilite"><pre><span></span><code>poetry<span class="w"> </span>update<span class="w"> </span>dbwarden
 </code></pre></div>
-
-<h3 id="migration-between-versions">Migration Between Versions<a class="headerlink" href="#migration-between-versions" title="Permanent link">&para;</a></h3>
-<p>When upgrading DBWarden, check the <a href="https://github.com/yourusername/dbwarden/blob/main/CHANGELOG.md">changelog</a> for any breaking changes that might affect your migration workflow.</p>
 
 
 

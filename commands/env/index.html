@@ -1626,10 +1626,10 @@
 <h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
 <h3 id="basic-usage">Basic Usage<a class="headerlink" href="#basic-usage" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><code>$<span class="w"> </span>dbwarden<span class="w"> </span>env
-STRATA_SQLALCHEMY_URL:<span class="w"> </span>***
-STRATA_ASYNC:<span class="w"> </span><span class="nb">true</span>
-STRATA_MODEL_PATHS:<span class="w"> </span>models/,app/models/
-STRATA_POSTGRES_SCHEMA:<span class="w"> </span>public
+DBWARDEN_SQLALCHEMY_URL:<span class="w"> </span>***
+DBWARDEN_ASYNC:<span class="w"> </span><span class="nb">true</span>
+DBWARDEN_MODEL_PATHS:<span class="w"> </span>models/,app/models/
+DBWARDEN_POSTGRES_SCHEMA:<span class="w"> </span>public
 </code></pre></div>
 
 <h3 id="missing-variables">Missing Variables<a class="headerlink" href="#missing-variables" title="Permanent link">&para;</a></h3>
@@ -1645,22 +1645,22 @@ STRATA_POSTGRES_SCHEMA:<span class="w"> </span>public
 </thead>
 <tbody>
 <tr>
-<td><code>STRATA_SQLALCHEMY_URL</code></td>
+<td><code>DBWARDEN_SQLALCHEMY_URL</code></td>
 <td><code>***</code></td>
 <td>Database URL (masked)</td>
 </tr>
 <tr>
-<td><code>STRATA_ASYNC</code></td>
+<td><code>DBWARDEN_ASYNC</code></td>
 <td>Actual value</td>
 <td>Sync/async mode</td>
 </tr>
 <tr>
-<td><code>STRATA_MODEL_PATHS</code></td>
+<td><code>DBWARDEN_MODEL_PATHS</code></td>
 <td>Actual value</td>
 <td>Model paths</td>
 </tr>
 <tr>
-<td><code>STRATA_POSTGRES_SCHEMA</code></td>
+<td><code>DBWARDEN_POSTGRES_SCHEMA</code></td>
 <td>Actual value</td>
 <td>PostgreSQL schema</td>
 </tr>
@@ -1699,7 +1699,7 @@ dbwarden<span class="w"> </span>status<span class="w">     </span><span class="c
 </code></pre></div>
 
 <h3 id="check-mode">Check Mode<a class="headerlink" href="#check-mode" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code>dbwarden<span class="w"> </span>env<span class="w">        </span><span class="c1"># Shows STRATA_ASYNC</span>
+<div class="codehilite"><pre><span></span><code>dbwarden<span class="w"> </span>env<span class="w">        </span><span class="c1"># Shows DBWARDEN_ASYNC</span>
 dbwarden<span class="w"> </span>mode<span class="w">       </span><span class="c1"># Shows just the mode</span>
 </code></pre></div>
 

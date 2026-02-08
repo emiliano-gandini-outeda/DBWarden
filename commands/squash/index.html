@@ -1897,15 +1897,15 @@
 </ol>
 <h2 id="before-squashing">Before Squashing<a class="headerlink" href="#before-squashing" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><code>Migrations:
-├── V20240215_143000__create_users.sql
-├── V20240215_143001__add_username.sql
-├── V20240215_143002__add_email.sql
-└── V20240215_143003__add_password.sql
+├── 0001_create_users.sql
+├── 0002_add_username.sql
+├── 0003_add_email.sql
+└── 0004_add_password.sql
 </code></pre></div>
 
 <h2 id="after-squashing">After Squashing<a class="headerlink" href="#after-squashing" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><code>Migrations:
-└── V20240215_143000__initial_schema.sql
+└── 0001_initial_schema.sql
 </code></pre></div>
 
 <h2 id="use-cases">Use Cases<a class="headerlink" href="#use-cases" title="Permanent link">&para;</a></h2>
@@ -1981,9 +1981,9 @@ Please run &#39;dbwarden migrate&#39; first.
 dbwarden<span class="w"> </span>new<span class="w"> </span><span class="s2">&quot;consolidate user migrations&quot;</span>
 
 <span class="c1"># 2. Edit the file, combining SQL from:</span>
-<span class="c1"># - V20240215_143000__create_users.sql</span>
-<span class="c1"># - V20240215_143001__add_username.sql</span>
-<span class="c1"># - V20240215_143002__add_email.sql</span>
+<span class="c1"># - 0001_create_users.sql</span>
+<span class="c1"># - 0002_add_username.sql</span>
+<span class="c1"># - 0003_add_email.sql</span>
 </code></pre></div>
 
 <h2 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>

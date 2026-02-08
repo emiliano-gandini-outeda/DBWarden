@@ -601,10 +601,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#strata_sqlalchemy_url" class="md-nav__link">
+  <a href="#dbwarden_sqlalchemy_url" class="md-nav__link">
     <span class="md-ellipsis">
       
-        STRATA_SQLALCHEMY_URL
+        DBWARDEN_SQLALCHEMY_URL
       
     </span>
   </a>
@@ -629,10 +629,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#strata_async" class="md-nav__link">
+  <a href="#dbwarden_async" class="md-nav__link">
     <span class="md-ellipsis">
       
-        STRATA_ASYNC
+        DBWARDEN_ASYNC
       
     </span>
   </a>
@@ -640,10 +640,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#strata_model_paths" class="md-nav__link">
+  <a href="#dbwarden_model_paths" class="md-nav__link">
     <span class="md-ellipsis">
       
-        STRATA_MODEL_PATHS
+        DBWARDEN_MODEL_PATHS
       
     </span>
   </a>
@@ -651,10 +651,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#strata_postgres_schema" class="md-nav__link">
+  <a href="#dbwarden_postgres_schema" class="md-nav__link">
     <span class="md-ellipsis">
       
-        STRATA_POSTGRES_SCHEMA
+        DBWARDEN_POSTGRES_SCHEMA
       
     </span>
   </a>
@@ -773,10 +773,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#missing-strata_sqlalchemy_url" class="md-nav__link">
+  <a href="#missing-dbwarden_sqlalchemy_url" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Missing STRATA_SQLALCHEMY_URL
+        Missing DBWARDEN_SQLALCHEMY_URL
       
     </span>
   </a>
@@ -1548,10 +1548,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#strata_sqlalchemy_url" class="md-nav__link">
+  <a href="#dbwarden_sqlalchemy_url" class="md-nav__link">
     <span class="md-ellipsis">
       
-        STRATA_SQLALCHEMY_URL
+        DBWARDEN_SQLALCHEMY_URL
       
     </span>
   </a>
@@ -1576,10 +1576,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#strata_async" class="md-nav__link">
+  <a href="#dbwarden_async" class="md-nav__link">
     <span class="md-ellipsis">
       
-        STRATA_ASYNC
+        DBWARDEN_ASYNC
       
     </span>
   </a>
@@ -1587,10 +1587,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#strata_model_paths" class="md-nav__link">
+  <a href="#dbwarden_model_paths" class="md-nav__link">
     <span class="md-ellipsis">
       
-        STRATA_MODEL_PATHS
+        DBWARDEN_MODEL_PATHS
       
     </span>
   </a>
@@ -1598,10 +1598,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#strata_postgres_schema" class="md-nav__link">
+  <a href="#dbwarden_postgres_schema" class="md-nav__link">
     <span class="md-ellipsis">
       
-        STRATA_POSTGRES_SCHEMA
+        DBWARDEN_POSTGRES_SCHEMA
       
     </span>
   </a>
@@ -1720,10 +1720,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#missing-strata_sqlalchemy_url" class="md-nav__link">
+  <a href="#missing-dbwarden_sqlalchemy_url" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Missing STRATA_SQLALCHEMY_URL
+        Missing DBWARDEN_SQLALCHEMY_URL
       
     </span>
   </a>
@@ -1794,7 +1794,7 @@
 <p>DBWarden looks for a <code>.env</code> file in the current working directory or any parent directory. This file must contain at minimum the database connection URL.</p>
 <h3 id="creating-the-env-file">Creating the .env File<a class="headerlink" href="#creating-the-env-file" title="Permanent link">&para;</a></h3>
 <p>Create a <code>.env</code> file in your project root:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">STRATA_SQLALCHEMY_URL</span><span class="o">=</span><span class="nl">postgresql</span><span class="p">:</span><span class="o">//</span><span class="k">user</span><span class="err">:</span><span class="n">password</span><span class="nv">@localhost</span><span class="err">:</span><span class="mi">5432</span><span class="o">/</span><span class="n">mydb</span>
+<div class="codehilite"><pre><span></span><code><span class="n">DBWARDEN_SQLALCHEMY_URL</span><span class="o">=</span><span class="nl">postgresql</span><span class="p">:</span><span class="o">//</span><span class="k">user</span><span class="err">:</span><span class="n">password</span><span class="nv">@localhost</span><span class="err">:</span><span class="mi">5432</span><span class="o">/</span><span class="n">mydb</span>
 </code></pre></div>
 
 <h3 id="env-file-location">.env File Location<a class="headerlink" href="#env-file-location" title="Permanent link">&para;</a></h3>
@@ -1805,31 +1805,31 @@
 </ol>
 <p>This allows you to have a single <code>.env</code> file at your project root that applies to all subdirectories.</p>
 <h2 id="required-configuration">Required Configuration<a class="headerlink" href="#required-configuration" title="Permanent link">&para;</a></h2>
-<h3 id="strata_sqlalchemy_url">STRATA_SQLALCHEMY_URL<a class="headerlink" href="#strata_sqlalchemy_url" title="Permanent link">&para;</a></h3>
+<h3 id="dbwarden_sqlalchemy_url">DBWARDEN_SQLALCHEMY_URL<a class="headerlink" href="#dbwarden_sqlalchemy_url" title="Permanent link">&para;</a></h3>
 <p>The SQLAlchemy database connection URL. This is the only required configuration variable.</p>
 <p><strong>Format:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="n">STRATA_SQLALCHEMY_URL</span><span class="o">=</span><span class="n">dialect</span><span class="o">+</span><span class="nl">driver</span><span class="p">:</span><span class="o">//</span><span class="nl">username</span><span class="p">:</span><span class="n">password</span><span class="nv">@host</span><span class="err">:</span><span class="n">port</span><span class="o">/</span><span class="k">database</span>
+<div class="codehilite"><pre><span></span><code><span class="n">DBWARDEN_SQLALCHEMY_URL</span><span class="o">=</span><span class="n">dialect</span><span class="o">+</span><span class="nl">driver</span><span class="p">:</span><span class="o">//</span><span class="nl">username</span><span class="p">:</span><span class="n">password</span><span class="nv">@host</span><span class="err">:</span><span class="n">port</span><span class="o">/</span><span class="k">database</span>
 </code></pre></div>
 
 <p><strong>Examples:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="err">#</span><span class="w"> </span><span class="n">PostgreSQL</span>
-<span class="n">STRATA_SQLALCHEMY_URL</span><span class="o">=</span><span class="nl">postgresql</span><span class="p">:</span><span class="o">//</span><span class="k">user</span><span class="err">:</span><span class="n">password</span><span class="nv">@localhost</span><span class="err">:</span><span class="mi">5432</span><span class="o">/</span><span class="n">mydb</span>
+<span class="n">DBWARDEN_SQLALCHEMY_URL</span><span class="o">=</span><span class="nl">postgresql</span><span class="p">:</span><span class="o">//</span><span class="k">user</span><span class="err">:</span><span class="n">password</span><span class="nv">@localhost</span><span class="err">:</span><span class="mi">5432</span><span class="o">/</span><span class="n">mydb</span>
 
 <span class="err">#</span><span class="w"> </span><span class="n">PostgreSQL</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">async</span>
-<span class="n">STRATA_SQLALCHEMY_URL</span><span class="o">=</span><span class="n">postgresql</span><span class="o">+</span><span class="nl">asyncpg</span><span class="p">:</span><span class="o">//</span><span class="k">user</span><span class="err">:</span><span class="n">password</span><span class="nv">@localhost</span><span class="err">:</span><span class="mi">5432</span><span class="o">/</span><span class="n">mydb</span>
+<span class="n">DBWARDEN_SQLALCHEMY_URL</span><span class="o">=</span><span class="n">postgresql</span><span class="o">+</span><span class="nl">asyncpg</span><span class="p">:</span><span class="o">//</span><span class="k">user</span><span class="err">:</span><span class="n">password</span><span class="nv">@localhost</span><span class="err">:</span><span class="mi">5432</span><span class="o">/</span><span class="n">mydb</span>
 
 <span class="err">#</span><span class="w"> </span><span class="n">MySQL</span>
-<span class="n">STRATA_SQLALCHEMY_URL</span><span class="o">=</span><span class="nl">mysql</span><span class="p">:</span><span class="o">//</span><span class="k">user</span><span class="err">:</span><span class="n">password</span><span class="nv">@localhost</span><span class="err">:</span><span class="mi">3306</span><span class="o">/</span><span class="n">mydb</span>
+<span class="n">DBWARDEN_SQLALCHEMY_URL</span><span class="o">=</span><span class="nl">mysql</span><span class="p">:</span><span class="o">//</span><span class="k">user</span><span class="err">:</span><span class="n">password</span><span class="nv">@localhost</span><span class="err">:</span><span class="mi">3306</span><span class="o">/</span><span class="n">mydb</span>
 
 <span class="err">#</span><span class="w"> </span><span class="n">SQLite</span>
-<span class="n">STRATA_SQLALCHEMY_URL</span><span class="o">=</span><span class="nl">sqlite</span><span class="p">:</span><span class="o">///</span><span class="p">.</span><span class="o">/</span><span class="n">mydb</span><span class="p">.</span><span class="n">db</span>
+<span class="n">DBWARDEN_SQLALCHEMY_URL</span><span class="o">=</span><span class="nl">sqlite</span><span class="p">:</span><span class="o">///</span><span class="p">.</span><span class="o">/</span><span class="n">mydb</span><span class="p">.</span><span class="n">db</span>
 
 <span class="err">#</span><span class="w"> </span><span class="n">SQLite</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">memory</span>
-<span class="n">STRATA_SQLALCHEMY_URL</span><span class="o">=</span><span class="nl">sqlite</span><span class="p">:</span><span class="o">///</span><span class="err">:</span><span class="nl">memory</span><span class="p">:</span>
+<span class="n">DBWARDEN_SQLALCHEMY_URL</span><span class="o">=</span><span class="nl">sqlite</span><span class="p">:</span><span class="o">///</span><span class="err">:</span><span class="nl">memory</span><span class="p">:</span>
 </code></pre></div>
 
 <h2 id="optional-configuration">Optional Configuration<a class="headerlink" href="#optional-configuration" title="Permanent link">&para;</a></h2>
-<h3 id="strata_async">STRATA_ASYNC<a class="headerlink" href="#strata_async" title="Permanent link">&para;</a></h3>
+<h3 id="dbwarden_async">DBWARDEN_ASYNC<a class="headerlink" href="#dbwarden_async" title="Permanent link">&para;</a></h3>
 <p>Enable or disable asynchronous database operations.</p>
 <table>
 <thead>
@@ -1850,49 +1850,53 @@
 </tbody>
 </table>
 <p><strong>Example:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="n">STRATA_ASYNC</span><span class="o">=</span><span class="k">true</span>
-<span class="n">STRATA_SQLALCHEMY_URL</span><span class="o">=</span><span class="n">postgresql</span><span class="o">+</span><span class="nl">asyncpg</span><span class="p">:</span><span class="o">//</span><span class="k">user</span><span class="err">:</span><span class="n">password</span><span class="nv">@localhost</span><span class="err">:</span><span class="mi">5432</span><span class="o">/</span><span class="n">mydb</span>
+<div class="codehilite"><pre><span></span><code><span class="n">DBWARDEN_ASYNC</span><span class="o">=</span><span class="k">true</span>
+<span class="n">DBWARDEN_SQLALCHEMY_URL</span><span class="o">=</span><span class="n">postgresql</span><span class="o">+</span><span class="nl">asyncpg</span><span class="p">:</span><span class="o">//</span><span class="k">user</span><span class="err">:</span><span class="n">password</span><span class="nv">@localhost</span><span class="err">:</span><span class="mi">5432</span><span class="o">/</span><span class="n">mydb</span>
 </code></pre></div>
 
-<h3 id="strata_model_paths">STRATA_MODEL_PATHS<a class="headerlink" href="#strata_model_paths" title="Permanent link">&para;</a></h3>
+<h3 id="dbwarden_model_paths">DBWARDEN_MODEL_PATHS<a class="headerlink" href="#dbwarden_model_paths" title="Permanent link">&para;</a></h3>
 <p>Comma-separated list of paths to directories containing SQLAlchemy models.</p>
 <p><strong>Example:</strong></p>
-<div class="codehilite"><pre><span></span><code>STRATA_MODEL_PATHS=models/,app/models/,core/database/models/
+<div class="codehilite"><pre><span></span><code>DBWARDEN_MODEL_PATHS=models/,app/models/,core/database/models/
 </code></pre></div>
 
-<p>If not specified, DBWarden will automatically look for <code>models/</code> or <code>model/</code> directories.</p>
-<h3 id="strata_postgres_schema">STRATA_POSTGRES_SCHEMA<a class="headerlink" href="#strata_postgres_schema" title="Permanent link">&para;</a></h3>
+<p>If not specified, DBWarden will automatically discover models by:
+- Scanning all subdirectories of the current directory
+- Looking for <code>models/</code> or <code>model/</code> folders inside each subdirectory
+- Searching up to 5 parent directories from current working directory
+- Ignoring common library folders (<code>.venv</code>, <code>node_modules</code>, <code>__pycache__</code>, etc.)</p>
+<h3 id="dbwarden_postgres_schema">DBWARDEN_POSTGRES_SCHEMA<a class="headerlink" href="#dbwarden_postgres_schema" title="Permanent link">&para;</a></h3>
 <p>PostgreSQL schema to use (PostgreSQL only).</p>
 <p><strong>Example:</strong></p>
-<div class="codehilite"><pre><span></span><code>STRATA_POSTGRES_SCHEMA=public
+<div class="codehilite"><pre><span></span><code>DBWARDEN_POSTGRES_SCHEMA=public
 </code></pre></div>
 
 <h2 id="complete-env-example">Complete .env Example<a class="headerlink" href="#complete-env-example" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><code><span class="err">#</span><span class="w"> </span><span class="k">Database</span><span class="w"> </span><span class="k">Connection</span>
-<span class="n">STRATA_SQLALCHEMY_URL</span><span class="o">=</span><span class="nl">postgresql</span><span class="p">:</span><span class="o">//</span><span class="nl">myuser</span><span class="p">:</span><span class="n">mypassword</span><span class="nv">@localhost</span><span class="err">:</span><span class="mi">5432</span><span class="o">/</span><span class="n">myapp</span>
-<span class="n">STRATA_ASYNC</span><span class="o">=</span><span class="k">true</span>
+<span class="n">DBWARDEN_SQLALCHEMY_URL</span><span class="o">=</span><span class="nl">postgresql</span><span class="p">:</span><span class="o">//</span><span class="nl">myuser</span><span class="p">:</span><span class="n">mypassword</span><span class="nv">@localhost</span><span class="err">:</span><span class="mi">5432</span><span class="o">/</span><span class="n">myapp</span>
+<span class="n">DBWARDEN_ASYNC</span><span class="o">=</span><span class="k">true</span>
 
 <span class="err">#</span><span class="w"> </span><span class="n">Model</span><span class="w"> </span><span class="n">Discovery</span>
-<span class="n">STRATA_MODEL_PATHS</span><span class="o">=</span><span class="n">app</span><span class="o">/</span><span class="n">models</span><span class="o">/</span><span class="p">,</span><span class="n">models</span><span class="o">/</span>
+<span class="n">DBWARDEN_MODEL_PATHS</span><span class="o">=</span><span class="n">app</span><span class="o">/</span><span class="n">models</span><span class="o">/</span><span class="p">,</span><span class="n">models</span><span class="o">/</span>
 
 <span class="err">#</span><span class="w"> </span><span class="n">PostgreSQL</span><span class="w"> </span><span class="k">Schema</span>
-<span class="n">STRATA_POSTGRES_SCHEMA</span><span class="o">=</span><span class="k">public</span>
+<span class="n">DBWARDEN_POSTGRES_SCHEMA</span><span class="o">=</span><span class="k">public</span>
 </code></pre></div>
 
 <h2 id="configuration-in-different-environments">Configuration in Different Environments<a class="headerlink" href="#configuration-in-different-environments" title="Permanent link">&para;</a></h2>
 <h3 id="development-environment">Development Environment<a class="headerlink" href="#development-environment" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="n">STRATA_SQLALCHEMY_URL</span><span class="o">=</span><span class="nl">postgresql</span><span class="p">:</span><span class="o">//</span><span class="nl">dev</span><span class="p">:</span><span class="n">dev123</span><span class="nv">@localhost</span><span class="err">:</span><span class="mi">5432</span><span class="o">/</span><span class="n">dev_db</span>
-<span class="n">STRATA_ASYNC</span><span class="o">=</span><span class="k">false</span>
+<div class="codehilite"><pre><span></span><code><span class="n">DBWARDEN_SQLALCHEMY_URL</span><span class="o">=</span><span class="nl">postgresql</span><span class="p">:</span><span class="o">//</span><span class="nl">dev</span><span class="p">:</span><span class="n">dev123</span><span class="nv">@localhost</span><span class="err">:</span><span class="mi">5432</span><span class="o">/</span><span class="n">dev_db</span>
+<span class="n">DBWARDEN_ASYNC</span><span class="o">=</span><span class="k">false</span>
 </code></pre></div>
 
 <h3 id="staging-environment">Staging Environment<a class="headerlink" href="#staging-environment" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="n">STRATA_SQLALCHEMY_URL</span><span class="o">=</span><span class="nl">postgresql</span><span class="p">:</span><span class="o">//</span><span class="nl">staging</span><span class="p">:</span><span class="n">staging123</span><span class="nv">@staging</span><span class="p">.</span><span class="n">example</span><span class="p">.</span><span class="nl">com</span><span class="p">:</span><span class="mi">5432</span><span class="o">/</span><span class="n">staging_db</span>
-<span class="n">STRATA_ASYNC</span><span class="o">=</span><span class="k">true</span>
+<div class="codehilite"><pre><span></span><code><span class="n">DBWARDEN_SQLALCHEMY_URL</span><span class="o">=</span><span class="nl">postgresql</span><span class="p">:</span><span class="o">//</span><span class="nl">staging</span><span class="p">:</span><span class="n">staging123</span><span class="nv">@staging</span><span class="p">.</span><span class="n">example</span><span class="p">.</span><span class="nl">com</span><span class="p">:</span><span class="mi">5432</span><span class="o">/</span><span class="n">staging_db</span>
+<span class="n">DBWARDEN_ASYNC</span><span class="o">=</span><span class="k">true</span>
 </code></pre></div>
 
 <h3 id="production-environment">Production Environment<a class="headerlink" href="#production-environment" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="n">STRATA_SQLALCHEMY_URL</span><span class="o">=</span><span class="nl">postgresql</span><span class="p">:</span><span class="o">//</span><span class="nl">prod</span><span class="p">:</span><span class="n">securepass</span><span class="nv">@prod</span><span class="p">.</span><span class="n">example</span><span class="p">.</span><span class="nl">com</span><span class="p">:</span><span class="mi">5432</span><span class="o">/</span><span class="n">prod_db</span>
-<span class="n">STRATA_ASYNC</span><span class="o">=</span><span class="k">true</span>
+<div class="codehilite"><pre><span></span><code><span class="n">DBWARDEN_SQLALCHEMY_URL</span><span class="o">=</span><span class="nl">postgresql</span><span class="p">:</span><span class="o">//</span><span class="nl">prod</span><span class="p">:</span><span class="n">securepass</span><span class="nv">@prod</span><span class="p">.</span><span class="n">example</span><span class="p">.</span><span class="nl">com</span><span class="p">:</span><span class="mi">5432</span><span class="o">/</span><span class="n">prod_db</span>
+<span class="n">DBWARDEN_ASYNC</span><span class="o">=</span><span class="k">true</span>
 </code></pre></div>
 
 <h2 id="configuration-validation">Configuration Validation<a class="headerlink" href="#configuration-validation" title="Permanent link">&para;</a></h2>
@@ -1901,10 +1905,10 @@
 </code></pre></div>
 
 <p>Output:</p>
-<div class="codehilite"><pre><span></span><code>STRATA_SQLALCHEMY_URL: ***
-STRATA_ASYNC: true
-STRATA_MODEL_PATHS: models/
-STRATA_POSTGRES_SCHEMA: public
+<div class="codehilite"><pre><span></span><code>DBWARDEN_SQLALCHEMY_URL: ***
+DBWARDEN_ASYNC: true
+DBWARDEN_MODEL_PATHS: models/
+DBWARDEN_POSTGRES_SCHEMA: public
 </code></pre></div>
 
 <h2 id="environment-variables-precedence">Environment Variables Precedence<a class="headerlink" href="#environment-variables-precedence" title="Permanent link">&para;</a></h2>
@@ -1918,12 +1922,12 @@ STRATA_POSTGRES_SCHEMA: public
 <h2 id="special-characters-in-passwords">Special Characters in Passwords<a class="headerlink" href="#special-characters-in-passwords" title="Permanent link">&para;</a></h2>
 <p>If your database password contains special characters, URL-encode them:</p>
 <div class="codehilite"><pre><span></span><code><span class="err">#</span><span class="w"> </span><span class="nl">Password</span><span class="p">:</span><span class="w"> </span><span class="n">p</span><span class="nv">@ss</span><span class="err">:</span><span class="n">word</span><span class="o">/</span><span class="mi">123</span>
-<span class="n">STRATA_SQLALCHEMY_URL</span><span class="o">=</span><span class="nl">postgresql</span><span class="p">:</span><span class="o">//</span><span class="k">user</span><span class="err">:</span><span class="n">p</span><span class="o">%</span><span class="mi">40</span><span class="n">ss</span><span class="o">%</span><span class="mi">3</span><span class="n">Aword</span><span class="o">%</span><span class="mi">2</span><span class="n">F123</span><span class="nv">@localhost</span><span class="err">:</span><span class="mi">5432</span><span class="o">/</span><span class="n">mydb</span>
+<span class="n">DBWARDEN_SQLALCHEMY_URL</span><span class="o">=</span><span class="nl">postgresql</span><span class="p">:</span><span class="o">//</span><span class="k">user</span><span class="err">:</span><span class="n">p</span><span class="o">%</span><span class="mi">40</span><span class="n">ss</span><span class="o">%</span><span class="mi">3</span><span class="n">Aword</span><span class="o">%</span><span class="mi">2</span><span class="n">F123</span><span class="nv">@localhost</span><span class="err">:</span><span class="mi">5432</span><span class="o">/</span><span class="n">mydb</span>
 </code></pre></div>
 
 <h2 id="troubleshooting-configuration">Troubleshooting Configuration<a class="headerlink" href="#troubleshooting-configuration" title="Permanent link">&para;</a></h2>
-<h3 id="missing-strata_sqlalchemy_url">Missing STRATA_SQLALCHEMY_URL<a class="headerlink" href="#missing-strata_sqlalchemy_url" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="n">Error</span><span class="o">:</span><span class="w"> </span><span class="n">STRATA_SQLALCHEMY_URL</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">required</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">.</span><span class="na">env</span><span class="w"> </span><span class="n">file</span><span class="o">.</span>
+<h3 id="missing-dbwarden_sqlalchemy_url">Missing DBWARDEN_SQLALCHEMY_URL<a class="headerlink" href="#missing-dbwarden_sqlalchemy_url" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="n">Error</span><span class="o">:</span><span class="w"> </span><span class="n">DBWARDEN_SQLALCHEMY_URL</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">required</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">.</span><span class="na">env</span><span class="w"> </span><span class="n">file</span><span class="o">.</span>
 </code></pre></div>
 
 <p>Make sure your <code>.env</code> file exists and contains the required variable.</p>

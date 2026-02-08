@@ -2365,7 +2365,7 @@
 - Unique columns</p>
 <h3 id="manual-indexes-manual-migration">Manual Indexes (Manual Migration)<a class="headerlink" href="#manual-indexes-manual-migration" title="Permanent link">&para;</a></h3>
 <p>For custom indexes, use manual migrations:</p>
-<div class="codehilite"><pre><span></span><code><span class="c1">-- V20240215_143000__add_user_indexes.sql</span>
+<div class="codehilite"><pre><span></span><code><span class="c1">-- 0002_add_user_indexes.sql</span>
 
 <span class="c1">-- upgrade</span>
 
@@ -2429,7 +2429,7 @@
 <p>Searches up to 5 parent directories from current working directory.</p>
 <h3 id="manual-path-configuration">Manual Path Configuration<a class="headerlink" href="#manual-path-configuration" title="Permanent link">&para;</a></h3>
 <p>Set custom paths in <code>.env</code>:</p>
-<div class="codehilite"><pre><span></span><code>STRATA_MODEL_PATHS=app/models/,core/database/models/,shared/models/
+<div class="codehilite"><pre><span></span><code>DBWARDEN_MODEL_PATHS=app/models/,core/database/models/,shared/models/
 </code></pre></div>
 
 <h3 id="import-patterns">Import Patterns<a class="headerlink" href="#import-patterns" title="Permanent link">&para;</a></h3>
@@ -2550,7 +2550,7 @@
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
 <h3 id="model-not-discovered">Model Not Discovered<a class="headerlink" href="#model-not-discovered" title="Permanent link">&para;</a></h3>
 <ol>
-<li>Check <code>STRATA_MODEL_PATHS</code> in <code>.env</code></li>
+<li>Check <code>DBWARDEN_MODEL_PATHS</code> in <code>.env</code></li>
 <li>Verify file is in <code>models/</code> directory</li>
 <li>Ensure model inherits from <code>Base</code></li>
 <li>Check <code>__tablename__</code> is defined</li>

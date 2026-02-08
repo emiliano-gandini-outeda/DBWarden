@@ -1749,12 +1749,12 @@
 <h3 id="basic-usage">Basic Usage<a class="headerlink" href="#basic-usage" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><code>$<span class="w"> </span>dbwarden<span class="w"> </span><span class="nb">history</span>
 Migration<span class="w"> </span><span class="nv">History</span>
-<span class="o">=================</span>
-Version<span class="w">         </span><span class="p">|</span><span class="w"> </span>Order<span class="w"> </span><span class="p">|</span><span class="w"> </span>Description<span class="w">     </span><span class="p">|</span><span class="w"> </span>Applied<span class="w"> </span>At<span class="w">           </span><span class="p">|</span><span class="w"> </span>Type
-----------------<span class="p">|</span>-------<span class="p">|</span>-----------------<span class="p">|</span>----------------------<span class="p">|</span>------
-20240215_143000<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">1</span><span class="w">     </span><span class="p">|</span><span class="w"> </span>create<span class="w"> </span>users<span class="w">    </span><span class="p">|</span><span class="w"> </span><span class="m">2024</span>-02-15<span class="w"> </span><span class="m">14</span>:30:15<span class="w">  </span><span class="p">|</span><span class="w"> </span>versioned
-20240215_143001<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">2</span><span class="w">     </span><span class="p">|</span><span class="w"> </span>create<span class="w"> </span>posts<span class="w">    </span><span class="p">|</span><span class="w"> </span><span class="m">2024</span>-02-15<span class="w"> </span><span class="m">14</span>:30:20<span class="w">  </span><span class="p">|</span><span class="w"> </span>versioned
-20240215_143002<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">3</span><span class="w">     </span><span class="p">|</span><span class="w"> </span>add<span class="w"> </span>comments<span class="w">    </span><span class="p">|</span><span class="w"> </span><span class="m">2024</span>-02-15<span class="w"> </span><span class="m">14</span>:30:25<span class="w">  </span><span class="p">|</span><span class="w"> </span>versioned
+<span class="o">================</span>
+Version<span class="w"> </span><span class="p">|</span><span class="w"> </span>Order<span class="w"> </span><span class="p">|</span><span class="w"> </span>Description<span class="w">     </span><span class="p">|</span><span class="w"> </span>Applied<span class="w"> </span>At<span class="w">           </span><span class="p">|</span><span class="w"> </span>Type
+-------<span class="p">|</span>-------<span class="p">|</span>-----------------<span class="p">|</span>----------------------<span class="p">|</span>------
+<span class="m">0001</span><span class="w">   </span><span class="p">|</span><span class="w"> </span><span class="m">1</span><span class="w">     </span><span class="p">|</span><span class="w"> </span>create<span class="w"> </span>users<span class="w">    </span><span class="p">|</span><span class="w"> </span><span class="m">2024</span>-02-15<span class="w"> </span><span class="m">14</span>:30:15<span class="w"> </span><span class="p">|</span><span class="w"> </span>versioned
+<span class="m">0002</span><span class="w">   </span><span class="p">|</span><span class="w"> </span><span class="m">2</span><span class="w">     </span><span class="p">|</span><span class="w"> </span>create<span class="w"> </span>posts<span class="w">    </span><span class="p">|</span><span class="w"> </span><span class="m">2024</span>-02-15<span class="w"> </span><span class="m">14</span>:30:20<span class="w"> </span><span class="p">|</span><span class="w"> </span>versioned
+<span class="m">0003</span><span class="w">   </span><span class="p">|</span><span class="w"> </span><span class="m">3</span><span class="w">     </span><span class="p">|</span><span class="w"> </span>add<span class="w"> </span>comments<span class="w">    </span><span class="p">|</span><span class="w"> </span><span class="m">2024</span>-02-15<span class="w"> </span><span class="m">14</span>:30:25<span class="w"> </span><span class="p">|</span><span class="w"> </span>versioned
 </code></pre></div>
 
 <h3 id="no-migrations-applied">No Migrations Applied<a class="headerlink" href="#no-migrations-applied" title="Permanent link">&para;</a></h3>
@@ -1828,25 +1828,25 @@ dbwarden<span class="w"> </span>status<span class="w">     </span><span class="c
 </code></pre></div>
 
 <h2 id="database-source">Database Source<a class="headerlink" href="#database-source" title="Permanent link">&para;</a></h2>
-<p>The history is read from the <code>strata_migrations</code> table in your database:</p>
-<div class="codehilite"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">strata_migrations</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">applied_at</span><span class="p">;</span>
+<p>The history is read from the <code>dbwarden_migrations</code> table in your database:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dbwarden_migrations</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">applied_at</span><span class="p">;</span>
 </code></pre></div>
 
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
 <h3 id="no-migrations-have-been-applied-yet">"No migrations have been applied yet"<a class="headerlink" href="#no-migrations-have-been-applied-yet" title="Permanent link">&para;</a></h3>
 <p>This means either:
 1. No migrations have been run
-2. The <code>strata_migrations</code> table doesn't exist
+2. The <code>dbwarden_migrations</code> table doesn't exist
 3. Running <code>dbwarden migrate</code> for the first time</p>
 <h3 id="empty-history-despite-migrations">Empty History Despite Migrations<a class="headerlink" href="#empty-history-despite-migrations" title="Permanent link">&para;</a></h3>
 <p>If migrations were applied but history is empty:</p>
 <ol>
 <li>Check you're connecting to the correct database</li>
 <li>Verify <code>.env</code> configuration</li>
-<li>Check <code>strata_migrations</code> table exists:</li>
+<li>Check <code>dbwarden_migrations</code> table exists:</li>
 </ol>
 <div class="codehilite"><pre><span></span><code>dbwarden<span class="w"> </span>check-db<span class="w"> </span>--out<span class="w"> </span>txt
-<span class="c1"># Look for strata_migrations table</span>
+<span class="c1"># Look for dbwarden_migrations table</span>
 </code></pre></div>
 
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>

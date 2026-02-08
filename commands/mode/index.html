@@ -1731,18 +1731,18 @@
 </table>
 <h2 id="how-mode-is-determined">How Mode Is Determined<a class="headerlink" href="#how-mode-is-determined" title="Permanent link">&para;</a></h2>
 <ol>
-<li><strong>Environment variable</strong>: <code>STRATA_ASYNC=true/false</code></li>
+<li><strong>Environment variable</strong>: <code>DBWARDEN_ASYNC=true/false</code></li>
 <li><strong>Configuration</strong>: From <code>.env</code> file</li>
 </ol>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
 <h3 id="enable-async-mode">Enable Async Mode<a class="headerlink" href="#enable-async-mode" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="n">STRATA_ASYNC</span><span class="o">=</span><span class="k">true</span>
-<span class="n">STRATA_SQLALCHEMY_URL</span><span class="o">=</span><span class="n">postgresql</span><span class="o">+</span><span class="nl">asyncpg</span><span class="p">:</span><span class="o">//</span><span class="k">user</span><span class="err">:</span><span class="n">pass</span><span class="nv">@host</span><span class="o">/</span><span class="n">db</span>
+<div class="codehilite"><pre><span></span><code><span class="n">DBWARDEN_ASYNC</span><span class="o">=</span><span class="k">true</span>
+<span class="n">DBWARDEN_SQLALCHEMY_URL</span><span class="o">=</span><span class="n">postgresql</span><span class="o">+</span><span class="nl">asyncpg</span><span class="p">:</span><span class="o">//</span><span class="k">user</span><span class="err">:</span><span class="n">pass</span><span class="nv">@host</span><span class="o">/</span><span class="n">db</span>
 </code></pre></div>
 
 <h3 id="disable-async-mode">Disable Async Mode<a class="headerlink" href="#disable-async-mode" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="n">STRATA_ASYNC</span><span class="o">=</span><span class="k">false</span>
-<span class="n">STRATA_SQLALCHEMY_URL</span><span class="o">=</span><span class="nl">postgresql</span><span class="p">:</span><span class="o">//</span><span class="k">user</span><span class="err">:</span><span class="n">pass</span><span class="nv">@host</span><span class="o">/</span><span class="n">db</span>
+<div class="codehilite"><pre><span></span><code><span class="n">DBWARDEN_ASYNC</span><span class="o">=</span><span class="k">false</span>
+<span class="n">DBWARDEN_SQLALCHEMY_URL</span><span class="o">=</span><span class="nl">postgresql</span><span class="p">:</span><span class="o">//</span><span class="k">user</span><span class="err">:</span><span class="n">pass</span><span class="nv">@host</span><span class="o">/</span><span class="n">db</span>
 </code></pre></div>
 
 <h2 id="use-cases">Use Cases<a class="headerlink" href="#use-cases" title="Permanent link">&para;</a></h2>
@@ -1752,7 +1752,7 @@
 
 <span class="c1"># Check URL matches mode</span>
 dbwarden<span class="w"> </span>env
-<span class="c1"># Confirm STRATA_SQLALCHEMY_URL has correct driver</span>
+<span class="c1"># Confirm DBWARDEN_SQLALCHEMY_URL has correct driver</span>
 </code></pre></div>
 
 <h3 id="verify-cicd-configuration">Verify CI/CD Configuration<a class="headerlink" href="#verify-cicd-configuration" title="Permanent link">&para;</a></h3>

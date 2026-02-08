@@ -2280,14 +2280,14 @@ dbwarden<span class="w"> </span>rollback<span class="w"> </span>--count<span cla
 <p>Without options, rolls back exactly 1 migration.</p>
 <h2 id="output-examples">Output Examples<a class="headerlink" href="#output-examples" title="Permanent link">&para;</a></h2>
 <h3 id="successful-rollback">Successful Rollback<a class="headerlink" href="#successful-rollback" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code>Rolling back migration: V20240215_143002__create_posts.sql (version: 20240215_143002)
-Rollback completed: V20240215_143002__create_posts.sql in 0.03s
+<div class="codehilite"><pre><span></span><code>Rolling back migration: 0003_create_posts.sql (version: 0003)
+Rollback completed: 0003_create_posts.sql in 0.03s
 Rollback completed successfully: 1 migrations reverted.
 </code></pre></div>
 
 <h3 id="verbose-output">Verbose Output<a class="headerlink" href="#verbose-output" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><code><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="nl">Mode</span><span class="p">:</span><span class="w"> </span><span class="n">sync</span>
-<span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">Rolling</span><span class="w"> </span><span class="n">back</span><span class="w"> </span><span class="nl">migration</span><span class="p">:</span><span class="w"> </span><span class="n">V20240215_143002__create_posts</span><span class="p">.</span><span class="k">sql</span>
+<span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">Rolling</span><span class="w"> </span><span class="n">back</span><span class="w"> </span><span class="nl">migration</span><span class="p">:</span><span class="w"> </span><span class="mi">0003</span><span class="n">_create_posts</span><span class="p">.</span><span class="k">sql</span>
 <span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="k">SQL</span><span class="w"> </span><span class="k">Statement</span><span class="err">:</span><span class="w"> </span><span class="k">DROP</span><span class="w"> </span><span class="nc">TABLE</span><span class="w"> </span><span class="n">posts</span>
 <span class="k">Rollback</span><span class="w"> </span><span class="n">completed</span><span class="w"> </span><span class="nl">successfully</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">migrations</span><span class="w"> </span><span class="n">reverted</span><span class="p">.</span>
 </code></pre></div>
@@ -2355,10 +2355,10 @@ git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> 
 <h3 id="scenario-1-bug-in-migration">Scenario 1: Bug in Migration<a class="headerlink" href="#scenario-1-bug-in-migration" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><code><span class="c1"># Bug discovered after migration applied</span>
 dbwarden<span class="w"> </span><span class="nb">history</span>
-<span class="c1"># V20240215_143002__create_posts.sql - has bug</span>
+<span class="c1"># 0003_create_posts.sql - has bug</span>
 
 <span class="c1"># Rollback the buggy migration</span>
-dbwarden<span class="w"> </span>rollback<span class="w"> </span>--to-version<span class="w"> </span>20240215_143002
+dbwarden<span class="w"> </span>rollback<span class="w"> </span>--to-version<span class="w"> </span><span class="m">0003</span>
 
 <span class="c1"># Fix the migration file</span>
 <span class="c1"># Re-apply</span>
@@ -2428,7 +2428,7 @@ dbwarden<span class="w"> </span>migrate<span class="w"> </span>--to-version<span
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Rollback</span>
 <span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dbwarden rollback --to-version ${{ github.event.inputs.version }}</span>
 <span class="w">        </span><span class="nt">env</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">STRATA_SQLALCHEMY_URL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.DATABASE_URL }}</span>
+<span class="w">          </span><span class="nt">DBWARDEN_SQLALCHEMY_URL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.DATABASE_URL }}</span>
 </code></pre></div>
 
 <h2 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>

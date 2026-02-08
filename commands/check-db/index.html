@@ -1936,7 +1936,7 @@ users:
 <h3 id="tables">Tables<a class="headerlink" href="#tables" title="Permanent link">&para;</a></h3>
 <ul>
 <li>All tables in the database</li>
-<li>Tables in specific PostgreSQL schema (if <code>STRATA_POSTGRES_SCHEMA</code> is set)</li>
+<li>Tables in specific PostgreSQL schema (if <code>DBWARDEN_POSTGRES_SCHEMA</code> is set)</li>
 </ul>
 <h3 id="columns">Columns<a class="headerlink" href="#columns" title="Permanent link">&para;</a></h3>
 <p>For each table, displays:
@@ -1996,8 +1996,8 @@ diff<span class="w"> </span>before.json<span class="w"> </span>after.json
 <h3 id="connection-used">Connection Used<a class="headerlink" href="#connection-used" title="Permanent link">&para;</a></h3>
 <p>Uses the same database connection as other commands:
 - Reads from <code>.env</code> configuration
-- Uses <code>STRATA_SQLALCHEMY_URL</code>
-- Respects <code>STRATA_ASYNC</code> setting</p>
+- Uses <code>DBWARDEN_SQLALCHEMY_URL</code>
+- Respects <code>DBWARDEN_ASYNC</code> setting</p>
 <h3 id="schema-inspection">Schema Inspection<a class="headerlink" href="#schema-inspection" title="Permanent link">&para;</a></h3>
 <p>Uses SQLAlchemy's <code>inspect</code> function:</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy</span><span class="w"> </span><span class="kn">import</span> <span class="n">inspect</span>
@@ -2009,7 +2009,7 @@ diff<span class="w"> </span>before.json<span class="w"> </span>after.json
 <h3 id="connection-failed">Connection Failed<a class="headerlink" href="#connection-failed" title="Permanent link">&para;</a></h3>
 <p>Verify database connection:</p>
 <div class="codehilite"><pre><span></span><code>dbwarden<span class="w"> </span>env
-<span class="c1"># Check STRATA_SQLALCHEMY_URL is correct</span>
+<span class="c1"># Check DBWARDEN_SQLALCHEMY_URL is correct</span>
 
 <span class="c1"># Test connection</span>
 python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;from sqlalchemy import create_engine; engine = create_engine(&#39;</span><span class="nv">$URL</span><span class="s2">&#39;); engine.connect()&quot;</span>
@@ -2019,7 +2019,7 @@ python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;f
 <p>No tables found:
 1. Check migrations were applied: <code>dbwarden history</code>
 2. Verify correct database: Check connection URL
-3. Check PostgreSQL schema: Set <code>STRATA_POSTGRES_SCHEMA</code></p>
+3. Check PostgreSQL schema: Set <code>DBWARDEN_POSTGRES_SCHEMA</code></p>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
 <ol>
 <li><strong>Use before migrations</strong>: Document current state</li>

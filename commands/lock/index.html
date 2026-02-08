@@ -1894,8 +1894,8 @@ Another migration process may be running.
 <li>Other processes wait or fail when lock is held</li>
 </ol>
 <h3 id="lock-table">Lock Table<a class="headerlink" href="#lock-table" title="Permanent link">&para;</a></h3>
-<p>DBWarden creates a <code>strata_lock</code> table:</p>
-<div class="codehilite"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">strata_lock</span><span class="w"> </span><span class="p">(</span>
+<p>DBWarden creates a <code>dbwarden_lock</code> table:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">dbwarden_lock</span><span class="w"> </span><span class="p">(</span>
 <span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
 <span class="w">    </span><span class="n">locked</span><span class="w"> </span><span class="nb">BOOLEAN</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">FALSE</span><span class="p">,</span>
 <span class="w">    </span><span class="n">acquired_at</span><span class="w"> </span><span class="n">DATETIME</span><span class="p">,</span>
@@ -2017,10 +2017,10 @@ dbwarden<span class="w"> </span>unlock
 <h3 id="lock-not-releasing">Lock Not Releasing<a class="headerlink" href="#lock-not-releasing" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><code><span class="c1"># Check database state</span>
 dbwarden<span class="w"> </span>check-db<span class="w"> </span>--out<span class="w"> </span>txt
-<span class="c1"># Look for strata_lock table</span>
+<span class="c1"># Look for dbwarden_lock table</span>
 
 <span class="c1"># Manual lock check</span>
-psql<span class="w"> </span><span class="nv">$DATABASE_URL</span><span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;SELECT * FROM strata_lock;&quot;</span>
+psql<span class="w"> </span><span class="nv">$DATABASE_URL</span><span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;SELECT * FROM dbwarden_lock;&quot;</span>
 </code></pre></div>
 
 <h3 id="migration-stuck-at-lock">Migration Stuck at Lock<a class="headerlink" href="#migration-stuck-at-lock" title="Permanent link">&para;</a></h3>
@@ -2054,7 +2054,7 @@ dbwarden<span class="w"> </span>lock-status
 <h3 id="manual-lock-release">Manual Lock Release<a class="headerlink" href="#manual-lock-release" title="Permanent link">&para;</a></h3>
 <p>If <code>unlock</code> fails:</p>
 <div class="codehilite"><pre><span></span><code><span class="c1">-- SQL to manually release lock</span>
-<span class="k">UPDATE</span><span class="w"> </span><span class="n">strata_lock</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">locked</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">release_at</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NOW</span><span class="p">();</span>
+<span class="k">UPDATE</span><span class="w"> </span><span class="n">dbwarden_lock</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">locked</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">release_at</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NOW</span><span class="p">();</span>
 </code></pre></div>
 
 <h2 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>

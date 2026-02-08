@@ -894,6 +894,39 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#example-data-migration_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Data Migration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-complex-schema-change_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Complex Schema Change
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-numbering_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version Numbering
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#best-practices" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1650,6 +1683,39 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#example-data-migration_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Data Migration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-complex-schema-change_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Complex Schema Change
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-numbering_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version Numbering
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#best-practices" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1835,11 +1901,11 @@
 </code></pre></div>
 
 <h3 id="with-custom-version">With Custom Version<a class="headerlink" href="#with-custom-version" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code>dbwarden<span class="w"> </span>new<span class="w"> </span><span class="s2">&quot;migrate data from old schema&quot;</span><span class="w"> </span>--version<span class="w"> </span><span class="m">2</span>.0.0
+<div class="codehilite"><pre><span></span><code>dbwarden<span class="w"> </span>new<span class="w"> </span><span class="s2">&quot;migrate data from old schema&quot;</span><span class="w"> </span>--version<span class="w"> </span><span class="m">9999</span>
 </code></pre></div>
 
 <h2 id="generated-file-structure">Generated File Structure<a class="headerlink" href="#generated-file-structure" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code><span class="c1">-- migrations/V20240215_143000__add_index_to_users_email.sql</span>
+<div class="codehilite"><pre><span></span><code><span class="c1">-- migrations/0005_add_index_to_users_email.sql</span>
 
 <span class="c1">-- upgrade</span>
 
@@ -1860,7 +1926,7 @@
 <li><strong>Complex alterations</strong>: Modify multiple tables atomically</li>
 </ul>
 <h2 id="example-adding-an-index">Example: Adding an Index<a class="headerlink" href="#example-adding-an-index" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code><span class="c1">-- migrations/V20240215_143000__add_users_email_index.sql</span>
+<div class="codehilite"><pre><span></span><code><span class="c1">-- migrations/0005_add_users_email_index.sql</span>
 
 <span class="c1">-- upgrade</span>
 
@@ -1872,7 +1938,7 @@
 </code></pre></div>
 
 <h2 id="example-data-migration">Example: Data Migration<a class="headerlink" href="#example-data-migration" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code><span class="c1">-- migrations/V20240215_143001__normalize_usernames.sql</span>
+<div class="codehilite"><pre><span></span><code><span class="c1">-- migrations/0006_normalize_usernames.sql</span>
 
 <span class="c1">-- upgrade</span>
 
@@ -1886,7 +1952,7 @@
 </code></pre></div>
 
 <h2 id="example-complex-schema-change">Example: Complex Schema Change<a class="headerlink" href="#example-complex-schema-change" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code><span class="c1">-- migrations/V20240215_143002__add_post_status.sql</span>
+<div class="codehilite"><pre><span></span><code><span class="c1">-- migrations/0007_add_post_status.sql</span>
 
 <span class="c1">-- upgrade</span>
 
@@ -1905,24 +1971,72 @@
 </code></pre></div>
 
 <h2 id="version-numbering">Version Numbering<a class="headerlink" href="#version-numbering" title="Permanent link">&para;</a></h2>
-<p>If you don't specify a version, a timestamp-based version is generated:</p>
-<div class="codehilite"><pre><span></span><code>V{YYYYMMDD_HHMMSS}__{description}.sql
+<p>If you don't specify a version, the next sequential number is auto-generated:</p>
+<div class="codehilite"><pre><span></span><code><span class="mf">0001</span><span class="n">_initial_schema</span><span class="mf">.</span><span class="n">sql</span>
+<span class="mf">0002</span><span class="n">_add_users</span><span class="mf">.</span><span class="n">sql</span>
+<span class="mf">0003</span><span class="n">_add_posts</span><span class="mf">.</span><span class="n">sql</span>
+<span class="mf">0004</span><span class="n">_breaking_changes</span><span class="mf">.</span><span class="n">sql</span>
 </code></pre></div>
 
-<p>Custom versions must be unique and typically follow semantic versioning:</p>
-<div class="codehilite"><pre><span></span><code>V1.0.0__initial_schema.sql
-V1.1.0__add_users.sql
-V1.2.0__add_posts.sql
-V2.0.0__breaking_changes.sql
+<p>Custom versions must be 4-digit numbers:</p>
+<div class="codehilite"><pre><span></span><code>dbwarden<span class="w"> </span>new<span class="w"> </span><span class="s2">&quot;urgent fix&quot;</span><span class="w"> </span>--version<span class="w"> </span><span class="m">9999</span>
+</code></pre></div>
+
+<h2 id="example-data-migration_1">Example: Data Migration<a class="headerlink" href="#example-data-migration_1" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="c1">-- migrations/0003_normalize_usernames.sql</span>
+
+<span class="c1">-- upgrade</span>
+
+<span class="k">UPDATE</span><span class="w"> </span><span class="n">users</span>
+<span class="k">SET</span><span class="w"> </span><span class="n">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">LOWER</span><span class="p">(</span><span class="n">username</span><span class="p">)</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">username</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">;</span>
+
+<span class="c1">-- rollback</span>
+
+<span class="c1">-- No rollback needed for data normalization</span>
+</code></pre></div>
+
+<h2 id="example-complex-schema-change_1">Example: Complex Schema Change<a class="headerlink" href="#example-complex-schema-change_1" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="c1">-- migrations/0004_add_post_status.sql</span>
+
+<span class="c1">-- upgrade</span>
+
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">posts</span><span class="w"> </span><span class="k">ADD</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="s1">&#39;draft&#39;</span><span class="p">;</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TYPE</span><span class="w"> </span><span class="n">post_status</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">ENUM</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;draft&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;published&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;archived&#39;</span><span class="p">);</span>
+
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">posts</span><span class="w"> </span><span class="k">DROP</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">status</span><span class="p">;</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">posts</span><span class="w"> </span><span class="k">ADD</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="n">post_status</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="s1">&#39;draft&#39;</span><span class="p">;</span>
+
+<span class="c1">-- rollback</span>
+
+<span class="k">DROP</span><span class="w"> </span><span class="k">TYPE</span><span class="w"> </span><span class="n">post_status</span><span class="p">;</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">posts</span><span class="w"> </span><span class="k">DROP</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">status</span><span class="p">;</span>
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">posts</span><span class="w"> </span><span class="k">ADD</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="s1">&#39;draft&#39;</span><span class="p">;</span>
+</code></pre></div>
+
+<h2 id="version-numbering_1">Version Numbering<a class="headerlink" href="#version-numbering_1" title="Permanent link">&para;</a></h2>
+<p>If you don't specify a version, the next sequential number is auto-generated:</p>
+<div class="codehilite"><pre><span></span><code><span class="mf">0001</span><span class="n">_initial</span><span class="mf">.</span><span class="n">sql</span>
+<span class="mf">0002</span><span class="n">_add_users</span><span class="mf">.</span><span class="n">sql</span>
+<span class="mf">0003</span><span class="n">_add_posts</span><span class="mf">.</span><span class="n">sql</span>
+<span class="mf">0004</span><span class="n">_breaking_changes</span><span class="mf">.</span><span class="n">sql</span>
+</code></pre></div>
+
+<p>Custom versions must be 4-digit numbers:</p>
+<div class="codehilite"><pre><span></span><code><span class="mf">0001</span><span class="n">_initial</span><span class="mf">.</span><span class="n">sql</span>
+<span class="mf">0002</span><span class="n">_add_users</span><span class="mf">.</span><span class="n">sql</span>
+<span class="mf">0003</span><span class="n">_add_posts</span><span class="mf">.</span><span class="n">sql</span>
+<span class="mf">9999</span><span class="n">_urgent_fix</span><span class="mf">.</span><span class="n">sql</span>
 </code></pre></div>
 
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
 <p><strong>Descriptive names</strong>: Include what the migration does:
-   <code>V20240215_143000__add_users_email_index.sql
+   <code>0005_add_users_email_index.sql
    # NOT
-   V20240215_143000__index.sql</code></p>
+   0005_index.sql</code></p>
 </li>
 <li>
 <p><strong>Test rollback SQL</strong>: Ensure <code>-- rollback</code> section works correctly</p>

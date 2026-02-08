@@ -1820,14 +1820,15 @@
 <div class="codehilite"><pre><span></span><code>dbwarden<span class="w"> </span>make-migrations
 </code></pre></div>
 
-<p>If no description is provided, a timestamp-based version will be used.</p>
+<p>If no description is provided, "auto_generated" will be used.</p>
 <h2 id="how-it-works">How It Works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h2>
 <ol>
-<li><strong>Model Discovery</strong>: Searches for SQLAlchemy models in:</li>
-<li><code>models/</code> directory (default)</li>
-<li><code>model/</code> directory (alternative)</li>
+<li><strong>Model Discovery</strong>: Automatically discovers SQLAlchemy models by:</li>
+<li>Scanning all subdirectories of the current directory</li>
+<li>Looking for <code>models/</code> or <code>model/</code> folders inside each subdirectory</li>
+<li>Searching parent directories (up to 5 levels)</li>
 <li>
-<p>Custom paths specified in <code>STRATA_MODEL_PATHS</code></p>
+<p>Ignoring common library folders (<code>.venv</code>, <code>node_modules</code>, etc.)</p>
 </li>
 <li>
 <p><strong>Table Extraction</strong>: Reads table definitions from discovered models:</p>
@@ -1847,11 +1848,11 @@
 </li>
 <li>
 <p><strong>File Creation</strong>: Saves the migration with naming pattern:
-   <code>V{version}__{description}.sql</code></p>
+   <code>{number}_{description}.sql</code></p>
 </li>
 </ol>
 <h2 id="generated-file-example">Generated File Example<a class="headerlink" href="#generated-file-example" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code><span class="c1">-- migrations/V20240215_143000__create_users_table.sql</span>
+<div class="codehilite"><pre><span></span><code><span class="c1">-- migrations/0001_create_users_table.sql</span>
 
 <span class="c1">-- upgrade</span>
 
@@ -1871,7 +1872,7 @@
 <p>Before running <code>make-migrations</code>:</p>
 <ol>
 <li>Run <code>dbwarden init</code> to create migrations directory</li>
-<li>Create <code>.env</code> with <code>STRATA_SQLALCHEMY_URL</code></li>
+<li>Create <code>.env</code> with <code>DBWARDEN_SQLALCHEMY_URL</code></li>
 <li>Define SQLAlchemy models with <code>__tablename__</code> attribute</li>
 </ol>
 <h2 id="validation-checks">Validation Checks<a class="headerlink" href="#validation-checks" title="Permanent link">&para;</a></h2>
@@ -1886,13 +1887,13 @@
 <p>If no models are found:</p>
 <div class="codehilite"><pre><span></span><code>No SQLAlchemy models found. Please:
   1. Create models/ directory with your SQLAlchemy models
-  2. Or set STRATA_MODEL_PATHS in .env
+  2. Or set DBWARDEN_MODEL_PATHS in .env
 </code></pre></div>
 
 <h2 id="model-discovery-process">Model Discovery Process<a class="headerlink" href="#model-discovery-process" title="Permanent link">&para;</a></h2>
 <p>DBWarden searches for models in this order:</p>
 <ol>
-<li><strong>Explicit paths</strong>: Paths in <code>STRATA_MODEL_PATHS</code> (comma-separated)</li>
+<li><strong>Explicit paths</strong>: Paths in <code>DBWARDEN_MODEL_PATHS</code> (comma-separated)</li>
 <li><strong>Auto-discovery</strong>: Looks for <code>models/</code> or <code>model/</code> directories</li>
 </ol>
 <p>The search traverses up to 5 parent directories from the current working directory.</p>
@@ -1969,7 +1970,7 @@
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
 <h3 id="models-not-being-discovered">Models Not Being Discovered<a class="headerlink" href="#models-not-being-discovered" title="Permanent link">&para;</a></h3>
 <ol>
-<li>Check <code>STRATA_MODEL_PATHS</code> in <code>.env</code></li>
+<li>Check <code>DBWARDEN_MODEL_PATHS</code> in <code>.env</code></li>
 <li>Ensure models have <code>__tablename__</code> attribute</li>
 <li>Verify models inherit from <code>declarative_base()</code></li>
 </ol>

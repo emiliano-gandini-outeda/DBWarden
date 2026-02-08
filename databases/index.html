@@ -2477,12 +2477,12 @@
 </table>
 <h2 id="postgresql">PostgreSQL<a class="headerlink" href="#postgresql" title="Permanent link">&para;</a></h2>
 <h3 id="connection-url">Connection URL<a class="headerlink" href="#connection-url" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="n">STRATA_SQLALCHEMY_URL</span><span class="o">=</span><span class="nl">postgresql</span><span class="p">:</span><span class="o">//</span><span class="k">user</span><span class="err">:</span><span class="n">password</span><span class="nv">@localhost</span><span class="err">:</span><span class="mi">5432</span><span class="o">/</span><span class="n">mydb</span>
+<div class="codehilite"><pre><span></span><code><span class="n">DBWARDEN_SQLALCHEMY_URL</span><span class="o">=</span><span class="nl">postgresql</span><span class="p">:</span><span class="o">//</span><span class="k">user</span><span class="err">:</span><span class="n">password</span><span class="nv">@localhost</span><span class="err">:</span><span class="mi">5432</span><span class="o">/</span><span class="n">mydb</span>
 </code></pre></div>
 
 <h3 id="sync-mode">Sync Mode<a class="headerlink" href="#sync-mode" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="n">STRATA_ASYNC</span><span class="o">=</span><span class="k">false</span>
-<span class="n">STRATA_SQLALCHEMY_URL</span><span class="o">=</span><span class="nl">postgresql</span><span class="p">:</span><span class="o">//</span><span class="k">user</span><span class="err">:</span><span class="n">password</span><span class="nv">@localhost</span><span class="err">:</span><span class="mi">5432</span><span class="o">/</span><span class="n">mydb</span>
+<div class="codehilite"><pre><span></span><code><span class="n">DBWARDEN_ASYNC</span><span class="o">=</span><span class="k">false</span>
+<span class="n">DBWARDEN_SQLALCHEMY_URL</span><span class="o">=</span><span class="nl">postgresql</span><span class="p">:</span><span class="o">//</span><span class="k">user</span><span class="err">:</span><span class="n">password</span><span class="nv">@localhost</span><span class="err">:</span><span class="mi">5432</span><span class="o">/</span><span class="n">mydb</span>
 </code></pre></div>
 
 <p><strong>Requirements:</strong></p>
@@ -2490,8 +2490,8 @@
 </code></pre></div>
 
 <h3 id="async-mode">Async Mode<a class="headerlink" href="#async-mode" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="n">STRATA_ASYNC</span><span class="o">=</span><span class="k">true</span>
-<span class="n">STRATA_SQLALCHEMY_URL</span><span class="o">=</span><span class="n">postgresql</span><span class="o">+</span><span class="nl">asyncpg</span><span class="p">:</span><span class="o">//</span><span class="k">user</span><span class="err">:</span><span class="n">password</span><span class="nv">@localhost</span><span class="err">:</span><span class="mi">5432</span><span class="o">/</span><span class="n">mydb</span>
+<div class="codehilite"><pre><span></span><code><span class="n">DBWARDEN_ASYNC</span><span class="o">=</span><span class="k">true</span>
+<span class="n">DBWARDEN_SQLALCHEMY_URL</span><span class="o">=</span><span class="n">postgresql</span><span class="o">+</span><span class="nl">asyncpg</span><span class="p">:</span><span class="o">//</span><span class="k">user</span><span class="err">:</span><span class="n">password</span><span class="nv">@localhost</span><span class="err">:</span><span class="mi">5432</span><span class="o">/</span><span class="n">mydb</span>
 </code></pre></div>
 
 <p><strong>Requirements:</strong></p>
@@ -2509,9 +2509,9 @@
 </ul>
 <h3 id="postgresql-schema">PostgreSQL Schema<a class="headerlink" href="#postgresql-schema" title="Permanent link">&para;</a></h3>
 <p>Set default schema:</p>
-<div class="codehilite"><pre><span></span><code>STRATA_POSTGRES_SCHEMA=public  # default
+<div class="codehilite"><pre><span></span><code>DBWARDEN_POSTGRES_SCHEMA=public  # default
 <span class="gh">#</span> or
-STRATA_POSTGRES_SCHEMA=custom_schema
+DBWARDEN_POSTGRES_SCHEMA=custom_schema
 </code></pre></div>
 
 <h3 id="example-postgresql-migration">Example PostgreSQL Migration<a class="headerlink" href="#example-postgresql-migration" title="Permanent link">&para;</a></h3>
@@ -2535,12 +2535,12 @@ STRATA_POSTGRES_SCHEMA=custom_schema
 
 <h2 id="mysql">MySQL<a class="headerlink" href="#mysql" title="Permanent link">&para;</a></h2>
 <h3 id="connection-url_1">Connection URL<a class="headerlink" href="#connection-url_1" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="n">STRATA_SQLALCHEMY_URL</span><span class="o">=</span><span class="nl">mysql</span><span class="p">:</span><span class="o">//</span><span class="k">user</span><span class="err">:</span><span class="n">password</span><span class="nv">@localhost</span><span class="err">:</span><span class="mi">3306</span><span class="o">/</span><span class="n">mydb</span>
+<div class="codehilite"><pre><span></span><code><span class="n">DBWARDEN_SQLALCHEMY_URL</span><span class="o">=</span><span class="nl">mysql</span><span class="p">:</span><span class="o">//</span><span class="k">user</span><span class="err">:</span><span class="n">password</span><span class="nv">@localhost</span><span class="err">:</span><span class="mi">3306</span><span class="o">/</span><span class="n">mydb</span>
 </code></pre></div>
 
 <h3 id="sync-mode-only">Sync Mode Only<a class="headerlink" href="#sync-mode-only" title="Permanent link">&para;</a></h3>
 <p>MySQL does not support asynchronous connections in DBWarden.</p>
-<div class="codehilite"><pre><span></span><code>STRATA_ASYNC=false
+<div class="codehilite"><pre><span></span><code>DBWARDEN_ASYNC=false
 </code></pre></div>
 
 <p><strong>Requirements:</strong></p>
@@ -2582,20 +2582,20 @@ STRATA_POSTGRES_SCHEMA=custom_schema
 <h2 id="sqlite">SQLite<a class="headerlink" href="#sqlite" title="Permanent link">&para;</a></h2>
 <h3 id="connection-url_2">Connection URL<a class="headerlink" href="#connection-url_2" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><code><span class="gh">#</span> File-based
-STRATA_SQLALCHEMY_URL=sqlite:///./mydb.db
+DBWARDEN_SQLALCHEMY_URL=sqlite:///./mydb.db
 
 <span class="gh">#</span> In-memory
-STRATA_SQLALCHEMY_URL=sqlite:///:memory:
+DBWARDEN_SQLALCHEMY_URL=sqlite:///:memory:
 </code></pre></div>
 
 <h3 id="sync-mode-default">Sync Mode (Default)<a class="headerlink" href="#sync-mode-default" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code>STRATA_ASYNC=false
+<div class="codehilite"><pre><span></span><code>DBWARDEN_ASYNC=false
 </code></pre></div>
 
 <p>No additional drivers needed.</p>
 <h3 id="async-mode_1">Async Mode<a class="headerlink" href="#async-mode_1" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code>STRATA_ASYNC=true
-STRATA_SQLALCHEMY_URL=sqlite+aiosqlite:///./mydb.db
+<div class="codehilite"><pre><span></span><code>DBWARDEN_ASYNC=true
+DBWARDEN_SQLALCHEMY_URL=sqlite+aiosqlite:///./mydb.db
 </code></pre></div>
 
 <p><strong>Requirements:</strong></p>
@@ -2645,11 +2645,11 @@ STRATA_SQLALCHEMY_URL=sqlite+aiosqlite:///./mydb.db
 
 <h2 id="ssltls-connections">SSL/TLS Connections<a class="headerlink" href="#ssltls-connections" title="Permanent link">&para;</a></h2>
 <h3 id="postgresql-with-ssl">PostgreSQL with SSL<a class="headerlink" href="#postgresql-with-ssl" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="n">STRATA_SQLALCHEMY_URL</span><span class="o">=</span><span class="nl">postgresql</span><span class="p">:</span><span class="o">//</span><span class="k">user</span><span class="err">:</span><span class="n">password</span><span class="nv">@host</span><span class="err">:</span><span class="mi">5432</span><span class="o">/</span><span class="n">db</span><span class="vm">?</span><span class="n">sslmode</span><span class="o">=</span><span class="n">require</span>
+<div class="codehilite"><pre><span></span><code><span class="n">DBWARDEN_SQLALCHEMY_URL</span><span class="o">=</span><span class="nl">postgresql</span><span class="p">:</span><span class="o">//</span><span class="k">user</span><span class="err">:</span><span class="n">password</span><span class="nv">@host</span><span class="err">:</span><span class="mi">5432</span><span class="o">/</span><span class="n">db</span><span class="vm">?</span><span class="n">sslmode</span><span class="o">=</span><span class="n">require</span>
 </code></pre></div>
 
 <h3 id="mysql-with-ssl">MySQL with SSL<a class="headerlink" href="#mysql-with-ssl" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="n">STRATA_SQLALCHEMY_URL</span><span class="o">=</span><span class="nl">mysql</span><span class="p">:</span><span class="o">//</span><span class="k">user</span><span class="err">:</span><span class="n">password</span><span class="nv">@host</span><span class="err">:</span><span class="mi">3306</span><span class="o">/</span><span class="n">db</span><span class="vm">?</span><span class="n">ssl</span><span class="o">=</span><span class="k">true</span>
+<div class="codehilite"><pre><span></span><code><span class="n">DBWARDEN_SQLALCHEMY_URL</span><span class="o">=</span><span class="nl">mysql</span><span class="p">:</span><span class="o">//</span><span class="k">user</span><span class="err">:</span><span class="n">password</span><span class="nv">@host</span><span class="err">:</span><span class="mi">3306</span><span class="o">/</span><span class="n">db</span><span class="vm">?</span><span class="n">ssl</span><span class="o">=</span><span class="k">true</span>
 </code></pre></div>
 
 <h2 id="connection-strings-reference">Connection Strings Reference<a class="headerlink" href="#connection-strings-reference" title="Permanent link">&para;</a></h2>
@@ -2700,18 +2700,18 @@ sqlite+aiosqlite:///./mydb.db # Async
 
 <h2 id="testing-different-databases">Testing Different Databases<a class="headerlink" href="#testing-different-databases" title="Permanent link">&para;</a></h2>
 <h3 id="development-sqlite">Development (SQLite)<a class="headerlink" href="#development-sqlite" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code>STRATA_SQLALCHEMY_URL=sqlite:///./dev.db
-STRATA_ASYNC=false
+<div class="codehilite"><pre><span></span><code>DBWARDEN_SQLALCHEMY_URL=sqlite:///./dev.db
+DBWARDEN_ASYNC=false
 </code></pre></div>
 
 <h3 id="staging-postgresql">Staging (PostgreSQL)<a class="headerlink" href="#staging-postgresql" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="n">STRATA_SQLALCHEMY_URL</span><span class="o">=</span><span class="nl">postgresql</span><span class="p">:</span><span class="o">//</span><span class="k">user</span><span class="err">:</span><span class="n">pass</span><span class="nv">@staging</span><span class="p">.</span><span class="n">example</span><span class="p">.</span><span class="nl">com</span><span class="p">:</span><span class="mi">5432</span><span class="o">/</span><span class="n">staging_db</span>
-<span class="n">STRATA_ASYNC</span><span class="o">=</span><span class="k">true</span>
+<div class="codehilite"><pre><span></span><code><span class="n">DBWARDEN_SQLALCHEMY_URL</span><span class="o">=</span><span class="nl">postgresql</span><span class="p">:</span><span class="o">//</span><span class="k">user</span><span class="err">:</span><span class="n">pass</span><span class="nv">@staging</span><span class="p">.</span><span class="n">example</span><span class="p">.</span><span class="nl">com</span><span class="p">:</span><span class="mi">5432</span><span class="o">/</span><span class="n">staging_db</span>
+<span class="n">DBWARDEN_ASYNC</span><span class="o">=</span><span class="k">true</span>
 </code></pre></div>
 
 <h3 id="production-postgresql">Production (PostgreSQL)<a class="headerlink" href="#production-postgresql" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="n">STRATA_SQLALCHEMY_URL</span><span class="o">=</span><span class="nl">postgresql</span><span class="p">:</span><span class="o">//</span><span class="k">user</span><span class="err">:</span><span class="n">pass</span><span class="nv">@prod</span><span class="p">.</span><span class="n">example</span><span class="p">.</span><span class="nl">com</span><span class="p">:</span><span class="mi">5432</span><span class="o">/</span><span class="n">prod_db</span>
-<span class="n">STRATA_ASYNC</span><span class="o">=</span><span class="k">true</span>
+<div class="codehilite"><pre><span></span><code><span class="n">DBWARDEN_SQLALCHEMY_URL</span><span class="o">=</span><span class="nl">postgresql</span><span class="p">:</span><span class="o">//</span><span class="k">user</span><span class="err">:</span><span class="n">pass</span><span class="nv">@prod</span><span class="p">.</span><span class="n">example</span><span class="p">.</span><span class="nl">com</span><span class="p">:</span><span class="mi">5432</span><span class="o">/</span><span class="n">prod_db</span>
+<span class="n">DBWARDEN_ASYNC</span><span class="o">=</span><span class="k">true</span>
 </code></pre></div>
 
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>

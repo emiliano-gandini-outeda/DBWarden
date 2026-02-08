@@ -1860,18 +1860,18 @@
 <p>For <code>diff</code> to work effectively:</p>
 <ol>
 <li><strong>Models must be defined</strong>: SQLAlchemy models in <code>models/</code> directory</li>
-<li><strong>STRATA_MODEL_PATHS</strong>: Must be set or auto-discovery must find models</li>
+<li><strong>DBWARDEN_MODEL_PATHS</strong>: Must be set or auto-discovery must find models</li>
 <li><strong>Migrations table exists</strong>: At least one migration applied</li>
 </ol>
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
 <h3 id="no-models-found">No Models Found<a class="headerlink" href="#no-models-found" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><code>No SQLAlchemy models found. Please:
   1. Create models/ directory with your SQLAlchemy models
-  2. Or set STRATA_MODEL_PATHS in .env
+  2. Or set DBWARDEN_MODEL_PATHS in .env
 </code></pre></div>
 
 <p>Set model paths:</p>
-<div class="codehilite"><pre><span></span><code>STRATA_MODEL_PATHS=models/,app/models/
+<div class="codehilite"><pre><span></span><code>DBWARDEN_MODEL_PATHS=models/,app/models/
 </code></pre></div>
 
 <h3 id="no-migrations-table">No Migrations Table<a class="headerlink" href="#no-migrations-table" title="Permanent link">&para;</a></h3>

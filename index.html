@@ -506,49 +506,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#key-features" class="md-nav__link">
+  <a href="#features" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Key Features
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-use-dbwarden" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why Use DBWarden?
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Why Use DBWarden?">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#for-development-teams" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        For Development Teams
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#for-production-systems" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        For Production Systems
+        Features
       
     </span>
   </a>
@@ -1346,49 +1307,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#key-features" class="md-nav__link">
+  <a href="#features" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Key Features
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-use-dbwarden" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why Use DBWarden?
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Why Use DBWarden?">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#for-development-teams" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        For Development Teams
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#for-production-systems" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        For Production Systems
+        Features
       
     </span>
   </a>
@@ -1468,7 +1390,7 @@
 <p><strong>DBWarden</strong> is a professional-grade database migration system designed specifically for Python projects using SQLAlchemy. It provides a robust, reliable, and developer-friendly approach to managing database schema changes across different environments.</p>
 <h2 id="what-is-dbwarden">What is DBWarden?<a class="headerlink" href="#what-is-dbwarden" title="Permanent link">&para;</a></h2>
 <p>DBWarden addresses the critical challenge of maintaining consistent database schemas across development, staging, and production environments. It combines the flexibility of SQL-based migrations with the convenience of automatic migration generation from SQLAlchemy models.</p>
-<h3 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h3>
+<h3 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Automatic Migration Generation</strong>: Automatically generate SQL migrations from your SQLAlchemy models</li>
 <li><strong>Version Control</strong>: Track all schema changes with detailed history and timestamps</li>
@@ -1479,41 +1401,26 @@
 <li><strong>Migration Locking</strong>: Prevents concurrent migration execution</li>
 <li><strong>Schema Inspection</strong>: Inspect and compare database schemas</li>
 </ul>
-<h2 id="why-use-dbwarden">Why Use DBWarden?<a class="headerlink" href="#why-use-dbwarden" title="Permanent link">&para;</a></h2>
-<h3 id="for-development-teams">For Development Teams<a class="headerlink" href="#for-development-teams" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Consistency</strong>: Ensure all developers work with the same database schema</li>
-<li><strong>Automation</strong>: Reduce manual SQL writing with automatic migration generation</li>
-<li><strong>Traceability</strong>: Maintain a complete history of all schema changes</li>
-<li><strong>Safety</strong>: Built-in rollback capabilities for quick recovery</li>
-</ul>
-<h3 id="for-production-systems">For Production Systems<a class="headerlink" href="#for-production-systems" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Reliability</strong>: Robust migration execution with error handling</li>
-<li><strong>Idempotency</strong>: Migrations can be run multiple times safely</li>
-<li><strong>Version Targeting</strong>: Migrate to specific versions when needed</li>
-<li><strong>Locking</strong>: Prevent race conditions during migration execution</li>
-</ul>
 <h2 id="architecture-overview">Architecture Overview<a class="headerlink" href="#architecture-overview" title="Permanent link">&para;</a></h2>
 <p>DBWarden follows a modular architecture designed for reliability and extensibility:</p>
 <div class="codehilite"><pre><span></span><code>┌─────────────────────────────────────────────────────────┐
-│                     DBWarden CLI                         │
+│                     DBWarden CLI                        │
 │                    (Typer-based)                        │
 ├─────────────────────────────────────────────────────────┤
 │  Commands Layer                                         │
 │  ├── init         ├── migrate      ├── rollback         │
-│  ├── make-migrations ├── history    ├── status         │
+│  ├── make-migrations ├── history    ├── status          │
 │  └── ...          └── ...           └── ...             │
 ├─────────────────────────────────────────────────────────┤
-│  Engine Layer                                          │
+│  Engine Layer                                           │
 │  ├── Model Discovery  ├── Versioning  ├── File Parser   │
-│  └── Checksum         └── Locking                        │
+│  └── Checksum         └── Locking                       │
 ├─────────────────────────────────────────────────────────┤
-│  Repository Layer                                     │
+│  Repository Layer                                       │
 │  ├── Migration Records  ├── Lock Management             │
 ├─────────────────────────────────────────────────────────┤
 │  Database Layer                                         │
-│  ├── Connection Pool  ├── SQL Execution                │
+│  ├── Connection Pool  ├── SQL Execution                 │
 └─────────────────────────────────────────────────────────┘
 </code></pre></div>
 

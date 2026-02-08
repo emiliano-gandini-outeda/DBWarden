@@ -2032,20 +2032,20 @@ dbwarden<span class="w"> </span>migrate<span class="w"> </span>--count<span clas
 
 <h2 id="how-it-works">How It Works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h2>
 <ol>
-<li><strong>Creates migrations tracking table</strong>: Creates <code>strata_migrations</code> table if it doesn't exist</li>
-<li><strong>Creates lock table</strong>: Creates <code>strata_lock</code> table for concurrency control</li>
+<li><strong>Creates migrations tracking table</strong>: Creates <code>dbwarden_migrations</code> table if it doesn't exist</li>
+<li><strong>Creates lock table</strong>: Creates <code>dbwarden_lock</code> table for concurrency control</li>
 <li><strong>Finds pending migrations</strong>: Identifies migrations not yet applied</li>
 <li><strong>Applies migrations</strong>: Executes each migration in order</li>
 <li><strong>Records execution</strong>: Stores migration metadata in database</li>
 </ol>
 <h2 id="internal-process">Internal Process<a class="headerlink" href="#internal-process" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><code>┌─────────────────────────────────────────────────────────┐
-│  1. Create strata_migrations table (if not exists)     │
+│  1. Create dbwarden_migrations table (if not exists)  │
 └─────────────────────────────────────────────────────────┘
                           │
                           ▼
 ┌─────────────────────────────────────────────────────────┐
-│  2. Create strata_lock table (if not exists)           │
+│  2. Create dbwarden_lock table (if not exists)        │
 └─────────────────────────────────────────────────────────┘
                           │
                           ▼
@@ -2080,7 +2080,7 @@ dbwarden<span class="w"> </span>migrate<span class="w"> </span>--count<span clas
 </code></pre></div>
 
 <h2 id="migrations-tracking-table">Migrations Tracking Table<a class="headerlink" href="#migrations-tracking-table" title="Permanent link">&para;</a></h2>
-<p>DBWarden creates a <code>strata_migrations</code> table to track applied migrations:</p>
+<p>DBWarden creates a <code>dbwarden_migrations</code> table to track applied migrations:</p>
 <table>
 <thead>
 <tr>
@@ -2145,27 +2145,27 @@ dbwarden<span class="w"> </span>migrate<span class="w"> </span>--count<span clas
 <p><strong>Warning</strong>: Only use <code>unlock</code> if you're certain no other migration process is running.</p>
 <h2 id="output-examples">Output Examples<a class="headerlink" href="#output-examples" title="Permanent link">&para;</a></h2>
 <h3 id="successful-migration">Successful Migration<a class="headerlink" href="#successful-migration" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">Applying</span><span class="w"> </span><span class="nl">migration</span><span class="p">:</span><span class="w"> </span><span class="n">V20240215_143000__create_users</span><span class="p">.</span><span class="k">sql</span>
-<span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">Applying</span><span class="w"> </span><span class="nl">migration</span><span class="p">:</span><span class="w"> </span><span class="n">V20240215_143001__create_posts</span><span class="p">.</span><span class="k">sql</span>
+<div class="codehilite"><pre><span></span><code><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">Applying</span><span class="w"> </span><span class="nl">migration</span><span class="p">:</span><span class="w"> </span><span class="mi">0001</span><span class="n">_create_users</span><span class="p">.</span><span class="k">sql</span>
+<span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">Applying</span><span class="w"> </span><span class="nl">migration</span><span class="p">:</span><span class="w"> </span><span class="mi">0002</span><span class="n">_create_posts</span><span class="p">.</span><span class="k">sql</span>
 <span class="n">Migrations</span><span class="w"> </span><span class="n">completed</span><span class="w"> </span><span class="nl">successfully</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">migrations</span><span class="w"> </span><span class="n">applied</span><span class="p">.</span>
 </code></pre></div>
 
 <h3 id="verbose-output">Verbose Output<a class="headerlink" href="#verbose-output" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><code><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="nl">Mode</span><span class="p">:</span><span class="w"> </span><span class="n">sync</span>
-<span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">Pending</span><span class="w"> </span><span class="nl">migrations</span><span class="p">:</span><span class="w"> </span><span class="n">V20240215_143000__create_users</span><span class="p">,</span><span class="w"> </span><span class="n">V20240215_143001__create_posts</span>
-<span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">Starting</span><span class="w"> </span><span class="nl">migration</span><span class="p">:</span><span class="w"> </span><span class="n">V20240215_143000__create_users</span>
+<span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">Pending</span><span class="w"> </span><span class="nl">migrations</span><span class="p">:</span><span class="w"> </span><span class="mi">0001</span><span class="n">_create_users</span><span class="p">,</span><span class="w"> </span><span class="mi">0002</span><span class="n">_create_posts</span>
+<span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">Starting</span><span class="w"> </span><span class="nl">migration</span><span class="p">:</span><span class="w"> </span><span class="mi">0001</span><span class="n">_create_users</span><span class="p">.</span><span class="k">sql</span>
 <span class="k">CREATE</span><span class="w"> </span><span class="nc">TABLE</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="p">(</span>
 <span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="k">INTEGER</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
 <span class="w">    </span><span class="n">username</span><span class="w"> </span><span class="nc">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="ow">NOT</span><span class="w"> </span><span class="k">NULL</span>
 <span class="p">)</span>
-<span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">Migration</span><span class="w"> </span><span class="nl">completed</span><span class="p">:</span><span class="w"> </span><span class="n">V20240215_143000__create_users</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="mf">0.05</span><span class="n">s</span>
-<span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">Starting</span><span class="w"> </span><span class="nl">migration</span><span class="p">:</span><span class="w"> </span><span class="n">V20240215_143001__create_posts</span>
+<span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">Migration</span><span class="w"> </span><span class="nl">completed</span><span class="p">:</span><span class="w"> </span><span class="mi">0001</span><span class="n">_create_users</span><span class="p">.</span><span class="k">sql</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="mf">0.05</span><span class="n">s</span>
+<span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">Starting</span><span class="w"> </span><span class="nl">migration</span><span class="p">:</span><span class="w"> </span><span class="mi">0002</span><span class="n">_create_posts</span><span class="p">.</span><span class="k">sql</span>
 <span class="k">CREATE</span><span class="w"> </span><span class="nc">TABLE</span><span class="w"> </span><span class="n">posts</span><span class="w"> </span><span class="p">(</span>
 <span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="k">INTEGER</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
 <span class="w">    </span><span class="nf">user_id</span><span class="w"> </span><span class="k">INTEGER</span><span class="p">,</span>
 <span class="w">    </span><span class="n">title</span><span class="w"> </span><span class="nc">VARCHAR</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span><span class="w"> </span><span class="ow">NOT</span><span class="w"> </span><span class="k">NULL</span>
 <span class="p">)</span>
-<span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">Migration</span><span class="w"> </span><span class="nl">completed</span><span class="p">:</span><span class="w"> </span><span class="n">V20240215_143001__create_posts</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="mf">0.03</span><span class="n">s</span>
+<span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">Migration</span><span class="w"> </span><span class="nl">completed</span><span class="p">:</span><span class="w"> </span><span class="mi">0002</span><span class="n">_create_posts</span><span class="p">.</span><span class="k">sql</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="mf">0.03</span><span class="n">s</span>
 <span class="n">Migrations</span><span class="w"> </span><span class="n">completed</span><span class="w"> </span><span class="nl">successfully</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">migrations</span><span class="w"> </span><span class="n">applied</span><span class="p">.</span>
 </code></pre></div>
 
@@ -2229,7 +2229,7 @@ dbwarden<span class="w"> </span>rollback
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run migrations</span>
 <span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dbwarden migrate --verbose</span>
 <span class="w">        </span><span class="nt">env</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">STRATA_SQLALCHEMY_URL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.DATABASE_URL }}</span>
+<span class="w">          </span><span class="nt">DBWARDEN_SQLALCHEMY_URL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.DATABASE_URL }}</span>
 </code></pre></div>
 
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>

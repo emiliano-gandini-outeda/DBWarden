@@ -1697,12 +1697,12 @@
 
 <h2 id="step-3-configure-database-connection">Step 3: Configure Database Connection<a class="headerlink" href="#step-3-configure-database-connection" title="Permanent link">&para;</a></h2>
 <p>Create a <code>.env</code> file:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">STRATA_SQLALCHEMY_URL</span><span class="o">=</span><span class="nl">postgresql</span><span class="p">:</span><span class="o">//</span><span class="k">user</span><span class="err">:</span><span class="n">password</span><span class="nv">@localhost</span><span class="err">:</span><span class="mi">5432</span><span class="o">/</span><span class="n">myapp</span>
-<span class="n">STRATA_ASYNC</span><span class="o">=</span><span class="k">false</span>
+<div class="codehilite"><pre><span></span><code><span class="n">DBWARDEN_SQLALCHEMY_URL</span><span class="o">=</span><span class="nl">postgresql</span><span class="p">:</span><span class="o">//</span><span class="k">user</span><span class="err">:</span><span class="n">password</span><span class="nv">@localhost</span><span class="err">:</span><span class="mi">5432</span><span class="o">/</span><span class="n">myapp</span>
+<span class="n">DBWARDEN_ASYNC</span><span class="o">=</span><span class="k">false</span>
 </code></pre></div>
 
 <p>For SQLite:</p>
-<div class="codehilite"><pre><span></span><code>STRATA_SQLALCHEMY_URL=sqlite:///./myapp.db
+<div class="codehilite"><pre><span></span><code>DBWARDEN_SQLALCHEMY_URL=sqlite:///./myapp.db
 </code></pre></div>
 
 <h2 id="step-4-define-your-sqlalchemy-models">Step 4: Define Your SQLAlchemy Models<a class="headerlink" href="#step-4-define-your-sqlalchemy-models" title="Permanent link">&para;</a></h2>
@@ -1731,7 +1731,7 @@
 <div class="codehilite"><pre><span></span><code>DBWarden migrations directory created: /home/user/myproject/migrations
 
 Next steps:
-  1. Create a .env file with STRATA_SQLALCHEMY_URL
+  1. Create a .env file with DBWARDEN_SQLALCHEMY_URL
   2. Run &#39;dbwarden make-migrations&#39; to generate migrations from your models
 </code></pre></div>
 
@@ -1740,13 +1740,13 @@ Next steps:
 </code></pre></div>
 
 <p>Output:</p>
-<div class="codehilite"><pre><span></span><code>Created migration file: /home/user/myproject/migrations/V20240215_143000__create_users_table.sql
+<div class="codehilite"><pre><span></span><code>Created migration file: /home/user/myproject/migrations/0001_create_users_table.sql
 Tables included: users
 </code></pre></div>
 
 <h2 id="step-7-review-the-migration">Step 7: Review the Migration<a class="headerlink" href="#step-7-review-the-migration" title="Permanent link">&para;</a></h2>
 <p>Check the generated SQL:</p>
-<div class="codehilite"><pre><span></span><code><span class="c1">-- migrations/V20240215_143000__create_users_table.sql</span>
+<div class="codehilite"><pre><span></span><code><span class="c1">-- migrations/0001_create_users_table.sql</span>
 
 <span class="c1">-- upgrade</span>
 
@@ -1767,7 +1767,7 @@ Tables included: users
 </code></pre></div>
 
 <p>Output:</p>
-<div class="codehilite"><pre><span></span><code><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">Applying</span><span class="w"> </span><span class="nl">migration</span><span class="p">:</span><span class="w"> </span><span class="n">V20240215_143000__create_users_table</span><span class="p">.</span><span class="k">sql</span>
+<div class="codehilite"><pre><span></span><code><span class="o">[</span><span class="n">INFO</span><span class="o">]</span><span class="w"> </span><span class="n">Applying</span><span class="w"> </span><span class="nl">migration</span><span class="p">:</span><span class="w"> </span><span class="mi">0001</span><span class="n">_create_users_table</span><span class="p">.</span><span class="k">sql</span>
 <span class="n">Migrations</span><span class="w"> </span><span class="n">completed</span><span class="w"> </span><span class="nl">successfully</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">migrations</span><span class="w"> </span><span class="n">applied</span><span class="p">.</span>
 </code></pre></div>
 
@@ -1778,7 +1778,7 @@ Tables included: users
 <p>Output:</p>
 <div class="codehilite"><pre><span></span><code><span class="gh">Migration Status</span>
 <span class="gh">================</span>
-✓ Applied   | V20240215_143000__create_users_table
+✓ Applied   | 0001_create_users_table
 
 Applied: 1
 Pending: 0
@@ -1790,11 +1790,11 @@ Total: 1
 </code></pre></div>
 
 <p>Output:</p>
-<div class="codehilite"><pre><span></span><code><span class="c">Migration History</span>
-<span class="c">=================</span>
-<span class="c">Version         | Order | Description     | Applied At           | Type</span>
-<span class="nb">----------------</span><span class="c">|</span><span class="nb">-------</span><span class="c">|</span><span class="nb">-----------------</span><span class="c">|</span><span class="nb">----------------------</span><span class="c">|</span><span class="nb">------</span>
-<span class="c">20240215_143000 | 1     | create users    | 2024</span><span class="nb">-</span><span class="c">02</span><span class="nb">-</span><span class="c">15 14:30:15  | versioned</span>
+<div class="codehilite"><pre><span></span><code><span class="gh">Migration History</span>
+<span class="gh">=================</span>
+Version | Order | Description     | Applied At           | Type
+-------|-------|-----------------|----------------------|------
+0001   | 1     | create users    | 2024-02-15 14:30:15  | versioned
 </code></pre></div>
 
 <h2 id="step-11-add-more-changes">Step 11: Add More Changes<a class="headerlink" href="#step-11-add-more-changes" title="Permanent link">&para;</a></h2>
@@ -1825,7 +1825,7 @@ dbwarden<span class="w"> </span>migrate
 </code></pre></div>
 
 <p>Or rollback to a specific version:</p>
-<div class="codehilite"><pre><span></span><code>dbwarden<span class="w"> </span>rollback<span class="w"> </span>--to-version<span class="w"> </span>20240215_143000
+<div class="codehilite"><pre><span></span><code>dbwarden<span class="w"> </span>rollback<span class="w"> </span>--to-version<span class="w"> </span><span class="m">0001</span>
 </code></pre></div>
 
 <h2 id="step-13-check-database-schema">Step 13: Check Database Schema<a class="headerlink" href="#step-13-check-database-schema" title="Permanent link">&para;</a></h2>
@@ -1874,7 +1874,7 @@ dbwarden<span class="w"> </span><span class="nb">history</span>
 dbwarden<span class="w"> </span>rollback
 
 <span class="c1"># 3. Or rollback to specific version</span>
-dbwarden<span class="w"> </span>rollback<span class="w"> </span>--to-version<span class="w"> </span>20240215_143000
+dbwarden<span class="w"> </span>rollback<span class="w"> </span>--to-version<span class="w"> </span><span class="m">0001</span>
 </code></pre></div>
 
 <h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>

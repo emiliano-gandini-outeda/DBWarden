@@ -2305,22 +2305,22 @@ dbwarden<span class="w"> </span>diff<span class="w"> </span>models
 </thead>
 <tbody>
 <tr>
-<td><code>STRATA_SQLALCHEMY_URL</code></td>
+<td><code>DBWARDEN_SQLALCHEMY_URL</code></td>
 <td>Yes</td>
 <td>Database connection URL</td>
 </tr>
 <tr>
-<td><code>STRATA_ASYNC</code></td>
+<td><code>DBWARDEN_ASYNC</code></td>
 <td>No</td>
 <td>Enable async mode (true/false)</td>
 </tr>
 <tr>
-<td><code>STRATA_MODEL_PATHS</code></td>
+<td><code>DBWARDEN_MODEL_PATHS</code></td>
 <td>No</td>
 <td>Paths to SQLAlchemy models</td>
 </tr>
 <tr>
-<td><code>STRATA_POSTGRES_SCHEMA</code></td>
+<td><code>DBWARDEN_POSTGRES_SCHEMA</code></td>
 <td>No</td>
 <td>PostgreSQL schema</td>
 </tr>
@@ -2328,10 +2328,10 @@ dbwarden<span class="w"> </span>diff<span class="w"> </span>models
 </table>
 <h2 id="configuration-file">Configuration File<a class="headerlink" href="#configuration-file" title="Permanent link">&para;</a></h2>
 <p>DBWarden uses <code>.env</code> file for configuration:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">STRATA_SQLALCHEMY_URL</span><span class="o">=</span><span class="nl">postgresql</span><span class="p">:</span><span class="o">//</span><span class="k">user</span><span class="err">:</span><span class="n">pass</span><span class="nv">@localhost</span><span class="err">:</span><span class="mi">5432</span><span class="o">/</span><span class="n">db</span>
-<span class="n">STRATA_ASYNC</span><span class="o">=</span><span class="k">false</span>
-<span class="n">STRATA_MODEL_PATHS</span><span class="o">=</span><span class="n">models</span><span class="o">/</span>
-<span class="n">STRATA_POSTGRES_SCHEMA</span><span class="o">=</span><span class="k">public</span>
+<div class="codehilite"><pre><span></span><code><span class="n">DBWARDEN_SQLALCHEMY_URL</span><span class="o">=</span><span class="nl">postgresql</span><span class="p">:</span><span class="o">//</span><span class="k">user</span><span class="err">:</span><span class="n">pass</span><span class="nv">@localhost</span><span class="err">:</span><span class="mi">5432</span><span class="o">/</span><span class="n">db</span>
+<span class="n">DBWARDEN_ASYNC</span><span class="o">=</span><span class="k">false</span>
+<span class="n">DBWARDEN_MODEL_PATHS</span><span class="o">=</span><span class="n">models</span><span class="o">/</span>
+<span class="n">DBWARDEN_POSTGRES_SCHEMA</span><span class="o">=</span><span class="k">public</span>
 </code></pre></div>
 
 <h2 id="shortcuts">Shortcuts<a class="headerlink" href="#shortcuts" title="Permanent link">&para;</a></h2>
