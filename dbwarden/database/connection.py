@@ -60,14 +60,11 @@ def get_db_connection() -> Generator[Any, None, None]:
     """
     Context manager that yields a database connection.
 
-    Works in sync mode by default.
+    Works in sync mode. Converts async URLs to sync URLs.
     """
     logger = get_logger()
     config = get_config()
-    url = config.sqlalchemy_url
-
-    if is_async_enabled():
-        url = _make_sync_url(url)
+    url = _make_sync_url(config.sqlalchemy_url)
 
     engine = create_engine(url=url)
 
