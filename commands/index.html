@@ -2354,7 +2354,7 @@ dbwarden<span class="w"> </span>migrate<span class="w"> </span>--with-backup<spa
                     │
                     ▼
 ┌─────────────────────────────────────────────────┐
-│  1. Load Configuration (.env)                    │
+│  1. Load Configuration (warden.toml)           │
 └─────────────────────────────────────────────────┘
                     │
                     ▼
@@ -2377,7 +2377,7 @@ dbwarden<span class="w"> </span>migrate<span class="w"> </span>--with-backup<spa
 <h2 id="error-handling">Error Handling<a class="headerlink" href="#error-handling" title="Permanent link">&para;</a></h2>
 <p>DBWarden provides clear error messages for common issues:</p>
 <ul>
-<li><strong>Missing .env file</strong>: "DBWARDEN_SQLALCHEMY_URL is required"</li>
+<li><strong>Missing warden.toml file</strong>: "sqlalchemy_url is required in warden.toml"</li>
 <li><strong>Migrations directory not found</strong>: "Please run 'dbwarden init' first"</li>
 <li><strong>Lock active</strong>: "Migration is currently locked"</li>
 <li><strong>Duplicate SQL</strong>: Skips tables already in existing migrations</li>

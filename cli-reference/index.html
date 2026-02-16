@@ -1677,21 +1677,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#environment-variables" class="md-nav__link">
+  <a href="#configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Environment Variables
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configuration File
+        Configuration
       
     </span>
   </a>
@@ -2304,21 +2293,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#environment-variables" class="md-nav__link">
+  <a href="#configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Environment Variables
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configuration File
+        Configuration
       
     </span>
   </a>
@@ -2661,11 +2639,16 @@ dbwarden<span class="w"> </span>squash<span class="w"> </span>--verbose
 <p><strong>No arguments or options.</strong></p>
 <hr />
 <h3 id="env">env<a class="headerlink" href="#env" title="Permanent link">&para;</a></h3>
-<p>Display relevant environment variables without leaking secrets.</p>
+<p>Display configuration without leaking secrets.</p>
 <div class="codehilite"><pre><span></span><code>dbwarden<span class="w"> </span>env
 </code></pre></div>
 
 <p><strong>No arguments or options.</strong></p>
+<p>Shows:
+- <code>sqlalchemy_url</code> (masked)
+- <code>async</code> setting
+- <code>model_paths</code>
+- <code>postgres_schema</code></p>
 <hr />
 <h2 id="database-inspection-commands">Database Inspection Commands<a class="headerlink" href="#database-inspection-commands" title="Permanent link">&para;</a></h2>
 <h3 id="check-db">check-db<a class="headerlink" href="#check-db" title="Permanent link">&para;</a></h3>
@@ -2832,46 +2815,15 @@ dbwarden<span class="w"> </span>migrate<span class="w"> </span>--with-backup<spa
 </tr>
 </tbody>
 </table>
-<h2 id="environment-variables">Environment Variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>DBWARDEN_SQLALCHEMY_URL</code></td>
-<td>Yes</td>
-<td>Database connection URL</td>
-</tr>
-<tr>
-<td><code>DBWARDEN_ASYNC</code></td>
-<td>No</td>
-<td>Enable async mode (true/false)</td>
-</tr>
-<tr>
-<td><code>DBWARDEN_MODEL_PATHS</code></td>
-<td>No</td>
-<td>Paths to SQLAlchemy models</td>
-</tr>
-<tr>
-<td><code>DBWARDEN_POSTGRES_SCHEMA</code></td>
-<td>No</td>
-<td>PostgreSQL schema</td>
-</tr>
-</tbody>
-</table>
-<h2 id="configuration-file">Configuration File<a class="headerlink" href="#configuration-file" title="Permanent link">&para;</a></h2>
-<p>DBWarden uses <code>.env</code> file for configuration:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">DBWARDEN_SQLALCHEMY_URL</span><span class="o">=</span><span class="nl">postgresql</span><span class="p">:</span><span class="o">//</span><span class="k">user</span><span class="err">:</span><span class="n">pass</span><span class="nv">@localhost</span><span class="err">:</span><span class="mi">5432</span><span class="o">/</span><span class="n">db</span>
-<span class="n">DBWARDEN_ASYNC</span><span class="o">=</span><span class="k">false</span>
-<span class="n">DBWARDEN_MODEL_PATHS</span><span class="o">=</span><span class="n">models</span><span class="o">/</span>
-<span class="n">DBWARDEN_POSTGRES_SCHEMA</span><span class="o">=</span><span class="k">public</span>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
+<p>DBWarden uses <code>warden.toml</code> file for configuration:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">sqlalchemy_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;postgresql://user:pass@localhost:5432/db&quot;</span>
+<span class="n">async</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
+<span class="n">model_paths</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;models/&quot;</span><span class="p">]</span>
+<span class="n">postgres_schema</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;public&quot;</span>
 </code></pre></div>
 
+<p>Run <code>dbwarden init</code> to create a starter configuration file.</p>
 <h2 id="tab-completion">Tab Completion<a class="headerlink" href="#tab-completion" title="Permanent link">&para;</a></h2>
 <p>Enable tab completion for bash:</p>
 <div class="codehilite"><pre><span></span><code><span class="nb">eval</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>dbwarden<span class="w"> </span>--print-completion<span class="w"> </span>bash<span class="k">)</span><span class="s2">&quot;</span>
@@ -2923,17 +2875,17 @@ chmod<span class="w"> </span>+x<span class="w"> </span>/path/to/dbwarden
 </code></pre></div>
 
 <h3 id="invalid-configuration">Invalid Configuration<a class="headerlink" href="#invalid-configuration" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Validate .env file</span>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Validate warden.toml file</span>
 dbwarden<span class="w"> </span>env
 
 <span class="c1"># Check file exists</span>
-ls<span class="w"> </span>-la<span class="w"> </span>.env
+ls<span class="w"> </span>-la<span class="w"> </span>warden.toml
 </code></pre></div>
 
 <h2 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../commands/">Commands Overview</a>: Command categories and usage patterns</li>
-<li><a href="../configuration/">Configuration</a>: Environment variable details</li>
+<li><a href="../configuration/">Configuration</a>: warden.toml configuration guide</li>
 <li><a href="../installation/">Installation</a>: Installation troubleshooting</li>
 </ul>
 

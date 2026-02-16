@@ -1872,7 +1872,7 @@
 <p>Before running <code>make-migrations</code>:</p>
 <ol>
 <li>Run <code>dbwarden init</code> to create migrations directory</li>
-<li>Create <code>.env</code> with <code>DBWARDEN_SQLALCHEMY_URL</code></li>
+<li>Create <code>warden.toml</code> with <code>sqlalchemy_url</code></li>
 <li>Define SQLAlchemy models with <code>__tablename__</code> attribute</li>
 </ol>
 <h2 id="validation-checks">Validation Checks<a class="headerlink" href="#validation-checks" title="Permanent link">&para;</a></h2>
@@ -1881,7 +1881,7 @@
 <p>If no models are found:</p>
 <div class="codehilite"><pre><span></span><code>No SQLAlchemy models found. Please:
   1. Create models/ directory with your SQLAlchemy models
-  2. Or set DBWARDEN_MODEL_PATHS in .env
+  2. Or set model_paths in warden.toml
 </code></pre></div>
 
 <h3 id="no-new-migrations">No New Migrations<a class="headerlink" href="#no-new-migrations" title="Permanent link">&para;</a></h3>
@@ -1893,7 +1893,7 @@
 <h2 id="model-discovery-process">Model Discovery Process<a class="headerlink" href="#model-discovery-process" title="Permanent link">&para;</a></h2>
 <p>DBWarden searches for models in this order:</p>
 <ol>
-<li><strong>Explicit paths</strong>: Paths in <code>DBWARDEN_MODEL_PATHS</code> (comma-separated)</li>
+<li><strong>Explicit paths</strong>: Paths in <code>model_paths</code> (comma-separated in TOML)</li>
 <li><strong>Auto-discovery</strong>: Looks for <code>models/</code> or <code>model/</code> directories</li>
 </ol>
 <p>The search traverses up to 5 parent directories from the current working directory.</p>
@@ -1970,7 +1970,7 @@
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
 <h3 id="models-not-being-discovered">Models Not Being Discovered<a class="headerlink" href="#models-not-being-discovered" title="Permanent link">&para;</a></h3>
 <ol>
-<li>Check <code>DBWARDEN_MODEL_PATHS</code> in <code>.env</code></li>
+<li>Check <code>model_paths</code> in <code>warden.toml</code></li>
 <li>Ensure models have <code>__tablename__</code> attribute</li>
 <li>Verify models inherit from <code>declarative_base()</code></li>
 </ol>

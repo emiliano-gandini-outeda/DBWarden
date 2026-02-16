@@ -1930,8 +1930,6 @@ poetry<span class="w"> </span>shell
 <div class="codehilite"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">app</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
-<span class="w">    </span><span class="nt">env_file</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.env</span>
 <span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.:/app</span>
 <span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
@@ -1950,6 +1948,7 @@ poetry<span class="w"> </span>shell
 <span class="w">  </span><span class="nt">postgres_data</span><span class="p">:</span>
 </code></pre></div>
 
+<p>Note: Create a <code>warden.toml</code> file for DBWarden configuration instead of using <code>.env</code> for database settings.</p>
 <h2 id="system-requirements">System Requirements<a class="headerlink" href="#system-requirements" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

@@ -1688,7 +1688,7 @@
 
 <h2 id="step-2-create-your-project-structure">Step 2: Create Your Project Structure<a class="headerlink" href="#step-2-create-your-project-structure" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><code>myproject/
-├── .env
+├── warden.toml
 ├── models/
 │   └── __init__.py
 ├── migrations/
@@ -1696,13 +1696,13 @@
 </code></pre></div>
 
 <h2 id="step-3-configure-database-connection">Step 3: Configure Database Connection<a class="headerlink" href="#step-3-configure-database-connection" title="Permanent link">&para;</a></h2>
-<p>Create a <code>.env</code> file:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">DBWARDEN_SQLALCHEMY_URL</span><span class="o">=</span><span class="nl">postgresql</span><span class="p">:</span><span class="o">//</span><span class="k">user</span><span class="err">:</span><span class="n">password</span><span class="nv">@localhost</span><span class="err">:</span><span class="mi">5432</span><span class="o">/</span><span class="n">myapp</span>
-<span class="n">DBWARDEN_ASYNC</span><span class="o">=</span><span class="k">false</span>
+<p>Create a <code>warden.toml</code> file:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">sqlalchemy_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;postgresql://user:password@localhost:5432/myapp&quot;</span>
+<span class="n">async</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
 </code></pre></div>
 
 <p>For SQLite:</p>
-<div class="codehilite"><pre><span></span><code>DBWARDEN_SQLALCHEMY_URL=sqlite:///./myapp.db
+<div class="codehilite"><pre><span></span><code><span class="n">sqlalchemy_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;sqlite:///./myapp.db&quot;</span>
 </code></pre></div>
 
 <h2 id="step-4-define-your-sqlalchemy-models">Step 4: Define Your SQLAlchemy Models<a class="headerlink" href="#step-4-define-your-sqlalchemy-models" title="Permanent link">&para;</a></h2>
@@ -1728,11 +1728,12 @@
 </code></pre></div>
 
 <p>Output:</p>
-<div class="codehilite"><pre><span></span><code>DBWarden migrations directory created: /home/user/myproject/migrations
+<div class="codehilite"><pre><span></span><code><span class="nv">Created</span><span class="w"> </span><span class="nv">configuration</span><span class="w"> </span><span class="nv">file</span>:<span class="w"> </span><span class="o">/</span><span class="nv">home</span><span class="o">/</span><span class="nv">user</span><span class="o">/</span><span class="nv">myproject</span><span class="o">/</span><span class="nv">warden</span>.<span class="nv">toml</span>
+<span class="nv">DBWarden</span><span class="w"> </span><span class="nv">migrations</span><span class="w"> </span><span class="nv">directory</span><span class="w"> </span><span class="nv">created</span>:<span class="w"> </span><span class="o">/</span><span class="nv">home</span><span class="o">/</span><span class="nv">user</span><span class="o">/</span><span class="nv">myproject</span><span class="o">/</span><span class="nv">migrations</span>
 
-Next steps:
-  1. Create a .env file with DBWARDEN_SQLALCHEMY_URL
-  2. Run &#39;dbwarden make-migrations&#39; to generate migrations from your models
+<span class="k">Next</span><span class="w"> </span><span class="nv">steps</span>:
+<span class="w">  </span><span class="mi">1</span>.<span class="w"> </span><span class="nv">Edit</span><span class="w"> </span><span class="nv">warden</span>.<span class="nv">toml</span><span class="w"> </span><span class="nv">with</span><span class="w"> </span><span class="nv">your</span><span class="w"> </span><span class="nv">database</span><span class="w"> </span><span class="nv">connection</span><span class="w"> </span><span class="nv">URL</span>
+<span class="w">  </span><span class="mi">2</span>.<span class="w"> </span><span class="nv">Run</span><span class="w"> </span><span class="s1">&#39;dbwarden make-migrations&#39;</span><span class="w"> </span><span class="nv">to</span><span class="w"> </span><span class="nv">generate</span><span class="w"> </span><span class="nv">migrations</span><span class="w"> </span><span class="nv">from</span><span class="w"> </span><span class="nv">your</span><span class="w"> </span><span class="nv">models</span>
 </code></pre></div>
 
 <h2 id="step-6-generate-migration-from-models">Step 6: Generate Migration from Models<a class="headerlink" href="#step-6-generate-migration-from-models" title="Permanent link">&para;</a></h2>
