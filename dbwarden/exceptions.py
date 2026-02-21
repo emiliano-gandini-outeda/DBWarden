@@ -1,52 +1,46 @@
-class StrataError(Exception):
-    """Base exception for Strata errors."""
+class DBWardenError(Exception):
+    """Base exception for DBWarden errors."""
 
     pass
 
 
-class DirectoryNotFoundError(StrataError):
-    """Raised when strata directory is not found."""
+class DirectoryNotFoundError(DBWardenError):
+    """Raised when migrations directory is not found."""
 
     pass
 
 
-class EnvFileNotFoundError(StrataError):
-    """Raised when .env file is not found."""
-
-    pass
-
-
-class ConfigurationError(StrataError):
+class ConfigurationError(DBWardenError):
     """Raised when there is a configuration error."""
 
     pass
 
 
-class VersionNotFoundError(StrataError):
+class VersionNotFoundError(DBWardenError):
     """Raised when a migration version is not found."""
 
     pass
 
 
-class PendingMigrationsError(StrataError):
+class PendingMigrationsError(DBWardenError):
     """Raised when there are pending migrations but operation requires none."""
 
     pass
 
 
-class LockError(StrataError):
+class LockError(DBWardenError):
     """Raised when there is a lock error during migration."""
 
     pass
 
 
-class DatabaseError(StrataError):
+class DatabaseError(DBWardenError):
     """Raised when there is a database error."""
 
     pass
 
 
-class NoMigrationsError(StrataError):
+class NoMigrationsError(DBWardenError):
     """Raised when no migrations are found."""
 
     pass
