@@ -611,17 +611,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#environment-variables-fallback" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Environment Variables (Fallback)
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -638,17 +627,6 @@
   
     <nav class="md-nav" aria-label="Optional Configuration">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#async" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        async
-      
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#model_paths" class="md-nav__link">
@@ -1251,7 +1229,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../commands/env/" class="md-nav__link">
+      <a href="../commands/env.md" class="md-nav__link">
         
   
   
@@ -1279,7 +1257,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../commands/mode/" class="md-nav__link">
+      <a href="../commands/mode.md" class="md-nav__link">
         
   
   
@@ -1558,17 +1536,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#environment-variables-fallback" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Environment Variables (Fallback)
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1585,17 +1552,6 @@
   
     <nav class="md-nav" aria-label="Optional Configuration">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#async" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        async
-      
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#model_paths" class="md-nav__link">
@@ -1816,9 +1772,6 @@
 <div class="codehilite"><pre><span></span><code><span class="c1"># PostgreSQL</span>
 <span class="n">sqlalchemy_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;postgresql://user:password@localhost:5432/mydb&quot;</span>
 
-<span class="c1"># PostgreSQL with async</span>
-<span class="n">sqlalchemy_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;postgresql+asyncpg://user:password@localhost:5432/mydb&quot;</span>
-
 <span class="c1"># MySQL</span>
 <span class="n">sqlalchemy_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;mysql://user:password@localhost:3306/mydb&quot;</span>
 
@@ -1827,48 +1780,9 @@
 
 <span class="c1"># SQLite in memory</span>
 <span class="n">sqlalchemy_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;sqlite:///:memory:&quot;</span>
-
-<span class="c1"># SQLite async</span>
-<span class="n">sqlalchemy_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;sqlite+aiosqlite:///./mydb.db&quot;</span>
-</code></pre></div>
-
-<h3 id="environment-variables-fallback">Environment Variables (Fallback)<a class="headerlink" href="#environment-variables-fallback" title="Permanent link">&para;</a></h3>
-<p>If <code>warden.toml</code> is not found, DBWarden will fall back to environment variables:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">DBWARDEN_SQLALCHEMY_URL</span><span class="o">=</span><span class="nl">postgresql</span><span class="p">:</span><span class="o">//</span><span class="k">user</span><span class="err">:</span><span class="n">pass</span><span class="nv">@localhost</span><span class="err">:</span><span class="mi">5432</span><span class="o">/</span><span class="n">mydb</span>
-<span class="n">DBWARDEN_ASYNC</span><span class="o">=</span><span class="k">false</span>
-<span class="n">DBWARDEN_MODEL_PATHS</span><span class="o">=</span><span class="n">app</span><span class="o">/</span><span class="n">models</span><span class="o">/</span>
-<span class="n">DBWARDEN_POSTGRES_SCHEMA</span><span class="o">=</span><span class="k">public</span>
 </code></pre></div>
 
 <h2 id="optional-configuration">Optional Configuration<a class="headerlink" href="#optional-configuration" title="Permanent link">&para;</a></h2>
-<h3 id="async">async<a class="headerlink" href="#async" title="Permanent link">&para;</a></h3>
-<p>Enable or disable asynchronous database operations.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">async</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
-</code></pre></div>
-
-<table>
-<thead>
-<tr>
-<th>Value</th>
-<th>Mode</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>true</code>, <code>1</code>, <code>yes</code></td>
-<td>Asynchronous</td>
-</tr>
-<tr>
-<td><code>false</code>, <code>0</code>, <code>no</code></td>
-<td>Synchronous (default)</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Example:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="n">async</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
-<span class="n">sqlalchemy_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;postgresql+asyncpg://user:password@localhost:5432/mydb&quot;</span>
-</code></pre></div>
-
 <h3 id="model_paths">model_paths<a class="headerlink" href="#model_paths" title="Permanent link">&para;</a></h3>
 <p>List of paths to directories containing SQLAlchemy models.</p>
 <div class="codehilite"><pre><span></span><code><span class="n">model_paths</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;models/&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;app/models/&quot;</span><span class="p">]</span>
@@ -1887,7 +1801,6 @@
 <h2 id="complete-wardentoml-example">Complete warden.toml Example<a class="headerlink" href="#complete-wardentoml-example" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><code><span class="c1"># Database Connection</span>
 <span class="n">sqlalchemy_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;postgresql://myuser:mypassword@localhost:5432/myapp&quot;</span>
-<span class="n">async</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
 
 <span class="c1"># Model Discovery</span>
 <span class="n">model_paths</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;app/models/&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;models/&quot;</span><span class="p">]</span>
@@ -1899,27 +1812,23 @@
 <h2 id="configuration-in-different-environments">Configuration in Different Environments<a class="headerlink" href="#configuration-in-different-environments" title="Permanent link">&para;</a></h2>
 <h3 id="development-environment">Development Environment<a class="headerlink" href="#development-environment" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><code><span class="n">sqlalchemy_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;postgresql://dev:dev123@localhost:5432/dev_db&quot;</span>
-<span class="n">async</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
 </code></pre></div>
 
 <h3 id="staging-environment">Staging Environment<a class="headerlink" href="#staging-environment" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><code><span class="n">sqlalchemy_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;postgresql://staging:staging123@staging.example.com:5432/staging_db&quot;</span>
-<span class="n">async</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
 </code></pre></div>
 
 <h3 id="production-environment">Production Environment<a class="headerlink" href="#production-environment" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><code><span class="n">sqlalchemy_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;postgresql://prod:securepass@prod.example.com:5432/prod_db&quot;</span>
-<span class="n">async</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
 </code></pre></div>
 
 <h2 id="configuration-validation">Configuration Validation<a class="headerlink" href="#configuration-validation" title="Permanent link">&para;</a></h2>
-<p>Use the <code>dbwarden env</code> command to verify your configuration without exposing sensitive information:</p>
-<div class="codehilite"><pre><span></span><code>dbwarden<span class="w"> </span>env
+<p>Use the <code>dbwarden config</code> command to verify your configuration without exposing sensitive information:</p>
+<div class="codehilite"><pre><span></span><code>dbwarden<span class="w"> </span>config
 </code></pre></div>
 
 <p>Output:</p>
 <div class="codehilite"><pre><span></span><code>sqlalchemy_url: ***
-async: true
 model_paths: models/
 postgres_schema: public
 </code></pre></div>
@@ -1955,7 +1864,7 @@ postgres_schema: public
 <li><strong>Never commit <code>warden.toml</code> to version control with secrets</strong>: Add <code>warden.toml</code> to your <code>.gitignore</code> file if it contains credentials, or use a separate <code>warden.toml.example</code> as a template</li>
 <li><strong>Use different configurations per environment</strong>: Create environment-specific configuration files</li>
 <li><strong>Secure your credentials</strong>: Use secrets management in production</li>
-<li><strong>Validate configuration</strong>: Run <code>dbwarden env</code> before applying migrations</li>
+<li><strong>Validate configuration</strong>: Run <code>dbwarden config</code> before applying migrations</li>
 </ol>
 
 

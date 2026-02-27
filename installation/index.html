@@ -585,10 +585,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#postgresql-synchronous" class="md-nav__link">
+  <a href="#postgresql" class="md-nav__link">
     <span class="md-ellipsis">
       
-        PostgreSQL (Synchronous)
+        PostgreSQL
       
     </span>
   </a>
@@ -596,10 +596,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#postgresql-asynchronous" class="md-nav__link">
+  <a href="#mysql" class="md-nav__link">
     <span class="md-ellipsis">
       
-        PostgreSQL (Asynchronous)
+        MySQL
       
     </span>
   </a>
@@ -607,32 +607,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#mysql-synchronous" class="md-nav__link">
+  <a href="#sqlite" class="md-nav__link">
     <span class="md-ellipsis">
       
-        MySQL (Synchronous)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sqlite-synchronous" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SQLite (Synchronous)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sqlite-asynchronous" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SQLite (Asynchronous)
+        SQLite
       
     </span>
   </a>
@@ -1273,7 +1251,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../commands/env/" class="md-nav__link">
+      <a href="../commands/env.md" class="md-nav__link">
         
   
   
@@ -1301,7 +1279,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../commands/mode/" class="md-nav__link">
+      <a href="../commands/mode.md" class="md-nav__link">
         
   
   
@@ -1581,10 +1559,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#postgresql-synchronous" class="md-nav__link">
+  <a href="#postgresql" class="md-nav__link">
     <span class="md-ellipsis">
       
-        PostgreSQL (Synchronous)
+        PostgreSQL
       
     </span>
   </a>
@@ -1592,10 +1570,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#postgresql-asynchronous" class="md-nav__link">
+  <a href="#mysql" class="md-nav__link">
     <span class="md-ellipsis">
       
-        PostgreSQL (Asynchronous)
+        MySQL
       
     </span>
   </a>
@@ -1603,32 +1581,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#mysql-synchronous" class="md-nav__link">
+  <a href="#sqlite" class="md-nav__link">
     <span class="md-ellipsis">
       
-        MySQL (Synchronous)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sqlite-synchronous" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SQLite (Synchronous)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sqlite-asynchronous" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SQLite (Asynchronous)
+        SQLite
       
     </span>
   </a>
@@ -1851,24 +1807,16 @@
 
 <h2 id="database-specific-installations">Database-Specific Installations<a class="headerlink" href="#database-specific-installations" title="Permanent link">&para;</a></h2>
 <p>DBWarden supports multiple databases. Install the dependencies for your specific database:</p>
-<h3 id="postgresql-synchronous">PostgreSQL (Synchronous)<a class="headerlink" href="#postgresql-synchronous" title="Permanent link">&para;</a></h3>
+<h3 id="postgresql">PostgreSQL<a class="headerlink" href="#postgresql" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>dbwarden<span class="w"> </span>psycopg2-binary
 </code></pre></div>
 
-<h3 id="postgresql-asynchronous">PostgreSQL (Asynchronous)<a class="headerlink" href="#postgresql-asynchronous" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>dbwarden<span class="w"> </span>asyncpg
-</code></pre></div>
-
-<h3 id="mysql-synchronous">MySQL (Synchronous)<a class="headerlink" href="#mysql-synchronous" title="Permanent link">&para;</a></h3>
+<h3 id="mysql">MySQL<a class="headerlink" href="#mysql" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>dbwarden<span class="w"> </span>mysql-connector-python
 </code></pre></div>
 
-<h3 id="sqlite-synchronous">SQLite (Synchronous)<a class="headerlink" href="#sqlite-synchronous" title="Permanent link">&para;</a></h3>
+<h3 id="sqlite">SQLite<a class="headerlink" href="#sqlite" title="Permanent link">&para;</a></h3>
 <p>SQLite support is included by default with SQLAlchemy.</p>
-<h3 id="sqlite-asynchronous">SQLite (Asynchronous)<a class="headerlink" href="#sqlite-asynchronous" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>dbwarden<span class="w"> </span>aiosqlite
-</code></pre></div>
-
 <h2 id="complete-development-installation">Complete Development Installation<a class="headerlink" href="#complete-development-installation" title="Permanent link">&para;</a></h2>
 <p>Install all dependencies including development tools:</p>
 <div class="codehilite"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>dbwarden<span class="o">[</span>dev<span class="o">]</span>
@@ -1884,7 +1832,7 @@
 </code></pre></div>
 
 <p>You should see output similar to:</p>
-<div class="codehilite"><pre><span></span><code>DBWarden Version: 1.0.0
+<div class="codehilite"><pre><span></span><code>DBWarden Version: 0.1.5
 Python Version: 3.12.7 (main, Jan 19 2026, 23:31:25) [GCC 15.2.1 20251112]
 </code></pre></div>
 

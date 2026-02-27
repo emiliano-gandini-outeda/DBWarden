@@ -930,7 +930,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../commands/env/" class="md-nav__link">
+      <a href="../commands/env.md" class="md-nav__link">
         
   
   
@@ -958,7 +958,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../commands/mode/" class="md-nav__link">
+      <a href="../commands/mode.md" class="md-nav__link">
         
   
   
@@ -1366,17 +1366,6 @@
     <span class="md-ellipsis">
       
         status
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mode" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        mode
       
     </span>
   </a>
@@ -1989,17 +1978,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#mode" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        mode
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#version" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2492,13 +2470,8 @@
 <td><code>-v</code></td>
 </tr>
 <tr>
-<td><code>mode</code></td>
-<td>Show sync/async mode</td>
-<td>None</td>
-</tr>
-<tr>
-<td><code>env</code></td>
-<td>Display config (masked)</td>
+<td><code>config</code></td>
+<td>Display warden.toml config</td>
 <td>None</td>
 </tr>
 <tr>
@@ -2624,13 +2597,6 @@ dbwarden<span class="w"> </span>squash<span class="w"> </span>--verbose
 
 <p><strong>No arguments or options.</strong></p>
 <hr />
-<h3 id="mode">mode<a class="headerlink" href="#mode" title="Permanent link">&para;</a></h3>
-<p>Display whether execution is sync or async.</p>
-<div class="codehilite"><pre><span></span><code>dbwarden<span class="w"> </span>mode
-</code></pre></div>
-
-<p><strong>No arguments or options.</strong></p>
-<hr />
 <h3 id="version">version<a class="headerlink" href="#version" title="Permanent link">&para;</a></h3>
 <p>Display DBWarden version and compatibility information.</p>
 <div class="codehilite"><pre><span></span><code>dbwarden<span class="w"> </span>version
@@ -2646,7 +2612,6 @@ dbwarden<span class="w"> </span>squash<span class="w"> </span>--verbose
 <p><strong>No arguments or options.</strong></p>
 <p>Shows:
 - <code>sqlalchemy_url</code> (masked)
-- <code>async</code> setting
 - <code>model_paths</code>
 - <code>postgres_schema</code></p>
 <hr />
@@ -2818,7 +2783,6 @@ dbwarden<span class="w"> </span>migrate<span class="w"> </span>--with-backup<spa
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
 <p>DBWarden uses <code>warden.toml</code> file for configuration:</p>
 <div class="codehilite"><pre><span></span><code><span class="n">sqlalchemy_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;postgresql://user:pass@localhost:5432/db&quot;</span>
-<span class="n">async</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
 <span class="n">model_paths</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;models/&quot;</span><span class="p">]</span>
 <span class="n">postgres_schema</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;public&quot;</span>
 </code></pre></div>

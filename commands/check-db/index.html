@@ -1311,7 +1311,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../env/" class="md-nav__link">
+      <a href="../env.md" class="md-nav__link">
         
   
   
@@ -1339,7 +1339,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mode/" class="md-nav__link">
+      <a href="../mode.md" class="md-nav__link">
         
   
   
@@ -1982,7 +1982,7 @@ dbwarden<span class="w"> </span>check-db<span class="w"> </span>-o<span class="w
 <h3 id="tables">Tables<a class="headerlink" href="#tables" title="Permanent link">&para;</a></h3>
 <ul>
 <li>All tables in the database</li>
-<li>Tables in specific PostgreSQL schema (if <code>DBWARDEN_POSTGRES_SCHEMA</code> is set)</li>
+<li>Tables in specific PostgreSQL schema (if <code>postgres_schema</code> is set in warden.toml)</li>
 </ul>
 <h3 id="columns">Columns<a class="headerlink" href="#columns" title="Permanent link">&para;</a></h3>
 <p>For each table, displays:
@@ -2042,8 +2042,7 @@ diff<span class="w"> </span>before.json<span class="w"> </span>after.json
 <h3 id="connection-used">Connection Used<a class="headerlink" href="#connection-used" title="Permanent link">&para;</a></h3>
 <p>Uses the same database connection as other commands:
 - Reads from <code>warden.toml</code> configuration
-- Uses <code>sqlalchemy_url</code>
-- Respects <code>async</code> setting</p>
+- Uses <code>sqlalchemy_url</code></p>
 <h3 id="schema-inspection">Schema Inspection<a class="headerlink" href="#schema-inspection" title="Permanent link">&para;</a></h3>
 <p>Uses SQLAlchemy's <code>inspect</code> function:</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy</span><span class="w"> </span><span class="kn">import</span> <span class="n">inspect</span>
